@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import AboutPageComponent from '@/components/pages/AboutPage';
+import AboutPageComponent from '@/components/pages/aboutpage';
 
 export const metadata: Metadata = {
   title: 'About Us',

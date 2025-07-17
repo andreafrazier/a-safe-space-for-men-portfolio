@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { X } from 'lucide-react';
+import { TeamMember } from '@/types/about';
 
 interface BiographyModalProps {
   member: any;
@@ -37,7 +38,7 @@ const BiographyModal: React.FC<BiographyModalProps> = ({ member, onClose }) => {
           </div>
           
           <div className="prose max-w-none">
-            {member.bio.split('\n\n').map((paragraph, index) => (
+            {member.bio.split('\n\n').map((paragraph: string, index: number) => (
               <p key={index} className="text-gray-700 leading-relaxed mb-4">
                 {paragraph}
               </p>
