@@ -95,7 +95,7 @@ const HomePage = () => {
           <div className="text-center">
             <div className="mb-8">
               <Image 
-                src="/images/break-the-stigma.jpg" 
+                src="/images/breakthestigma-green.png" 
                 alt="Break the Stigma - Green awareness ribbon with supportive text promoting mental health awareness"
                 width={400}
                 height={200}
