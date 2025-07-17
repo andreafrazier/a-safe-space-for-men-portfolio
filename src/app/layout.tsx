@@ -5,6 +5,7 @@ import "./globals.css";
 import Footer from '@/components/footer';
 import CrisisBar from '@/components/crisisbar';
 import Navbar from '@/components/navbar';
+import Header from '@/components/header';
 
 
 const inter = Inter({ subsets: ['latin'] });
@@ -73,7 +74,8 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <CrisisBar />
-        <Navbar /> 
+        <Navbar />
+        <Header />
           <main>
           {children}
         </main>
@@ -81,6 +83,6 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+};
 
 
