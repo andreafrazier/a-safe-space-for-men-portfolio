@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import type { TeamMember } from '@/types/about';
+import { TeamMember } from '@/components/sections/teammember';
 
 interface TeamMemberProps {
   member: TeamMember;
