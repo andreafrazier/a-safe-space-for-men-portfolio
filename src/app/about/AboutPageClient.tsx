@@ -1,15 +1,17 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ArrowRight, Users, Heart, Target, Building, Network, CheckCircle } from 'lucide-react';
-import BiographyModal from '@/components/sections/biographymodal';
-import StatsSection from '@/components/sections/statssection';
-import TeamMember from '@/components/sections/teammember';
-import { teamMembers, focusAreas, impactStats } from '@/data/about-data';
+import { Calendar, Users, Heart, ArrowRight, CheckCircle, Target } from 'lucide-react';
+import { FocusArea, TeamMember as TeamMemberType } from '@/src/types/about';
+import StatsSection from '@/src/components/sections/statssection';
+import { focusAreas, impactStats, teamMembers } from '@/src/data/about-data';
+import BiographyModal from '@/src/components/sections/biographymodal';
+import TeamMember from '@/src/components/sections/teammember';
 
-const AboutPageComponent = () => {
-  const [selectedBio, setSelectedBio] = useState(null);
 
+export default function AboutPageClient() {
+  const [selectedBio, setSelectedBio] = useState<TeamMemberType | null>(null);
+  
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -123,7 +125,7 @@ const AboutPageComponent = () => {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {focusAreas.map((area, index) => (
+            {focusAreas.map((area: FocusArea, index: number) => (
               <div key={index} className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="flex justify-center mb-6">
                   {area.icon}
@@ -131,7 +133,7 @@ const AboutPageComponent = () => {
                 <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">{area.title}</h3>
                 <p className="text-gray-700 mb-6 text-center leading-relaxed">{area.description}</p>
                 <ul className="space-y-2">
-                  {area.initiatives.map((initiative, idx) => (
+                  {area.initiatives.map((initiative: string, idx: number) => (
                     <li key={idx} className="flex items-start">
                       <CheckCircle className="w-4 h-4 text-emerald-600 mr-2 mt-1 flex-shrink-0" />
                       <span className="text-sm text-gray-600">{initiative}</span>
@@ -222,6 +224,4 @@ const AboutPageComponent = () => {
       <BiographyModal member={selectedBio} onClose={() => setSelectedBio(null)} />
     </div>
   );
-};
-
-export default AboutPageComponent;
+}

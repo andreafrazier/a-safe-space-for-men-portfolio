@@ -1,6 +1,5 @@
-import React from 'react';
 import type { Metadata } from 'next';
-import AboutPageComponent from '@/components/pages/AboutPage';
+import AboutPageClient from './AboutPageClient';
 
 export const metadata: Metadata = {
   title: 'About Us',
@@ -21,5 +20,5 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  return <AboutPageComponent />;
+  return <AboutPageClient />;
 }
