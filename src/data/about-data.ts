@@ -1,6 +1,6 @@
 import React from 'react';
 import { Users, Heart, Building, Network } from 'lucide-react';
-import { TeamMember, FocusArea, ImpactStat } from '@/types/about';
+import { TeamMember, FocusArea, ImpactStat } from '@//types/about';
 
 export const teamMembers: TeamMember[] = [
   {
@@ -14,31 +14,31 @@ export const teamMembers: TeamMember[] = [
   {
     id: 2,
     name: "Andrea E. Frazier, MBA",
-    title: "COO & Board Treasurer",
+    title: "Program Management & Technology",
     image: "/images/team/andrea-frazier.png",
     bio: "Andrea E. Frazier is an innovative Program Manager and agile Software Engineer with 20+ years of experience strategically guiding organizations toward achieving their goals. With a unique blend of technical expertise, project management acumen, and leadership skills, she excels at overseeing operations, managing cross-functional projects, and driving impactful initiatives.\n\nAs Chief Operating Officer for A Safe Space for Men, Andrea leads the development, execution, and optimization of programs designed to empower men to prioritize their emotional well-being. She leverages data-driven strategies, agile methodologies, and technical solutions to enhance operational efficiency, track progress using project management tools, and implement sustainable programs that foster community engagement, dismantle stigmas, and expand access to vital mental health resources.\n\nAndrea holds an MBA from the University of Detroit Mercy and a Bachelor of Business Administration from the University of Michigan and is a member of Alpha Kappa Alpha Sorority, Incorporated.\n\nBeyond her professional work, Andrea is passionate about leveraging technology for social good, mentoring the next generation of professionals, and advocating for mental health awareness and suicide prevention."
   },
   {
     id: 3,
-    name: "Darryl Woods, Sr.",
-    title: "Board Member",
-    image: "/images/team/darryl-woods.png",
-    bio: "Darryl Woods, Sr. became a minister while serving a life sentence without the possibility of parole. During 29 years in prison, he started programs to reduce parolee recidivism and the school-to-prison pipeline. His work led thousands to transform their lives. He chaired the NAACP Detroit Branch Prison Program Committee and served on the Chance for Life Board before Gov. Rick Synder commuted his sentence in 2018.\n\nPolice Commissioner Woods joined the Board in January 2024 after being appointed by Mayor Mike Duggan to a five-year term and confirmed by the Detroit City Council. He brings a wealth of knowledge and community experience to his role as a Board Member for A Safe Space for Men.\n\nPolice Commissioner Woods continues to inspire youth and others through his story to show anyone can rebuild their lives -- and commit to building the community around them. On any given day, you might find him speaking at events; urban planning with politicians, billionaires and pastors; or working with judges, the FBI, DEA, US Attorney Office, and others on public safety.\n\nSince his release, he has worked with Mitch Albom SAY Detroit and Growth Works. He served on the State Appellate Defenders Commission and the Detroit Wayne Integrated Health Network's Substance Use Disorder Board. He is a licensed Elder at Greater Grace Temple and the founder and CEO of Fighting the Good Fight LLC."
-  },
-  {
-    id: 4,
     name: "Douglas A. Monds",
-    title: "Compliance Officer",
+    title: "Legal & Compliance",
     image: "/api/placeholder/300/300",
     bio: "Douglas A. Monds graduated from Morehouse College and the University of Michigan Law School. As Compliance Officer for A Safe Space for Men, Douglas is responsible for ensuring organizational adherence to relevant laws, regulations, policies and standards.\n\nDouglas began his career at Miller, Canfield, Paddock and Stone and served as a Hearing Officer for Detroit's Department of Appeals and Hearings. Now in private practice, he assists small businesses and represents indigent defendants through Wayne County's Indigent Defense Program. Douglas is also a golfer, artist, musician, and entrepreneur."
   },
   {
-    id: 5,
+    id: 4,
     name: "Michael Ross",
-    title: "Board Secretary",
+    title: "Fundraising",
     image: "/images/team/michael-ross.png",
     bio: "Michael Ross is the owner of Motoren Group Consulting, an innovative and dynamic firm specializing in manufacturing consulting. With over 18 years of dedicated experience in the ever-evolving fields of manufacturing, materials, and logistics, he has established himself as a Senior Supply Chain Management professional. Michael excels at cultivating cohesive teams and fostering collaboration across all levels of an organization. His mission is to empower the workforce, instilling strength and self-sustainability within teams. He takes immense pride in mentoring individuals, guiding them on their journey toward advancing into senior leadership roles and helping them realize their full potential.\n\nAs Board Secretary for A Safe Space for Men, Michael is instrumental in program planning and fundraising activities. As an Army veteran who served during the Gulf War, Michael is acutely aware of the challenges faced by returning soldiers and understands the impact that such experiences can have on individuals.\n\nBeyond his professional achievements, Michael is deeply committed to community service, embodying his belief in the importance of giving back. He has proudly served as Vice President of the Detroit Inter-Alumni Council chapter of the United Negro College Fund, advocating for educational opportunities for students. As a member of Alpha Phi Alpha Fraternity Inc., he participates in various initiatives aimed at uplifting the community. Additionally, Michael actively volunteers with organizations such as Forgotten Harvest and Citizens Changing Communities, working alongside others to make a positive impact and foster meaningful change in the lives of those they serve."
-  }
+  },
+  {
+    id: 5,
+    name: "Darryl Woods, Sr.",
+    title: "Community Outreach",
+    image: "/images/team/darryl-woods.png",
+    bio: "Darryl Woods, Sr. became a minister while serving a life sentence without the possibility of parole. During 29 years in prison, he started programs to reduce parolee recidivism and the school-to-prison pipeline. His work led thousands to transform their lives. He chaired the NAACP Detroit Branch Prison Program Committee and served on the Chance for Life Board before Gov. Rick Synder commuted his sentence in 2018.\n\nPolice Commissioner Woods joined the Board in January 2024 after being appointed by Mayor Mike Duggan to a five-year term and confirmed by the Detroit City Council. He brings a wealth of knowledge and community experience to his role as a Board Member for A Safe Space for Men.\n\nPolice Commissioner Woods continues to inspire youth and others through his story to show anyone can rebuild their lives -- and commit to building the community around them. On any given day, you might find him speaking at events; urban planning with politicians, billionaires and pastors; or working with judges, the FBI, DEA, US Attorney Office, and others on public safety.\n\nSince his release, he has worked with Mitch Albom SAY Detroit and Growth Works. He served on the State Appellate Defenders Commission and the Detroit Wayne Integrated Health Network's Substance Use Disorder Board. He is a licensed Elder at Greater Grace Temple and the founder and CEO of Fighting the Good Fight LLC."
+  }, 
 ];
 
 export const focusAreas: FocusArea[] = [

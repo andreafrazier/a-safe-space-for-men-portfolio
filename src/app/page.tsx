@@ -3,7 +3,7 @@ import { Calendar, Users, Heart, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
-import DonationForm from '@/components/donationform';
+
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -310,8 +310,7 @@ const HomePage = () => {
               </div>
             </div>
 
-            {/* Donation Form */}
-            <DonationForm />
+            
           </div>
 
           <div className="text-center mt-12">

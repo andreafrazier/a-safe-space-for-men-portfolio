@@ -7,7 +7,18 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc-noEmit"
+    "type-check": "tsc-noEmit",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:ci": "jest --ci --coverage --watchAll=false",
+    "test:accessibility": "jest --testPathPattern=accessibility",
+    "test:integration": "jest --testPathPattern=integration",
+    "test:components": "jest --testPathPattern=components",
+    "test:crisis": "jest --testPathPattern='(crisis|Header|Footer)'",
+    "test:forms": "jest --testPathPattern=forms",
+    "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
+    "pre-deploy": "npm run test:ci && npm run lint"
   },
   "dependencies": {
     "@stripe/stripe-js": "^2.4.0",
@@ -16,24 +27,39 @@
     "@tailwindcss/typography": "^0.5.16",
     "lucide-react": "^0.525.0",
     "next": "15.3.5",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "stripe": "^18.3.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@swc/core": "^1.13.2",
+    "@swc/jest": "^0.2.39",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/jest": "^29.5.14",
     "@types/node": "^20.19.7",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
     "autoprefixer": "^10.4.0",
     "eslint": "^8.0.0",
     "eslint-config-next": "14.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8.4.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "engines": {
-    "node": ">=18.0.0",
-    "npm": ">=9.0.0"
+  "jest.config.js": {
+    "content": "const nextJest = require('next/jest')\n\nconst createJestConfig = nextJest({\n  // Provide the path to your Next.js app to load next.config.js and .env files\n  dir: './'\n})\n\n// Add any custom config to be passed to Jest\nconst customJestConfig = {\n  setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],\n  testEnvironment: 'jest-environment-jsdom',\n  collectCoverageFrom: [\n    'components/**/*.{js,jsx,ts,tsx}',\n    'app/**/*.{js,jsx,ts,tsx}',\n    '!**/*.d.ts',\n    '!**/node_modules/**'\n  ],\n  coverageThreshold: {\n    global: {\n      branches: 70,\n      functions: 70,\n      lines: 70,\n      statements: 70\n    }\n  },\n  moduleNameMapping: {\n    '^@/(.*)$': '<rootDir>/$1'\n  }\n}\n\n// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async\nmodule.exports = createJestConfig(customJestConfig)"
+  },
+  "jest.setup.js": {
+    "content": "import '@testing-library/jest-dom'\n\n// Mock Next.js router\njest.mock('next/router', () => ({\n  useRouter() {\n    return {\n      route: '/',\n      pathname: '/',\n      query: {},\n      asPath: '/',\n      push: jest.fn(),\n      pop: jest.fn(),\n      reload: jest.fn(),\n      back: jest.fn(),\n      prefetch: jest.fn().mockResolvedValue(undefined),\n      beforePopState: jest.fn(),\n      events: {\n        on: jest.fn(),\n        off: jest.fn(),\n        emit: jest.fn()\n      },\n      isFallback: false\n    }\n  }\n}))\n\n// Mock Next.js navigation (App Router)\njest.mock('next/navigation', () => ({\n  useRouter() {\n    return {\n      push: jest.fn(),\n      replace: jest.fn(),\n      prefetch: jest.fn(),\n      back: jest.fn(),\n      forward: jest.fn(),\n      refresh: jest.fn()\n    }\n  },\n  useSearchParams() {\n    return new URLSearchParams()\n  },\n  usePathname() {\n    return '/'\n  }\n}))\n\n// Mock Stripe\njest.mock('@stripe/stripe-js', () => ({\n  loadStripe: jest.fn(() => Promise.resolve({\n    elements: jest.fn(() => ({\n      create: jest.fn(() => ({\n        mount: jest.fn(),\n        unmount: jest.fn(),\n        on: jest.fn(),\n        off: jest.fn()\n      }))\n    }))\n  }))\n}))\n\n// Mock intersection observer for any animations\nglobal.IntersectionObserver = jest.fn(() => ({\n  observe: jest.fn(),\n  disconnect: jest.fn(),\n  unobserve: jest.fn()\n}))\n\n// Mock window.matchMedia for responsive tests\nObject.defineProperty(window, 'matchMedia', {\n  writable: true,\n  value: jest.fn().mockImplementation(query => ({\n    matches: false,\n    media: query,\n    onchange: null,\n    addListener: jest.fn(), // deprecated\n    removeListener: jest.fn(), // deprecated\n    addEventListener: jest.fn(),\n    removeEventListener: jest.fn(),\n    dispatchEvent: jest.fn()\n  }))\n})",
+    "engines": {
+      "node": ">=18.0.0",
+      "npm": ">=9.0.0"
+    }
   }
 }
