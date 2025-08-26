@@ -7,7 +7,7 @@ export const teamMembers: TeamMember[] = [
     id: 1,
     name: "William J. Word",
     title: "Founder & Board President",
-    image: "/images/team/william-word.png",
+    image: "/images/team/william-word.jpeg",
     bio: "William J. Word is a visionary leader and community advocate dedicated to breaking barriers in men's mental health. As Founder and Board President of A Safe Space for Men, William leads the charge in creating supportive, judgment-free environments where men—particularly Black men—can prioritize their emotional well-being. With 20+ years of leadership experience spanning sales, operations, and customer service, he brings strong organizational, strategic, and interpersonal skills to the nonprofit sector, ensuring that mental health resources and support systems reach those who need them most.\n\nThroughout his career, William has honed his ability to build relationships, manage teams, and foster community engagement. His experience in high-volume operations, event management, and customer relations has made him a skilled communicator and problem-solver, adept at leading initiatives that drive real impact.\n\nIn addition to his professional background, William has a strong passion for entertainment and artist management, having worked with renowned recording studios and artists to support creative expression and community-driven projects. This experience has reinforced his commitment to mentorship, empowerment, and fostering safe spaces for dialogue—a cornerstone of A Safe Space for Men.\n\nWilliam's leadership, dedication to social change, and ability to connect with individuals from all walks of life make him an instrumental force in advancing mental health advocacy and reshaping the conversation around masculinity and emotional resilience.",
     email: "asafespaceformen@gmail.com"
   },
@@ -15,7 +15,7 @@ export const teamMembers: TeamMember[] = [
     id: 2,
     name: "Andrea E. Frazier, MBA",
     title: "Program Management & Technology",
-    image: "/images/team/andrea-frazier.png",
+    image: "/images/team/andrea-frazier.jpeg",
     bio: "Andrea E. Frazier is an innovative Program Manager and agile Software Engineer with 20+ years of experience strategically guiding organizations toward achieving their goals. With a unique blend of technical expertise, project management acumen, and leadership skills, she excels at overseeing operations, managing cross-functional projects, and driving impactful initiatives.\n\nAs Chief Operating Officer for A Safe Space for Men, Andrea leads the development, execution, and optimization of programs designed to empower men to prioritize their emotional well-being. She leverages data-driven strategies, agile methodologies, and technical solutions to enhance operational efficiency, track progress using project management tools, and implement sustainable programs that foster community engagement, dismantle stigmas, and expand access to vital mental health resources.\n\nAndrea holds an MBA from the University of Detroit Mercy and a Bachelor of Business Administration from the University of Michigan and is a member of Alpha Kappa Alpha Sorority, Incorporated.\n\nBeyond her professional work, Andrea is passionate about leveraging technology for social good, mentoring the next generation of professionals, and advocating for mental health awareness and suicide prevention."
   },
   {
