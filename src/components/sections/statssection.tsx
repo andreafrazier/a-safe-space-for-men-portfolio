@@ -1,13 +1,10 @@
 'use client';
 
 import React from 'react';
+import { ImpactStat } from '@/types/about';
 
 interface StatsSectionProps {
-  stats: Array<{
-    percentage: string;
-    description: string;
-    icon: React.ReactNode;
-  }>;
+  stats: ImpactStat[];
 }
 
 const StatsSection: React.FC<StatsSectionProps> = ({ stats }) => {

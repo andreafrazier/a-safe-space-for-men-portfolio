@@ -5,7 +5,7 @@ import { X } from 'lucide-react';
 import { TeamMember } from '@/types/about';
 
 interface BiographyModalProps {
-  member: any;
+  member: TeamMember | null;
   onClose: () => void;
 }
 
