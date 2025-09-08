@@ -23,9 +23,6 @@ const nextConfig = {
     return config;
   },
 
-  // Transpile packages if needed
-  transpilePackages: [],
-
   // Image optimization
   images: {
     domains: [],
@@ -36,15 +33,7 @@ const nextConfig = {
       },
     ],
   },
-
-  // Enable SWC minification
-  swcMinify: true,
-
-  // Compiler options
-  compiler: {
-    // Remove console logs in production
-    removeConsole: process.env.NODE_ENV === 'production',
-  },
+  
 };
 
 module.exports = nextConfig;

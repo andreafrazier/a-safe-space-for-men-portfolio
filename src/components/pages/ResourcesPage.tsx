@@ -450,7 +450,7 @@ const ResourcesPageComponent = () => {
           <div className="text-center">
             <div className="mb-8">
               <Image 
-                src="/images/resources-hero.jpg"
+                src="/images/breakthestigma-green.png"
                 alt="Mental health resources and support network illustration"
                 width={400}
                 height={200}
