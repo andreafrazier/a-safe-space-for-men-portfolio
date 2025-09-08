@@ -5,7 +5,7 @@ import { Calendar, Users, Heart, ArrowRight, CheckCircle, Target, Building, Netw
 import Image from 'next/image';
 import Link from 'next/link';
 import { FocusArea, TeamMember } from '@/types/about';
-import StatsSection from '@/components/sections/statssection';
+import StatsSection from '@/components/sections/StatsSection';
 import { focusAreas, impactStats, teamMembers } from '@/data/about-data';
 import BiographyModal from '@/components/sections/BiographyModal';
 import TeamMemberCard from '@/components/sections/TeamMemberCard';
