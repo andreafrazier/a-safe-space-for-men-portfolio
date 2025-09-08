@@ -21,12 +21,6 @@ const nextConfig = {
     return config;
   },
 
-  // Experimental features that might help with builds
-  experimental: {
-    // Enable if you're using the app directory
-    appDir: true,
-  },
-
   // Image configuration
   images: {
     domains: ['api.placeholder.com'],
@@ -39,10 +33,6 @@ const nextConfig = {
       },
     ],
   },
-
-  // Output configuration for static export (if needed)
-  // output: 'export',
-  // trailingSlash: true,
 };
 
 module.exports = nextConfig;

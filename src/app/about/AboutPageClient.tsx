@@ -10,6 +10,7 @@ import { focusAreas, impactStats, teamMembers } from '../../data/about-data';
 import BiographyModal from '../../components/sections/BiographyModal';
 import TeamMemberCard from '../../components/sections/TeamMemberCard';
 
+
 export default function AboutPageClient() {
   const [selectedBio, setSelectedBio] = useState<TeamMember | null>(null);
   
