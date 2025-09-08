@@ -4,34 +4,46 @@ const path = require('path');
 const nextConfig = {
   reactStrictMode: true,
   
-  // Force webpack to resolve TypeScript paths properly
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // Ensure proper path resolution for TypeScript aliases
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, nextRuntime }) => {
+    // Fix path resolution for TypeScript aliases
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@': path.resolve(__dirname, 'src'),
-      '@/components': path.resolve(__dirname, 'src/components'),
-      '@/types': path.resolve(__dirname, 'src/types'),
-      '@/data': path.resolve(__dirname, 'src/data'),
-      '@/lib': path.resolve(__dirname, 'src/lib'),
-      '@/hooks': path.resolve(__dirname, 'src/hooks'),
-      '@/styles': path.resolve(__dirname, 'src/styles'),
+      '@': path.join(__dirname, 'src'),
     };
+
+    // Ensure proper module resolution
+    config.resolve.modules = [
+      path.join(__dirname, 'src'),
+      'node_modules'
+    ];
+
+    // Force case-sensitive path resolution (important for Netlify)
+    config.resolve.symlinks = false;
 
     return config;
   },
 
-  // Image configuration
+  // Transpile packages if needed
+  transpilePackages: [],
+
+  // Image optimization
   images: {
-    domains: ['api.placeholder.com'],
+    domains: [],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'api.placeholder.com',
-        port: '',
-        pathname: '/**',
+        hostname: '**',
       },
     ],
+  },
+
+  // Enable SWC minification
+  swcMinify: true,
+
+  // Compiler options
+  compiler: {
+    // Remove console logs in production
+    removeConsole: process.env.NODE_ENV === 'production',
   },
 };
 

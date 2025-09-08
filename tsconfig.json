@@ -10,9 +10,9 @@
     "allowJs": true,
     "checkJs": false,
 
-    /* Modules */
+    /* Modules - KEY CHANGES HERE */
     "module": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "allowImportingTsExtensions": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -56,22 +56,10 @@
       }
     ],
 
-    /* Path Mapping */
+    /* Path Mapping - SIMPLIFIED AND MORE EXPLICIT */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-      "@/components/*": ["./src/components/*"],
-      "@/app/*": ["./src/app/*"],
-      "@/lib/*": ["./src/lib/*"],
-      "@/types/*": ["./src/types/*"],
-      "@/data/*": ["./src/data/*"],
-      "@/hooks/*": ["./src/hooks/*"],
-      "@/styles/*": ["./src/styles/*"],
-      "@/public/*": ["./public/*"],
-      "~/*": ["./*"],
-      "@tests/*": ["./__tests__/*"],
-      "@tests/utils/*": ["./__tests__/utils/*"],
-      "@tests/fixtures/*": ["./__tests__/fixtures/*"]
+      "@/*": ["./src/*"]
     }
   },
 
