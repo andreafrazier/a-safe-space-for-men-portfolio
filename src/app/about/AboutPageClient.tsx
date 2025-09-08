@@ -4,14 +4,14 @@ import React, { useState } from 'react';
 import { Calendar, Users, Heart, ArrowRight, CheckCircle, Target, Building, Network } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FocusArea, TeamMember as TeamMemberType } from '@/types/about';
-import StatsSection from '@/components/sections/StatsSection';
+import { FocusArea, TeamMember } from '@/types/about';
+import StatsSection from '@/components/sections/statssection';
 import { focusAreas, impactStats, teamMembers } from '@/data/about-data';
 import BiographyModal from '@/components/sections/BiographyModal';
-import TeamMember from '@/components/sections/TeamMember';
+import TeamMemberCard from '@/components/sections/TeamMemberCard';
 
 export default function AboutPageClient() {
-  const [selectedBio, setSelectedBio] = useState<TeamMemberType | null>(null);
+  const [selectedBio, setSelectedBio] = useState<TeamMember | null>(null);
   
   return (
     <div className="min-h-screen bg-white">
@@ -194,7 +194,7 @@ export default function AboutPageClient() {
           {/* Team Grid with better spacing */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
             {teamMembers.map((member) => (
-              <TeamMember 
+              <TeamMemberCard 
                 key={member.id} 
                 member={member} 
                 onBioClick={() => setSelectedBio(member)} 

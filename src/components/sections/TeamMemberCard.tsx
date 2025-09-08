@@ -2,14 +2,14 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { TeamMember } from '@/components/sections/TeamMember';
+import { TeamMember } from '@/types/about';
 
-interface TeamMemberProps {
+interface TeamMemberCardProps {
   member: TeamMember;
   onBioClick: () => void;
 }
 
-const TeamMember: React.FC<TeamMemberProps> = ({ member, onBioClick }) => {
+const TeamMemberCard: React.FC<TeamMemberCardProps> = ({ member, onBioClick }) => {
   return (
     <div 
       className="bg-gradient-to-br from-emerald-50 to-blue-50 rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
@@ -29,4 +29,4 @@ const TeamMember: React.FC<TeamMemberProps> = ({ member, onBioClick }) => {
   );
 };
 
-export default TeamMember;
+export default TeamMemberCard;
