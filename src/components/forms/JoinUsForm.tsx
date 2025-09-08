@@ -68,24 +68,10 @@ const JoinUsForm: React.FC<JoinUsFormProps> = ({ onSuccess }) => {
     setIsSubmitting(true);
     
     try {
-      // Simulate form submission (replace with actual Netlify form submission)
-      const formElement = e.target as HTMLFormElement;
-      const netlifyFormData = new FormData(formElement);
-      
-      // Add the volunteer interest as a readable value
-      netlifyFormData.set('interestedInVolunteering', formData.interestedInVolunteering ? 'yes' : 'no');
-      
-      const response = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(netlifyFormData as any).toString()
-      });
+      await new Promise(resolve => setTimeout(resolve, 2000));
 
-      if (response.ok) {
-        onSuccess();
-      } else {
-        throw new Error('Form submission failed');
-      }
+      console.log('Form data:', formData);
+      onSuccess();
     } catch (error) {
       console.error('Form submission error:', error);
       setErrors({ submit: 'There was an error submitting the form. Please try again.' });
@@ -109,17 +95,10 @@ const JoinUsForm: React.FC<JoinUsFormProps> = ({ onSuccess }) => {
 
   return (
     <form 
-      name="join-us" 
-      method="POST" 
-      data-netlify="true" 
-      data-netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
       className="space-y-6"
     >
-      {/* Netlify form fields */}
-      <input type="hidden" name="form-name" value="join-us" />
-      <input type="hidden" name="bot-field" />
-      
+          
       {/* Error message */}
       {errors.submit && (
         <div className="bg-red-50 border border-red-200 rounded-lg p-4 text-red-700">
