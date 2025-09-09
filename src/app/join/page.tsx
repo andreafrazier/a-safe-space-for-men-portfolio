@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import JoinUsPageComponent from '@/components/pages/JoinUsPage';
+import JoinUsPage from '@/components/pages/JoinUsPage';
 
 export const metadata: Metadata = {
   title: 'Join Us',
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: 'Take the first step towards prioritizing your mental health and connecting with others on the same journey.',
     images: [
       {
-        url: '/images/og-join.jpg',
+        url: '/images/breakthestigma-green.png',
         width: 1200,
         height: 630,
         alt: 'Join A Safe Space For Men - Community support and mental health advocacy',
@@ -21,5 +21,5 @@ export const metadata: Metadata = {
 };
 
 export default function JoinPage() {
-  return <JoinUsPageComponent />;
+  return <JoinUsPage />;
 }
