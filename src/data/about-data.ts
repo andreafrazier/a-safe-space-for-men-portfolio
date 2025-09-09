@@ -1,6 +1,6 @@
 import React from 'react';
 import { Users, Heart, Building, Network } from 'lucide-react';
-import { TeamMember, FocusArea, ImpactStat } from '@/types/about';
+import type { TeamMember, FocusArea, ImpactStat } from '@/types/about';
 
 
 export const teamMembers: TeamMember[] = [
