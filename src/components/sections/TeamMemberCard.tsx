@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import type { TeamMember as TeamMemberType } from '@/types/about';
+import type { TeamMember } from '@/types/about';
 
 interface TeamMemberCardProps {
-  member: TeamMemberType;
+  member: TeamMember;
   onBioClick: () => void;
 }
 
