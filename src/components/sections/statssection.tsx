@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { ImpactStat } from '@/types/about';
+import type { ImpactStat } from '@/types/about';
 
 interface StatsSectionProps {
   stats: ImpactStat[];

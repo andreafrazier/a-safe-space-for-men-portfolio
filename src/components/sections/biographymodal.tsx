@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { X } from 'lucide-react';
-import { TeamMember } from '@/types/about';
+import type { TeamMember } from '@/types/about';
 
 interface BiographyModalProps {
   member: TeamMember | null;
