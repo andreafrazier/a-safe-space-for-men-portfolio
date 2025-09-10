@@ -341,9 +341,9 @@ const ResourcesPageComponent = () => {
       icon: <Heart className="w-6 h-6 text-green-600" />
     },
     {
-      name: "Alcohol Use Assessment",
+      name: "Addiction Assessment",
       description: "Evaluate your relationship with alcohol and identify potential concerns",
-      link: "https://screening.mhanational.org/screening-tools/alcohol",
+      link: "https://screening.mhanational.org/screening-tools/addiction",
       icon: <Shield className="w-6 h-6 text-purple-600" />
     },
     {
