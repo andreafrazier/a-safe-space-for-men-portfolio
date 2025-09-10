@@ -5,7 +5,7 @@ import { Calendar, Users, Heart, ArrowRight, CheckCircle, Target, Building, Netw
 import Image from 'next/image';
 import Link from 'next/link';
 import  type { TeamMember } from '@/types/about';
-import StatsSection from '@/components/sections/StatsSection';
+import SimpleStats from '@/components/sections/SimpleStats';
 import { focusAreas, impactStats, teamMembers } from '@/data/about-data';
 import BiographyModal from '@/components/sections/BiographyModal';
 import TeamMemberCard from '@/components/sections/TeamMemberCard';
@@ -151,7 +151,7 @@ export default function AboutPageClient() {
       </section>
 
       {/* Statistics Section */}
-      <StatsSection stats={impactStats} />
+      <SimpleStats stats={impactStats} />
 
       {/* Focus Areas Section */}
       <section className="py-20 bg-gray-50">
