@@ -7,7 +7,7 @@ import Link from 'next/link';
 import  type { TeamMember } from '@/types/about';
 import SimpleStats from '@/components/sections/SimpleStats';
 import { focusAreas, impactStats, teamMembers } from '@/data/about-data';
-import BiographyModal from '@/components/sections/BiographyModal';
+import SimpleBio from '@/components/sections/SimpleBio';
 import TeamMemberCard from '@/components/sections/TeamMemberCard';
 
 
@@ -285,7 +285,7 @@ export default function AboutPageClient() {
       </section>
 
       {/* Biography Modal */}
-      <BiographyModal member={selectedBio} onClose={() => setSelectedBio(null)} />
+      <SimpleBio member={selectedBio} onClose={() => setSelectedBio(null)} />
     </div>
   );
 }
