@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import type { ImpactStat } from '@/types/about';
+//import type { ImpactStat } from '@/types/about';
 
 interface StatsSectionProps {
-  stats: ImpactStat[];
+  stats: any[];
 }
 
 const StatsSection: React.FC<StatsSectionProps> = ({ stats }) => {

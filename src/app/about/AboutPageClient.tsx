@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Calendar, Users, Heart, ArrowRight, CheckCircle, Target, Building, Network } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import  type { FocusArea, TeamMember } from '@/types/about';
+import  type { TeamMember } from '@/types/about';
 import StatsSection from '@/components/sections/StatsSection';
 import { focusAreas, impactStats, teamMembers } from '@/data/about-data';
 import BiographyModal from '@/components/sections/BiographyModal';
@@ -162,7 +162,7 @@ export default function AboutPageClient() {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {focusAreas.map((area: FocusArea, index: number) => (
+            {focusAreas.map((area, index) => (
               <div key={index} className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="flex justify-center mb-6">
                   {area.icon}
