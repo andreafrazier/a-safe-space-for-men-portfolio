@@ -57,30 +57,33 @@ const JoinUsForm = () => {
 
     try {
       // Create FormData object for Netlify
-      const netlifyFormData = new FormData();
+      const formParams = new URLSearchParams();
       
       // Add form name for Netlify
-      netlifyFormData.append('form-name', 'join-us');
+      formParams.append('form-name', 'join-us');
       
       // Add all form fields
-      netlifyFormData.append('firstName', formData.firstName);
-      netlifyFormData.append('lastName', formData.lastName);
-      netlifyFormData.append('email', formData.email);
-      netlifyFormData.append('phone', formData.phone);
-      netlifyFormData.append('city', formData.city);
-      netlifyFormData.append('state', formData.state);
-      netlifyFormData.append('interests', formData.interests.join(', '));
-      netlifyFormData.append('availability', formData.availability);
-      netlifyFormData.append('experience', formData.experience);
-      netlifyFormData.append('motivation', formData.motivation);
-      netlifyFormData.append('agreeToContact', formData.agreeToContact ? 'Yes' : 'No');
-      netlifyFormData.append('agreeToTerms', formData.agreeToTerms ? 'Yes' : 'No');
-      netlifyFormData.append('submissionDate', new Date().toISOString());
+      formParams.append('firstName', formData.firstName);
+      formParams.append('lastName', formData.lastName);
+      formParams.append('email', formData.email);
+      formParams.append('phone', formData.phone);
+      formParams.append('city', formData.city);
+      formParams.append('state', formData.state);
+      formParams.append('interests', formData.interests.join(', '));
+      formParams.append('availability', formData.availability);
+      formParams.append('experience', formData.experience);
+      formParams.append('motivation', formData.motivation);
+      formParams.append('agreeToContact', formData.agreeToContact ? 'Yes' : 'No');
+      formParams.append('agreeToTerms', formData.agreeToTerms ? 'Yes' : 'No');
+      formParams.append('submissionDate', new Date().toISOString());
 
       // Submit to Netlify
-      const response = await fetch('/', {
+      const response = await fetch('/_forms.html', {
         method: 'POST',
-        body: netlifyFormData
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: formParams.toString()
       });
 
       if (response.ok) {
