@@ -14,7 +14,7 @@ const JoinUsForm = () => {
     city: '',
     state: 'Michigan',
     interests: [] as string[],
-    availability: '',
+    availability: [] as string[],
     experience: '',
     motivation: '',
     agreeToContact: false,
@@ -28,6 +28,16 @@ const JoinUsForm = () => {
     { id: 'events', label: 'Community Events', icon: <MapPin className="w-4 h-4" /> },
     { id: 'advocacy', label: 'Mental Health Advocacy', icon: <Mail className="w-4 h-4" /> },
     { id: 'mentoring', label: 'Peer Mentoring', icon: <User className="w-4 h-4" /> }
+  ];
+
+  const availabilityOptions = [
+    { id: 'weekday-mornings', label: 'Weekday Mornings' },
+    { id: 'weekday-afternoons', label: 'Weekday Afternoons' },
+    { id: 'weekday-evenings', label: 'Weekday Evenings' },
+    { id: 'weekend-mornings', label: 'Weekend Mornings' },
+    { id: 'weekend-afternoons', label: 'Weekend Afternoons' },
+    { id: 'weekend-evenings', label: 'Weekend Evenings' },
+    { id: 'flexible', label: 'Flexible Schedule' }
   ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -50,6 +60,15 @@ const JoinUsForm = () => {
     }));
   };
 
+  const handleAvailabilityChange = (availabilityId: string) => {
+  setFormData(prev => ({
+    ...prev,
+    availability: prev.availability.includes(availabilityId)
+      ? prev.availability.filter(id => id !== availabilityId)
+      : [...prev.availability, availabilityId]
+  }));
+};
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -70,7 +89,7 @@ const JoinUsForm = () => {
       formParams.append('city', formData.city);
       formParams.append('state', formData.state);
       formParams.append('interests', formData.interests.join(', '));
-      formParams.append('availability', formData.availability);
+      formParams.append('availability', formData.availability.join(', '));
       formParams.append('experience', formData.experience);
       formParams.append('motivation', formData.motivation);
       formParams.append('agreeToContact', formData.agreeToContact ? 'Yes' : 'No');
@@ -97,7 +116,7 @@ const JoinUsForm = () => {
           city: '',
           state: 'Michigan',
           interests: [],
-          availability: '',
+          availability: [],
           experience: '',
           motivation: '',
           agreeToContact: false,
@@ -213,7 +232,7 @@ const JoinUsForm = () => {
               required
               value={formData.firstName}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors text-gray-900 placeholder-gray-500"
               placeholder="Enter your first name"
             />
           </div>
@@ -229,7 +248,7 @@ const JoinUsForm = () => {
               required
               value={formData.lastName}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors text-gray-900 placeholder-gray-500"
               placeholder="Enter your last name"
             />
           </div>
@@ -248,7 +267,7 @@ const JoinUsForm = () => {
               required
               value={formData.email}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors text-gray-900 placeholder-gray-500"
               placeholder="your.email@example.com"
             />
           </div>
@@ -263,7 +282,7 @@ const JoinUsForm = () => {
               name="phone"
               value={formData.phone}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors text-gray-900 placeholder-gray-500"
               placeholder="(555) 123-4567"
             />
           </div>
@@ -281,7 +300,7 @@ const JoinUsForm = () => {
               name="city"
               value={formData.city}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors text-gray-900 placeholder-gray-500"
               placeholder="Detroit"
             />
           </div>
@@ -295,7 +314,7 @@ const JoinUsForm = () => {
               name="state"
               value={formData.state}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors text-gray-900 placeholder-gray-500"
             >
               <option value="Michigan">Michigan</option>
               <option value="Ohio">Ohio</option>
@@ -317,8 +336,8 @@ const JoinUsForm = () => {
                 key={option.id}
                 className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
                   formData.interests.includes(option.id)
-                    ? 'border-emerald-500 bg-emerald-50 text-emerald-700'
-                    : 'border-gray-200 hover:border-emerald-200 hover:bg-emerald-50'
+                    ? 'border-emerald-500 bg-emerald-50 text-emerald-800'
+                    : 'border-gray-300 hover:border-emerald-300 hover:bg-emerald-50 text-gray-800'
                 }`}
               >
                 <input
@@ -340,25 +359,36 @@ const JoinUsForm = () => {
 
         {/* Availability */}
         <div className="mb-8">
-          <label htmlFor="availability" className="block text-sm font-semibold text-gray-700 mb-2">
-            When are you typically available for events or activities?
+          <label className="block text-sm font-semibold text-gray-700 mb-4">
+            When are you typically available for events or activities? (Select all that apply)
           </label>
-          <select
-            id="availability"
-            name="availability"
-            value={formData.availability}
-            onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
-          >
-            <option value="">Select your availability</option>
-            <option value="weekday-mornings">Weekday Mornings</option>
-            <option value="weekday-afternoons">Weekday Afternoons</option>
-            <option value="weekday-evenings">Weekday Evenings</option>
-            <option value="weekend-mornings">Weekend Mornings</option>
-            <option value="weekend-afternoons">Weekend Afternoons</option>
-            <option value="weekend-evenings">Weekend Evenings</option>
-            <option value="flexible">Flexible Schedule</option>
-          </select>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {availabilityOptions.map((option) => (
+              <label
+                key={option.id}
+                className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
+                  formData.availability.includes(option.id)
+                    ? 'border-emerald-500 bg-emerald-50 text-emerald-800'
+                    : 'border-gray-300 hover:border-emerald-300 hover:bg-emerald-50 text-gray-900'
+                }`}
+              >
+                <input
+                  type="checkbox"
+                  className="sr-only"
+                  checked={formData.availability.includes(option.id)}
+                  onChange={() => handleAvailabilityChange(option.id)}
+                />
+                <div className="flex items-center">
+                  <div className="w-4 h-4 border-2 border-emerald-500 rounded mr-3 flex items-center justify-center">
+                    {formData.availability.includes(option.id) && (
+                      <div className="w-2 h-2 bg-emerald-500 rounded"></div>
+                    )}
+                  </div>
+                  <span className="text-sm font-medium">{option.label}</span>
+                </div>
+              </label>
+            ))}
+          </div>
         </div>
 
         {/* Experience */}
@@ -372,7 +402,7 @@ const JoinUsForm = () => {
             rows={4}
             value={formData.experience}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors resize-none"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors resize-none text-gray-900 placeholder-gray-500"
             placeholder="Tell us about any relevant experience you have (optional)"
           />
         </div>
@@ -388,7 +418,7 @@ const JoinUsForm = () => {
             rows={4}
             value={formData.motivation}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors resize-none"
+            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors resize-none text-gray-900 placeholder-gray-500"
             placeholder="Share what brings you to A Safe Space For Men (optional)"
           />
         </div>
