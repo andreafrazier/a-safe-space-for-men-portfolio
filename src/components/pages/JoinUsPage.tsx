@@ -153,40 +153,40 @@ const JoinUsPage = () => {
       <section className="py-16 bg-gradient-to-br from-emerald-600 to-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">Need Immediate Support?</h2>
-          <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-white mb-8 max-w-3xl mx-auto">
             If you're experiencing a mental health crisis, help is available right now.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
             <a 
               href="tel:988" 
-              className="bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 rounded-lg p-6 text-white hover:bg-opacity-30 transition-all"
+              className="bg-white rounded-lg p-6 text-gray-900 hover:bg-gray-50 transition-all shadow-lg"
             >
-              <Phone className="w-8 h-8 mx-auto mb-3" />
-              <h3 className="font-semibold text-lg mb-2">Crisis Lifeline</h3>
-              <p className="text-emerald-100 text-sm mb-3">24/7 Free & Confidential</p>
-              <p className="text-2xl font-bold">988</p>
+              <Phone className="w-8 h-8 mx-auto mb-3 text-emerald-600" />
+              <h3 className="font-semibold text-lg mb-2 text-gray-900">Crisis Lifeline</h3>
+              <p className="text-gray-600 text-sm mb-3">24/7 Free & Confidential</p>
+              <p className="text-2xl font-bold text-emerald-600">988</p>
             </a>
             
             <a 
               href="tel:911" 
-              className="bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 rounded-lg p-6 text-white hover:bg-opacity-30 transition-all"
+              className="bg-white rounded-lg p-6 text-gray-900 hover:bg-gray-50 transition-all shadow-lg"
             >
-              <Phone className="w-8 h-8 mx-auto mb-3" />
-              <h3 className="font-semibold text-lg mb-2">Emergency Services</h3>
-              <p className="text-emerald-100 text-sm mb-3">Immediate Emergency Response</p>
-              <p className="text-2xl font-bold">911</p>
+              <Phone className="w-8 h-8 mx-auto mb-3 text-emerald-600" />
+              <h3 className="font-semibold text-lg mb-2 text-gray-900">Emergency Services</h3>
+              <p className="text-gray-600 text-sm mb-3">Immediate Emergency Response</p>
+              <p className="text-2xl font-bold text-emerald-600">911</p>
             </a>
             
-            <div className="bg-white bg-opacity-20 backdrop-blur-sm border border-white border-opacity-30 rounded-lg p-6 text-white">
-              <Heart className="w-8 h-8 mx-auto mb-3" />
-              <h3 className="font-semibold text-lg mb-2">Crisis Text Line</h3>
-              <p className="text-emerald-100 text-sm mb-3">Text for Support</p>
-              <p className="text-lg font-bold">Text HOME to 741741</p>
+            <div className="bg-white rounded-lg p-6 text-gray-900 shadow-lg">
+              <Heart className="w-8 h-8 mx-auto mb-3 text-emerald-600" />
+              <h3 className="font-semibold text-lg mb-2 text-gray-900">Crisis Text Line</h3>
+              <p className="text-gray-600 text-sm mb-3">Text for Support</p>
+              <p className="text-lg font-bold text-emerald-600">Text HOME to 741741</p>
             </div>
           </div>
           
           <div className="mt-8">
-            <p className="text-emerald-100 text-sm">
+            <p className="text-white text-sm">
               These resources are available 24/7. You are not alone, and help is always available.
             </p>
           </div>
