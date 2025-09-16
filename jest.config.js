@@ -1,9 +1,9 @@
-// jest.config.js - CLEAN VERSION
 module.exports = {
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   
   moduleNameMapper: {
+    // Main source directory mappings
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@/components/(.*)$': '<rootDir>/src/components/$1',
     '^@/app/(.*)$': '<rootDir>/src/app/$1',
@@ -13,8 +13,12 @@ module.exports = {
     '^@/hooks/(.*)$': '<rootDir>/src/hooks/$1',
     '^@/styles/(.*)$': '<rootDir>/src/styles/$1',
     '^~/(.*)$': '<rootDir>/$1',
-    '^@tests/(.*)$': '<rootDir>/__tests__/$1',
-    '^@tests/utils/(.*)$': '<rootDir>/__tests__/utils/$1',
+    
+    // Test utilities - fix the path resolution
+    '^@/test-utils$': '<rootDir>/__tests__/utils/test-utils',
+    '^@/mock-data$': '<rootDir>/__tests__/fixtures/mock-data',
+    
+    // Public assets
     '^@/public/(.*)$': '<rootDir>/public/$1',
   },
   

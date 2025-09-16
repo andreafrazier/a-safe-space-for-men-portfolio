@@ -15,10 +15,14 @@
     "test:accessibility": "jest --testPathPattern=accessibility",
     "test:integration": "jest --testPathPattern=integration",
     "test:components": "jest --testPathPattern=components",
+    "test:silent": "jest --silent",
+    "test:verbose": "jest --verbose",
     "test:crisis": "jest --testPathPattern='(crisis|Header|Footer)'",
     "test:forms": "jest --testPathPattern=forms",
     "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
-    "pre-deploy": "npm run test:ci && npm run lint"
+    "pre-deploy": "npm run test:ci && npm run lint",
+    "test:update-snapshots": "jest -u",
+    "test:clear-cache": "jest --clearCache"
   },
   "dependencies": {
     "@stripe/stripe-js": "^2.4.0",
@@ -47,6 +51,7 @@
     "eslint": "^8.0.0",
     "eslint-config-next": "14.0.0",
     "jest": "^29.7.0",
+    "jest-axe": "^10.0.0",
     "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8.4.0",
     "tailwindcss": "^4",
