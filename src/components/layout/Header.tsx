@@ -14,11 +14,11 @@ const Header = () => {
 
     const menuItems = [
         { href: '/', label: 'Home' },
-        { href: '/about', label: 'About Us' },
+        { href: '/about', label: 'About' },
         { href: '/suicide-prevention', label: 'Suicide Prevention', priority: true },
-        { href: '/join', label: 'Join Us' },
+        { href: '/join', label: 'Join' },
         { href: '/resources', label: 'Resources' },
-        { href: '/community-updates', label: 'Community Updates' },
+        { href: '/community-updates', label: 'Community' },
     ];
 
     const isActive = (href: string) => {
