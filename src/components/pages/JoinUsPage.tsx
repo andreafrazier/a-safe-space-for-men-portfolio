@@ -2,6 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import JoinUsForm from '@/components/forms/JoinUsForm';
 import { Heart, Users, Calendar, Phone } from 'lucide-react';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Join Us',
@@ -65,10 +66,19 @@ const JoinUsPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <section className="pt-24 bg-gradient-to-br from-emerald-50 to-blue-50 py-20">
+      <section className="pt-16 bg-gradient-to-br from-emerald-50 to-blue-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center">
+            <div className="mb-8">
+              <Image 
+                src="/images/handshake-wordcloud.png"
+                alt="Mental health resources and support network illustration"
+                width={400}
+                height={200}
+                className="mx-auto mb-6 max-w-md w-full h-auto rounded-lg"
+                priority
+              />
+            </div>
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
               Your Journey Starts Here
             </h1>

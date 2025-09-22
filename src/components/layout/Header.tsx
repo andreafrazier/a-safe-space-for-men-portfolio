@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from "react";
-import { Menu, X, AlertTriangle, Phone } from "lucide-react";
+import { Menu, X, AlertTriangle, } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Link from 'next/link';
 import Image from "next/image";
@@ -15,9 +15,9 @@ const Header = () => {
     const menuItems = [
         { href: '/', label: 'Home' },
         { href: '/about', label: 'About' },
-        { href: '/suicide-prevention', label: 'Suicide Prevention', priority: true },
         { href: '/join', label: 'Join' },
-        { href: '/resources', label: 'Resources' },
+        { href: '/suicide-prevention', label: 'Suicide Prevention', priority: true },
+        { href: '/therapists', label: 'Therapists' },
         { href: '/community-updates', label: 'Community' },
     ];
 
@@ -30,25 +30,8 @@ const Header = () => {
 
     return (
         <>
-            {/* Crisis Bar */}
-            <div className="bg-red-600 text-white py-3 px-4 fixed w-full top-0 z-50">
-                <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-center text-sm">
-                    <AlertTriangle className="w-4 h-4 mr-2" />
-                    <span className="font-semibold mr-4">Crisis Support Available 24/7:</span>
-                    <a href="tel:988" className="mr-6 hover:underline focus:outline-none focus:ring-2 focus:ring-red-300 rounded px-2 py-1 flex items-center">
-                        <Phone className="w-3 h-3 mr-1" />
-                        988 Crisis Lifeline
-                    </a>
-                    <a href="tel:911" className="mr-6 hover:underline focus:outline-none focus:ring-2 focus:ring-red-300 rounded px-2 py-1">
-                        Emergency: 911
-                    </a>
-                    <span className="mr-2">Crisis Text:</span>
-                    <span className="font-semibold">HOME to 741741</span>
-                </div>
-            </div>
-
             {/* Main Navigation */}
-            <nav className="bg-white shadow-sm fixed w-full top-12 z-40 border-b border-gray-200">
+            <nav className="bg-white shadow-sm sticky top-0 z-40 border-b border-gray-200">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
                         {/* Logo */}

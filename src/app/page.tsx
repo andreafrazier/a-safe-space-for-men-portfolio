@@ -121,19 +121,10 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="pt-28 bg-gradient-to-br from-emerald-50 to-blue-50 min-h-screen flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section className="pt-16 bg-gradient-to-br from-emerald-50 to-blue-50 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="mb-12">
-              <Image 
-                src="/images/breakthestigma-green.png" 
-                alt="Break the Stigma - Green awareness ribbon with supportive text promoting mental health awareness"
-                width={1000}
-                height={500}
-                className="mx-auto w-full max-w-5xl h-auto"
-                priority
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1024px"
-              />
+            <div className="mb-8">
             </div>
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
               Empower Your Journey
