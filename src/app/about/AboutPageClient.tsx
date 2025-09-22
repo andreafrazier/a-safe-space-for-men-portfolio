@@ -16,19 +16,17 @@ export default function AboutPageClient() {
   const [selectedBio, setSelectedBio] = useState<TeamMember | null>(null);
   
   return (
-    <div className="min-h-screen bg-white">
-      {/* Enhanced Hero Section */}
-      <section className="pt-24 bg-gradient-to-br from-emerald-50 to-blue-50 min-h-screen flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div className="min-h-screen bg-gray-50">
+      <section className="pt-16 bg-gradient-to-br from-emerald-50 to-blue-50 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            {/* Hero Image */}
             <div className="mb-8">
               <Image 
                 src="/images/breakthestigma-green.png"
-                alt="Break the Stigma - Green awareness ribbon promoting mental health awareness"
+                alt="Mental health resources and support network illustration"
                 width={400}
                 height={200}
-                className="mx-auto mb-8 max-w-md w-full h-auto"
+                className="mx-auto mb-6 max-w-md w-full h-auto rounded-lg"
                 priority
               />
             </div>

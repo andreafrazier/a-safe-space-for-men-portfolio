@@ -15,9 +15,9 @@ const Navbar = () => {
     const menuItems = [
         { href: '/', label: 'Home' },
         { href: '/about', label: 'About' },
-        { href: '/suicide-prevention', label: 'Suicide Prevention'},
         { href: '/join', label: 'Join' },
-        { href: '/resources', label: 'Resources' },
+        { href: '/suicide-prevention', label: 'Suicide Prevention'},
+        { href: '/therapists', label: 'Therapists' },
         { href: '/community', label: 'Community' },
     ];
 
