@@ -10,14 +10,15 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center overflow-hidden">
+            <div className="flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-lg p-2 group">
+              <div className="w-10 h-10 flex items-center justify-center relative overflow-hidden rounded-lg transition-transform group-hover:scale-105">
                 <Image 
                   src="/images/handshake-wordcloud.png"
                   alt="A Safe Space For Men logo"
                   width={40}
                   height={40}
-                  className="object-cover"
+                  className="object-contain w-full h-full"
+                  priority
                 />
               </div>
               <span className="font-bold text-xl">A Safe Space For Men</span>
@@ -26,7 +27,13 @@ const Footer = () => {
               Creating community for men's mental health in Detroit and beyond.
             </p>
             <p className="text-gray-400 text-sm">
-              For Event Partnerships or Sponsorships, please contact: [Contact information to be added]
+              For Event Partnerships or Sponsorships, please contact:{' '}
+              <a
+                href="mailto:asafespaceformen@gmail.com"
+                className="text-emerald-400 hover:text-emerald-300 underline transition-colors"
+              >
+                asafespaceformen@gmail.com
+              </a>
             </p>
           </div>
           <div>

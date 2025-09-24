@@ -35,19 +35,20 @@ const Header = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
                         {/* Logo */}
-                        <Link href='/' className="flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-lg p-2">
-                            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center overflow-hidden shadow-lg">
+                        <Link href='/' className="flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-lg p-2 group">
+                            <div className="w-12 h-12 flex items-center justify-center relative overflow-hidden rounded-lg transition-transform group-hover:scale-105">
                                 <Image 
                                     src="/images/handshake-wordcloud.png"
                                     alt="A Safe Space For Men logo - handshake with supportive words"
                                     width={48}
                                     height={48}
-                                    className="object-cover rounded-lg"
+                                    className="object-contain w-full h-full"
+                                    priority
                                 />
                             </div>
                             <div className="flex flex-col">
-                                <span className="font-bold text-xl text-gray-800 leading-tight">A Safe Space For Men</span>
-                                <span className="text-xs text-gray-600 hidden sm:block">Men's Mental Health & Suicide Prevention</span>
+                                <span className="font-bold text-xl text-gray-800 leading-tight group-hover:text-emerald-600 transition-colors">A Safe Space For Men</span>
+                                <span className="text-xs text-gray-600 hidden sm:block leading-tight">Men's Mental Health & Suicide Prevention</span>
                             </div>
                         </Link>
                         
