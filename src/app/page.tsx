@@ -127,7 +127,7 @@ const HomePage = () => {
             <div className="mb-8">
             </div>
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-              Empower Your Journey
+              Your Mental Health Matters
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
               Together, we can break the stigma and foster hope.
@@ -138,7 +138,7 @@ const HomePage = () => {
             </p>
 
             {/* Crisis Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-8">
               <a 
                 href="tel:988"
                 className="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 flex items-center justify-center"
@@ -155,7 +155,7 @@ const HomePage = () => {
             </div>
             
             {/* Secondary Actions */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
               <Link 
                 href="/join"
                 className="border-2 border-emerald-600 text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
@@ -164,7 +164,7 @@ const HomePage = () => {
               </Link>
               <Link 
                 href="/about"
-                className="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                className="border-2 border-gray-400 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
               >
                 Learn About Our Mission
               </Link>
