@@ -17,7 +17,7 @@ const Header = () => {
         { href: '/about', label: 'About' },
         { href: '/join', label: 'Join' },
         { href: '/suicide-prevention', label: 'Suicide Prevention', priority: true },
-        { href: '/therapists', label: 'Therapists' },
+        { href: '/therapists', label: 'Therapy Network' },
         { href: '/community-updates', label: 'Community' },
     ];
 
@@ -75,7 +75,7 @@ const Header = () => {
                                 href="/#donation" 
                                 className="bg-emerald-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-md"
                             >
-                                Support Our Mission
+                                Donate Now
                             </Link>
                         </div>
 
@@ -123,7 +123,7 @@ const Header = () => {
                                 onClick={() => setIsMenuOpen(false)}
                                 className="block mx-4 mt-4 px-4 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 text-center"
                             >
-                                Support Our Mission
+                                Donate Now
                             </Link>
                         </div>
                     </div>

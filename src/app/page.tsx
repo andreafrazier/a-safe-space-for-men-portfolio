@@ -127,7 +127,7 @@ const HomePage = () => {
             <div className="mb-8">
             </div>
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-              Empower Your Journey
+              Your Mental Health Matters
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
               Together, we can break the stigma and foster hope.

@@ -1,12 +1,12 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import {Menu, Navigation, X } from 'lucide-react';
+import {Menu, X } from 'lucide-react';
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from 'next/image';
 
-const Navbar = () => {
+const NavBar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname();
 
@@ -17,7 +17,7 @@ const Navbar = () => {
         { href: '/about', label: 'About' },
         { href: '/join', label: 'Join' },
         { href: '/suicide-prevention', label: 'Suicide Prevention'},
-        { href: '/therapists', label: 'Therapists' },
+        { href: '/therapists', label: 'Therapy Network' },
         { href: '/community', label: 'Community' },
     ];
 
@@ -31,19 +31,8 @@ const Navbar = () => {
     return (
       <>             
 
-        {/* Emergency Crisis Bar */}
-        <div className='bg-red-600 text-white py-2 px-4 fixed w-full top-0 z-50'>
-          <div className='max-w-7xl mx-auto flex flex-wrap items-center justify-center text-sm'>
-            <span className="font-semibold mr-4">Emergency:</span>
-            <a href="tel:988" className="mr-6 hover:underline">988 Crisis Lifeline</a>
-            <a href="tel:911" className="mr-6 hover:underline">911 Emergency</a>
-            <span className="mr-2">Crisis Text:</span>
-            <span className="font-semibold">HOME to 741741</span>
-          </div>
-        </div>
-
         {/* Main Navigation */}
-        <Navigation className='bg-white shadow-sm fixed w-full top-8 z-40'>
+        <nav className='bg-white shadow-sm fixed w-full top-8 z-40'>
           <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
             <div className='flex justify-between items-center h-16'>
               {/* Logo */}
@@ -67,8 +56,8 @@ const Navbar = () => {
               <a href="#home" className="text-gray-700 hover:text-emerald-600 transition-colors">Home</a>
               <a href="#about" className="text-gray-700 hover:text-emerald-600 transition-colors">About</a>
               <a href="#suicide-prevention" className="text-gray-700 hover:text-emerald-600 transition-colors">Suicide Prevention</a>
-              <a href="#join" className="text-gray-700 hover:text-emerald-600 transition-colors">Join Us</a>
-              <a href="#resources" className="text-gray-700 hover:text-emerald-600 transition-colors">Resources</a>
+              <a href="#join" className="text-gray-700 hover:text-emerald-600 transition-colors">Join</a>
+              <a href="#therapists" className="text-gray-700 hover:text-emerald-600 transition-colors">Therapy Network</a>
               <a href="#community" className="text-gray-700 hover:text-emerald-600 transition-colors">Community</a>
               <a href="#donation" className="bg-emerald-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-emerald-700 transition-colors">
                 Donate Now
@@ -114,9 +103,9 @@ const Navbar = () => {
               </div>
             </div>
           )}
-        </Navigation>
+        </nav>
     </>
   );
 };
 
-export default Navigation;
+export default NavBar;
