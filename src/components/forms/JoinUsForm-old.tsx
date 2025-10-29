@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Users, Heart, Calendar, Mail, Phone, User, MapPin, CheckCircle, AlertCircle, MessageSquare } from 'lucide-react';
+import { Users, Heart, Calendar, Mail, Phone, User, MapPin, CheckCircle, AlertCircle } from 'lucide-react';
 
 const JoinUsForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -13,10 +13,6 @@ const JoinUsForm = () => {
     phone: '',
     city: '',
     state: 'Michigan',
-    preferredContact: 'email',
-    hearAboutUs: '',
-    hearAboutUsOther: '',
-    interestedInVolunteering: false,
     interests: [] as string[],
     availability: [] as string[],
     experience: '',
@@ -44,40 +40,14 @@ const JoinUsForm = () => {
     { id: 'flexible', label: 'Flexible Schedule' }
   ];
 
-  const contactMethods = [
-    { value: 'email', label: 'Email', icon: <Mail className="w-4 h-4" /> },
-    { value: 'phone', label: 'Phone Call', icon: <Phone className="w-4 h-4" /> },
-    { value: 'text', label: 'Text Message', icon: <MessageSquare className="w-4 h-4" /> }
-  ];
-
-  const referralSources = [
-    'Search Engine (Google, Bing, etc.)',
-    'Social Media (Facebook, Instagram, Twitter)',
-    'Friend or Family Member',
-    'Healthcare Provider',
-    'Mental Health Professional',
-    'Community Event',
-    'Barbershop or Local Business',
-    'Online Article or Blog',
-    'Detroit Community Organization',
-    'Other (please specify below)'
-  ];
-
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
     
     if (type === 'checkbox') {
       const checked = (e.target as HTMLInputElement).checked;
       setFormData(prev => ({ ...prev, [name]: checked }));
-    } else if (type === 'radio') {
-      setFormData(prev => ({ ...prev, [name]: value }));
     } else {
       setFormData(prev => ({ ...prev, [name]: value }));
-      
-      // Clear "Other" text field if referral source changes away from "Other"
-      if (name === 'hearAboutUs' && !value.includes('Other')) {
-        setFormData(prev => ({ ...prev, hearAboutUsOther: '' }));
-      }
     }
   };
 
@@ -91,13 +61,13 @@ const JoinUsForm = () => {
   };
 
   const handleAvailabilityChange = (availabilityId: string) => {
-    setFormData(prev => ({
-      ...prev,
-      availability: prev.availability.includes(availabilityId)
-        ? prev.availability.filter(id => id !== availabilityId)
-        : [...prev.availability, availabilityId]
-    }));
-  };
+  setFormData(prev => ({
+    ...prev,
+    availability: prev.availability.includes(availabilityId)
+      ? prev.availability.filter(id => id !== availabilityId)
+      : [...prev.availability, availabilityId]
+  }));
+};
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -118,10 +88,6 @@ const JoinUsForm = () => {
       formParams.append('phone', formData.phone);
       formParams.append('city', formData.city);
       formParams.append('state', formData.state);
-      formParams.append('preferredContact', formData.preferredContact);
-      formParams.append('hearAboutUs', formData.hearAboutUs);
-      formParams.append('hearAboutUsOther', formData.hearAboutUsOther);
-      formParams.append('interestedInVolunteering', formData.interestedInVolunteering ? 'Yes' : 'No');
       formParams.append('interests', formData.interests.join(', '));
       formParams.append('availability', formData.availability.join(', '));
       formParams.append('experience', formData.experience);
@@ -149,10 +115,6 @@ const JoinUsForm = () => {
           phone: '',
           city: '',
           state: 'Michigan',
-          preferredContact: 'email',
-          hearAboutUs: '',
-          hearAboutUsOther: '',
-          interestedInVolunteering: false,
           interests: [],
           availability: [],
           experience: '',
@@ -326,52 +288,6 @@ const JoinUsForm = () => {
           </div>
         </div>
 
-        {/* Preferred Contact Method */}
-        <div className="mb-8">
-          <label className="block text-sm font-semibold text-gray-700 mb-4">
-            How would you prefer we contact you? *
-          </label>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {contactMethods.map((method) => (
-              <label
-                key={method.value}
-                className={`flex items-center p-4 border-2 rounded-lg cursor-pointer transition-all ${
-                  formData.preferredContact === method.value
-                    ? 'border-emerald-500 bg-emerald-50'
-                    : 'border-gray-300 hover:border-emerald-300 hover:bg-emerald-50'
-                }`}
-              >
-                <input
-                  type="radio"
-                  name="preferredContact"
-                  value={method.value}
-                  checked={formData.preferredContact === method.value}
-                  onChange={handleInputChange}
-                  className="sr-only"
-                  required
-                />
-                <div className="flex items-center w-full">
-                  <div className={`mr-3 ${formData.preferredContact === method.value ? 'text-emerald-600' : 'text-gray-400'}`}>
-                    {method.icon}
-                  </div>
-                  <span className={`text-sm font-medium ${formData.preferredContact === method.value ? 'text-emerald-800' : 'text-gray-700'}`}>
-                    {method.label}
-                  </span>
-                  <div className={`ml-auto w-5 h-5 rounded-full border-2 flex items-center justify-center ${
-                    formData.preferredContact === method.value 
-                      ? 'border-emerald-500' 
-                      : 'border-gray-300'
-                  }`}>
-                    {formData.preferredContact === method.value && (
-                      <div className="w-3 h-3 bg-emerald-500 rounded-full"></div>
-                    )}
-                  </div>
-                </div>
-              </label>
-            ))}
-          </div>
-        </div>
-
         {/* Location */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <div>
@@ -398,7 +314,7 @@ const JoinUsForm = () => {
               name="state"
               value={formData.state}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors text-gray-900"
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors text-gray-900 placeholder-gray-500"
             >
               <option value="Michigan">Michigan</option>
               <option value="Ohio">Ohio</option>
@@ -407,45 +323,6 @@ const JoinUsForm = () => {
               <option value="Other">Other</option>
             </select>
           </div>
-        </div>
-
-        {/* How Did You Hear About Us */}
-        <div className="mb-8">
-          <label htmlFor="hearAboutUs" className="block text-sm font-semibold text-gray-700 mb-2">
-            How did you hear about us?
-          </label>
-          <select
-            id="hearAboutUs"
-            name="hearAboutUs"
-            value={formData.hearAboutUs}
-            onChange={handleInputChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors text-gray-900"
-          >
-            <option value="">Select an option...</option>
-            {referralSources.map((source) => (
-              <option key={source} value={source}>
-                {source}
-              </option>
-            ))}
-          </select>
-          
-          {/* Conditional "Other" text field */}
-          {formData.hearAboutUs.includes('Other') && (
-            <div className="mt-4">
-              <label htmlFor="hearAboutUsOther" className="block text-sm font-semibold text-gray-700 mb-2">
-                Please specify:
-              </label>
-              <input
-                type="text"
-                id="hearAboutUsOther"
-                name="hearAboutUsOther"
-                value={formData.hearAboutUsOther}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors text-gray-900 placeholder-gray-500"
-                placeholder="Please tell us how you heard about us"
-              />
-            </div>
-          )}
         </div>
 
         {/* Interests */}
@@ -477,30 +354,6 @@ const JoinUsForm = () => {
                 </div>
               </label>
             ))}
-          </div>
-        </div>
-
-        {/* Interested in Volunteering */}
-        <div className="mb-8">
-          <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-6">
-            <label className="flex items-start cursor-pointer">
-              <input
-                type="checkbox"
-                name="interestedInVolunteering"
-                checked={formData.interestedInVolunteering}
-                onChange={handleInputChange}
-                className="mt-1 mr-3 h-5 w-5 text-emerald-600 focus:ring-emerald-500 border-gray-300 rounded"
-              />
-              <div>
-                <span className="text-sm font-semibold text-emerald-900 block mb-1">
-                  Interested in Volunteering for Events
-                </span>
-                <span className="text-sm text-emerald-700">
-                  Help us organize and support community events, workshops, and support group sessions. 
-                  We'll reach out with volunteer opportunities that match your interests and availability.
-                </span>
-              </div>
-            </label>
           </div>
         </div>
 
