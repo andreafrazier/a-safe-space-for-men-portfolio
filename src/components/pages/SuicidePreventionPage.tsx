@@ -192,7 +192,7 @@ const SuicidePreventionPageComponent = () => {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap items-center justify-center text-center">
             <AlertTriangle className="w-5 h-5 mr-2" />
-            <span className="font-semibold mr-4">Crisis? Get Help Now:</span>
+            <span className="font-semibold mr-4">In Crisis? Get Help Now:</span>
             <a href="tel:988" className="mr-6 hover:underline focus:outline-none focus:ring-2 focus:ring-red-300 rounded px-2 py-1">
               <Phone className="w-4 h-4 inline mr-1" />988 Crisis Lifeline
             </a>

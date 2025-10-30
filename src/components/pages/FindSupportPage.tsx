@@ -8,6 +8,7 @@ import {
   Stethoscope, Home, Globe, Calendar
 } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Resource {
   id: number;
@@ -23,19 +24,16 @@ interface Resource {
   rating: number;
   reviewCount: number;
   lastUpdated: string;
-  urgent?: boolean;
   acceptsInsurance: boolean;
   languages?: string[];
 }
 
-const ResourcesPageComponent = () => {
+const FindSupportPageComponent = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [showFilters, setShowFilters] = useState(false);
 
   const categories = [
     { id: 'all', name: 'All Resources', icon: <Globe className="w-4 h-4" /> },
-    { id: 'crisis', name: 'Crisis Support', icon: <AlertTriangle className="w-4 h-4" /> },
     { id: 'therapy', name: 'Individual Therapy', icon: <Brain className="w-4 h-4" /> },
     { id: 'groups', name: 'Support Groups', icon: <Users className="w-4 h-4" /> },
     { id: 'addiction', name: 'Addiction Treatment', icon: <Shield className="w-4 h-4" /> },
@@ -43,63 +41,11 @@ const ResourcesPageComponent = () => {
     { id: 'specialized', name: 'Specialized Services', icon: <Heart className="w-4 h-4" /> }
   ];
 
+  // Resources array with crisis resources removed (previously items 1-3)
   const resources: Resource[] = [
-    // CRISIS SUPPORT
-    {
-      id: 1,
-      name: "988 Suicide & Crisis Lifeline",
-      description: "24/7 free and confidential crisis support for people in distress and those around them.",
-      category: "crisis",
-      location: "National - Available Everywhere",
-      phone: "988",
-      website: "https://988lifeline.org",
-      cost: "Free",
-      hours: "24/7",
-      specialties: ["Crisis intervention", "Suicide prevention", "Emotional support"],
-      rating: 4.9,
-      reviewCount: 15420,
-      lastUpdated: "2025-01-15",
-      urgent: true,
-      acceptsInsurance: false
-    },
-    {
-      id: 2,
-      name: "Detroit Wayne Integrated Health Network",
-      description: "Detroit's community mental health organization providing crisis services and ongoing support.",
-      category: "crisis",
-      location: "707 W. Milwaukee Ave, Detroit",
-      phone: "(313) 833-2500",
-      website: "https://www.dwihn.org",
-      cost: "Free/Sliding Scale",
-      hours: "24/7 Crisis Line",
-      specialties: ["Crisis services", "Mental health", "Substance abuse"],
-      rating: 4.2,
-      reviewCount: 287,
-      lastUpdated: "2025-01-10",
-      urgent: true,
-      acceptsInsurance: true
-    },
-    {
-      id: 3,
-      name: "Crisis Text Line",
-      description: "Free 24/7 support via text message for people in crisis.",
-      category: "crisis",
-      location: "Text-based Support",
-      phone: "Text HOME to 741741",
-      website: "https://www.crisistextline.org",
-      cost: "Free",
-      hours: "24/7",
-      specialties: ["Text support", "Crisis counseling", "Mental health"],
-      rating: 4.6,
-      reviewCount: 8932,
-      lastUpdated: "2025-01-15",
-      urgent: true,
-      acceptsInsurance: false
-    },
-
     // INDIVIDUAL THERAPY
     {
-      id: 4,
+      id: 1,
       name: "Mike Lamerato, MS, LLP - Men's Therapy",
       description: "Licensed therapist specializing in men's issues, trauma, and emotional wellness in Metro Detroit.",
       category: "therapy",
@@ -116,7 +62,7 @@ const ResourcesPageComponent = () => {
       languages: ["English"]
     },
     {
-      id: 5,
+      id: 2,
       name: "Dr. Chris Allen Shreve - Trauma Specialist",
       description: "Trauma specialist focusing on men's mental health, substance abuse, and life transitions.",
       category: "therapy",
@@ -132,7 +78,7 @@ const ResourcesPageComponent = () => {
       languages: ["English", "Spanish"]
     },
     {
-      id: 6,
+      id: 3,
       name: "Jordan Fields - Clinical Therapist",
       description: "Clinical therapist intern specializing in general counseling and men's issues with fresh perspectives.",
       category: "therapy",
@@ -148,7 +94,7 @@ const ResourcesPageComponent = () => {
       languages: ["English"]
     },
     {
-      id: 7,
+      id: 4,
       name: "Psychology Today - Detroit Therapists",
       description: "Comprehensive directory of licensed therapists, psychologists, and psychiatrists in the Detroit area with detailed profiles and specialties.",
       category: "therapy",
@@ -167,7 +113,7 @@ const ResourcesPageComponent = () => {
     
     // SUPPORT GROUPS
     {
-      id: 8,
+      id: 5,
       name: "NAMI Metro Detroit Support Groups",
       description: "Free support groups for individuals with mental health conditions and their families.",
       category: "groups",
@@ -183,7 +129,7 @@ const ResourcesPageComponent = () => {
       acceptsInsurance: false
     },
     {
-      id: 9,
+      id: 6,
       name: "Men's Mental Health Support Group",
       description: "Weekly support group specifically for men dealing with depression, anxiety, and life challenges.",
       category: "groups",
@@ -200,7 +146,7 @@ const ResourcesPageComponent = () => {
 
     // ADDICTION TREATMENT
     {
-      id: 10,
+      id: 7,
       name: "Detroit Recovery Project",
       description: "Certified Community Behavioral Health Clinic providing outpatient addiction and mental health services.",
       category: "addiction",
@@ -217,7 +163,7 @@ const ResourcesPageComponent = () => {
       languages: ["English", "Spanish", "Arabic"]
     },
     {
-      id: 11,
+      id: 8,
       name: "Salvation Army Adult Rehabilitation Center",
       description: "180-day residential program for men with substance abuse issues, including spiritual support.",
       category: "addiction",
@@ -233,7 +179,7 @@ const ResourcesPageComponent = () => {
       acceptsInsurance: false
     },
     {
-      id: 12,
+      id: 9,
       name: "Mariners Inn",
       description: "Nonprofit organization providing shelter and addiction recovery services since 1925.",
       category: "addiction",
@@ -250,7 +196,7 @@ const ResourcesPageComponent = () => {
 
     // FREE/LOW-COST
     {
-      id: 13,
+      id: 10,
       name: "Central City Health",
       description: "Community health center providing mental health, medical, and re-entry services.",
       category: "free",
@@ -266,7 +212,7 @@ const ResourcesPageComponent = () => {
       languages: ["English", "Spanish", "Arabic"]
     },
     {
-      id: 14,
+      id: 11,
       name: "CARE of Southeast Michigan",
       description: "Free mental health and substance abuse support for parents, youth, and adults.",
       category: "free",
@@ -283,7 +229,7 @@ const ResourcesPageComponent = () => {
 
     // SPECIALIZED SERVICES
     {
-      id: 15,
+      id: 12,
       name: "LGBT Detroit Mental Health Services",
       description: "Free mental health therapy for LGBTQ+ individuals experiencing mental health crises.",
       category: "specialized",
@@ -299,7 +245,7 @@ const ResourcesPageComponent = () => {
       acceptsInsurance: false
     },
     {
-      id: 16,
+      id: 13,
       name: "Michigan Veterans Affairs",
       description: "Mental health and substance abuse services specifically for veterans and their families.",
       category: "specialized",
@@ -324,8 +270,6 @@ const ResourcesPageComponent = () => {
     const matchesCategory = selectedCategory === 'all' || resource.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
-
-  const urgentResources = resources.filter(resource => resource.urgent);
 
   const selfAssessmentTools = [
     {
@@ -355,16 +299,7 @@ const ResourcesPageComponent = () => {
   ];
 
   const ResourceCard = ({ resource }: { resource: Resource }) => (
-    <div className={`bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow p-6 border-l-4 ${
-      resource.urgent ? 'border-red-500' : 'border-emerald-500'
-    }`}>
-      {resource.urgent && (
-        <div className="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm font-semibold mb-3 inline-block">
-          <AlertTriangle className="w-4 h-4 inline mr-1" />
-          Crisis Support
-        </div>
-      )}
-      
+    <div className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow p-6 border-l-4 border-emerald-500">
       <div className="flex justify-between items-start mb-3">
         <h3 className="text-xl font-bold text-gray-900">{resource.name}</h3>
         <div className="flex items-center space-x-1">
@@ -414,11 +349,7 @@ const ResourcesPageComponent = () => {
         <div className="flex space-x-2">
           <a
             href={`tel:${resource.phone}`}
-            className={`px-4 py-2 rounded-lg font-semibold transition-colors ${
-              resource.urgent 
-                ? 'bg-red-600 text-white hover:bg-red-700' 
-                : 'bg-emerald-600 text-white hover:bg-emerald-700'
-            }`}
+            className="px-4 py-2 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
           >
             <Phone className="w-4 h-4 inline mr-2" />
             Call Now
@@ -443,7 +374,31 @@ const ResourcesPageComponent = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
+      {/* Crisis Banner - Sticky at top */}
+      <div className="bg-red-600 text-white py-4 px-4 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-wrap items-center justify-center text-center">
+            <AlertTriangle className="w-5 h-5 mr-2" />
+            <Link 
+              href="/suicide-prevention" 
+              className="underline hover:text-red-100 font-semibold mr-4 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-600 rounded px-2 py-1"
+            >
+              In Crisis? Get Help Now:
+            </Link>
+            <span className="hidden sm:inline text-red-100">|</span>
+                <a href="tel:988" className="mr-6 hover:underline focus:outline-none focus:ring-2 focus:ring-red-300 rounded px-2 py-1">
+                    <Phone className="w-4 h-4 inline mr-1" />988 Crisis Lifeline
+                </a>
+                <a href="tel:911" className="mr-6 hover:underline focus:outline-none focus:ring-2 focus:ring-red-300 rounded px-2 py-1">
+                    Emergency: 911
+                </a>
+                <span className="text-sm">Text HOME to 741741</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Hero Section */}
       <section className="pt-16 bg-gradient-to-br from-emerald-50 to-blue-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -463,9 +418,8 @@ const ResourcesPageComponent = () => {
             <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
               Comprehensive mental health resources for men in Detroit and beyond
             </p>
-            <p className="text-lg text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Whether you're facing a crisis, looking for therapy, seeking support groups, or exploring treatment options, 
-              we've compiled trusted resources to help you on your mental health journey.
+            <p className="text-lg text-gray-700 mb-4 max-w-4xl mx-auto leading-relaxed">
+              Connect with therapists, join support groups, and access treatment resources for your ongoing mental health journey.
             </p>
             
             {/* Search Bar */}
@@ -486,7 +440,7 @@ const ResourcesPageComponent = () => {
       </section>
 
       {/* Filter Navigation */}
-      <section className="bg-white border-b border-gray-200 sticky top-16 z-30">
+      <section className="bg-white border-b border-gray-200 sticky top-12 z-30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex flex-wrap gap-2 justify-center">
             {categories.map((category) => (
@@ -506,28 +460,6 @@ const ResourcesPageComponent = () => {
           </div>
         </div>
       </section>
-
-      {/* Crisis Resources (Always Visible) */}
-      {selectedCategory === 'all' || selectedCategory === 'crisis' ? (
-        <section className="py-12 bg-red-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl font-bold text-red-800 mb-4 flex items-center justify-center">
-                <AlertTriangle className="w-8 h-8 mr-3" />
-                Crisis Support - Immediate Help Available
-              </h2>
-              <p className="text-lg text-red-700">
-                If you're in crisis or having thoughts of self-harm, these resources provide immediate support 24/7.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {urgentResources.map((resource) => (
-                <ResourceCard key={resource.id} resource={resource} />
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
 
       {/* Main Resources */}
       <section className="py-12">
@@ -611,18 +543,18 @@ const ResourcesPageComponent = () => {
             Join our community of men supporting men on the journey to better mental health.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
+            <Link 
               href="/join" 
               className="inline-flex items-center bg-white text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
             >
               Join Our Community <Users className="w-5 h-5 ml-2" />
-            </a>
-            <a 
+            </Link>
+            <Link 
               href="/#donation" 
               className="inline-flex items-center border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-emerald-600 transition-colors"
             >
               Support Our Mission <Heart className="w-5 h-5 ml-2" />
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -630,4 +562,4 @@ const ResourcesPageComponent = () => {
   );
 };
 
-export default ResourcesPageComponent;
+export default FindSupportPageComponent;
