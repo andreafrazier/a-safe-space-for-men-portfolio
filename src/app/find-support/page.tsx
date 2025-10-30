@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import TherapistsPageComponent from '@/components/pages/TherapistsPage';
+import FindSupportPageComponent from '@/components/pages/FindSupportPage';
 
 export const metadata: Metadata = {
   title: 'Mental Health Resources',
@@ -21,5 +21,5 @@ export const metadata: Metadata = {
 };
 
 export default function ResourcesPage() {
-  return <TherapistsPageComponent />;
+  return <FindSupportPageComponent />;
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from "react";
-import { Menu, X, AlertTriangle, } from "lucide-react";
+import { Menu, X, AlertTriangle, House } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Link from 'next/link';
 import Image from "next/image";
@@ -13,12 +13,11 @@ const Header = () => {
     const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
     const menuItems = [
-        { href: '/', label: 'Home' },
+        { href: '/', label: 'Home', icon: House, iconOnly: true },
         { href: '/about', label: 'About' },
         { href: '/join', label: 'Join' },
         { href: '/suicide-prevention', label: 'Suicide Prevention', priority: true },
-        { href: '/therapists', label: 'Therapy Network' },
-        { href: '/community-updates', label: 'Community' },
+        { href: '/find-support', label: 'Find Support' },
     ];
 
     const isActive = (href: string) => {
@@ -33,27 +32,27 @@ const Header = () => {
             {/* Main Navigation */}
             <nav className="bg-white shadow-sm sticky top-0 z-40 border-b border-gray-200">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between items-center h-16">
+                    <div className="flex items-center h-16">
                         {/* Logo */}
                         <Link href='/' className="flex items-center space-x-3 focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded-lg p-2 group">
                             <div className="w-12 h-12 flex items-center justify-center relative overflow-hidden rounded-lg transition-transform group-hover:scale-105">
                                 <Image 
                                     src="/images/handshake-wordcloud.png"
                                     alt="A Safe Space For Men logo - handshake with supportive words"
-                                    width={48}
-                                    height={48}
+                                    width={60}
+                                    height={60}
                                     className="object-contain w-full h-full"
                                     priority
                                 />
                             </div>
                             <div className="flex flex-col">
                                 <span className="font-bold text-xl text-gray-800 leading-tight group-hover:text-emerald-600 transition-colors">A Safe Space For Men</span>
-                                <span className="text-xs text-gray-600 hidden sm:block leading-tight">Men's Mental Health & Suicide Prevention</span>
+                                <span className="text-xs text-gray-600 hidden sm:block leading-tight">Mental Health Awareness & Suicide Prevention</span>
                             </div>
                         </Link>
                         
                         {/* Desktop Navigation */}
-                        <div className="hidden md:flex items-center space-x-8">
+                        <div className="hidden md:flex items-center space-x-10 ml-16">
                             {menuItems.map((item) => (
                                 <Link
                                     key={item.href}
@@ -63,18 +62,32 @@ const Header = () => {
                                             ? 'text-emerald-600 font-semibold border-b-2 border-emerald-600 pb-1'
                                             : item.priority
                                                 ? 'text-red-600 hover:text-red-700 hover:border-b-2 hover:border-red-300 pb-1 font-semibold'
+                                                : item.iconOnly
+                                                ? 'text-emerald-600 hover:text-emerald-700 pb-1' 
                                                 : 'text-gray-700 hover:text-emerald-600 hover:border-b-2 hover:border-emerald-300 pb-1'
                                     }`}
                                 >
+                                    {item.iconOnly && item.icon ? (
+                                    <>
+                                        <item.icon 
+                                            className="w-5 h-5" 
+                                            aria-hidden="true"
+                                        />
+                                        <span className="sr-only">{item.label}</span>
+                                    </>
+                                ) : (
+                                    <>
                                     {item.label}
                                     {item.priority && (
                                         <AlertTriangle className="w-3 h-3 inline ml-1" />
-                                    )}
+                                        )}
+                                    </>
+                                )}
                                 </Link>
                             ))}
                             <Link 
                                 href="/#donation" 
-                                className="bg-emerald-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-md"
+                                className="ml-12 bg-emerald-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-md"
                             >
                                 Donate Now
                             </Link>
@@ -112,6 +125,7 @@ const Header = () => {
                                     }`}
                                 >
                                     <div className="flex items-center">
+                                        {item.icon && <item.icon className="w-5 h-5 mr-2" />}
                                         {item.label}
                                         {item.priority && (
                                             <AlertTriangle className="w-4 h-4 ml-2" />

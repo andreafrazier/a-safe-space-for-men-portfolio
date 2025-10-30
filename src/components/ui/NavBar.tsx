@@ -17,8 +17,7 @@ const NavBar = () => {
         { href: '/about', label: 'About' },
         { href: '/join', label: 'Join' },
         { href: '/suicide-prevention', label: 'Suicide Prevention'},
-        { href: '/therapists', label: 'Therapy Network' },
-        { href: '/community', label: 'Community' },
+        { href: '/find-support', label: 'Find Support' },
     ];
 
     const isActive = (href: string) => {
@@ -57,8 +56,7 @@ const NavBar = () => {
               <a href="#about" className="text-gray-700 hover:text-emerald-600 transition-colors">About</a>
               <a href="#suicide-prevention" className="text-gray-700 hover:text-emerald-600 transition-colors">Suicide Prevention</a>
               <a href="#join" className="text-gray-700 hover:text-emerald-600 transition-colors">Join</a>
-              <a href="#therapists" className="text-gray-700 hover:text-emerald-600 transition-colors">Therapy Network</a>
-              <a href="#community" className="text-gray-700 hover:text-emerald-600 transition-colors">Community</a>
+              <a href="#find-support" className="text-gray-700 hover:text-emerald-600 transition-colors">Find Support</a>
               <a href="#donation" className="bg-emerald-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-emerald-700 transition-colors">
                 Donate Now
               </a>

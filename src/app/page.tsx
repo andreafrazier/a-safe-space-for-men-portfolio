@@ -356,26 +356,26 @@ const HomePage = () => {
               <h3 className="text-2xl font-bold mb-6">Your Life-Saving Impact</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-sm">$25</span>
+                  <div className="w-9 h-9 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-emerald-600 font-bold text-sm">$25</span>
                   </div>
                   <p className="text-emerald-100">Provides crisis resource materials for one community member</p>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-sm">$50</span>
+                  <div className="w-9 h-9 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-emerald-600 font-bold text-sm">$50</span>
                   </div>
                   <p className="text-emerald-100">Funds gatekeeper training for community leaders and barbers</p>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-sm">$100</span>
+                  <div className="w-9 h-9 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-emerald-600 font-bold text-sm">$100</span>
                   </div>
                   <p className="text-emerald-100">Supports a suicide prevention education workshop</p>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-white font-bold text-sm">$250</span>
+                  <div className="w-9 h-9 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-emerald-600 font-bold text-sm">$250</span>
                   </div>
                   <p className="text-emerald-100">Sponsors comprehensive crisis support resources for one month</p>
                 </div>
