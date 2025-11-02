@@ -15,9 +15,11 @@ const Header = () => {
     const menuItems = [
         { href: '/', label: 'Home', icon: House, iconOnly: true },
         { href: '/about', label: 'About' },
-        { href: '/join', label: 'Join' },
-        { href: '/suicide-prevention', label: 'Suicide Prevention', priority: true },
+        { href: '/start-here', label: 'Start Here' },
         { href: '/find-support', label: 'Find Support' },
+        { href: '/join', label: 'Join' },
+        // { href: '/suicide-prevention', label: 'Suicide Prevention', priority: true },
+        { href: '/events', label: 'Events' },  
     ];
 
     const isActive = (href: string) => {
@@ -60,8 +62,8 @@ const Header = () => {
                                     className={`transition-colors font-medium ${
                                         isActive(item.href)
                                             ? 'text-emerald-600 font-semibold border-b-2 border-emerald-600 pb-1'
-                                            : item.priority
-                                                ? 'text-red-600 hover:text-red-700 hover:border-b-2 hover:border-red-300 pb-1 font-semibold'
+                                            // : item.priority
+                                            //     ? 'text-red-600 hover:text-red-700 hover:border-b-2 hover:border-red-300 pb-1 font-semibold'
                                                 : item.iconOnly
                                                 ? 'text-emerald-600 hover:text-emerald-700 pb-1' 
                                                 : 'text-gray-700 hover:text-emerald-600 hover:border-b-2 hover:border-emerald-300 pb-1'
@@ -78,9 +80,9 @@ const Header = () => {
                                 ) : (
                                     <>
                                     {item.label}
-                                    {item.priority && (
+                                    {/* {item.priority && (
                                         <AlertTriangle className="w-3 h-3 inline ml-1" />
-                                        )}
+                                        )} */}
                                     </>
                                 )}
                                 </Link>
@@ -119,17 +121,17 @@ const Header = () => {
                                     className={`block px-4 py-3 transition-colors rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 ${
                                         isActive(item.href)
                                             ? 'text-emerald-600 font-semibold bg-emerald-50 border-l-4 border-emerald-600'
-                                            : item.priority
-                                                ? 'text-red-600 hover:text-red-700 hover:bg-red-50 font-semibold border-l-4 border-red-200'
+                                            // : item.priority
+                                            //     ? 'text-red-600 hover:text-red-700 hover:bg-red-50 font-semibold border-l-4 border-red-200'
                                                 : 'text-gray-700 hover:text-emerald-600 hover:bg-gray-50'
                                     }`}
                                 >
                                     <div className="flex items-center">
                                         {item.icon && <item.icon className="w-5 h-5 mr-2" />}
                                         {item.label}
-                                        {item.priority && (
+                                        {/* {item.priority && (
                                             <AlertTriangle className="w-4 h-4 ml-2" />
-                                        )}
+                                        )} */}
                                     </div>
                                 </Link>
                             ))}

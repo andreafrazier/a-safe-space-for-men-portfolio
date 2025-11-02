@@ -1,69 +1,93 @@
 import React from "react";
-import { Calendar, Users, Heart, ArrowRight, AlertTriangle, Shield, Phone } from 'lucide-react';
+import { 
+  Calendar, Users, Heart, ArrowRight, CheckCircle, Shield, 
+  Brain, Stethoscope, Phone, MessageSquare, Activity
+} from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
-//import DonationForm from '../components/ui/DonationForm';
-
-
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: 'Suicide Prevention & Men\'s Mental Health - Detroit and surrounding areas',
-    description: 'A Safe Space For Men aims to foster resilience, improve mental health and suicide prevention statistics, and cultivate a culture where every man feels seen, heard, and supported.',
-    keywords: ['suicide prevention', 'men\'s mental health', 'Detroit', 'crisis support', '988 crisis lifeline', 'mental health emergency'],
+    title: 'A Safe Space For Men - Men\'s Mental Health & Community Support in Detroit',
+    description: 'Community-based mental health support for men in Detroit. Free support groups, resources, and connections for men dealing with stress, anxiety, depression, and life\'s challenges.',
+    keywords: ['men\'s mental health', 'Detroit', 'support groups', 'mental health resources', 'men\'s wellness', 'therapy', 'community support'],
   };
 }
 
 const HomePage = () => {
   const stats = [
     {
-      percentage: "4x",
-      description: "higher suicide rate for men than women",
-      icon: <AlertTriangle className="w-8 h-8 text-red-600" />,
-      context: "crisis"
+      percentage: "75%",
+      description: "of men report feeling stress or anxiety regularly, but most never seek support",
+      icon: <Activity className="w-8 h-8 text-blue-600" />
     },
     {
-      percentage: "78%",
-      description: "of suicide deaths in Michigan are men",
-      icon: <AlertTriangle className="w-8 h-8 text-red-600" />,
-      context: "crisis"
+      percentage: "3x",
+      description: "Men are three times more likely to avoid seeking help due to stigma",
+      icon: <Brain className="w-8 h-8 text-purple-600" />
     },
     {
-      percentage: "25%",
-      description: "increase in Black male suicide rates from 2018-2023",
-      icon: <AlertTriangle className="w-8 h-8 text-red-600" />,
-      context: "crisis"
-    },
-    {
-      percentage: "90%",
-      description: "of suicides are preventable with proper intervention",
-      icon: <Shield className="w-8 h-8 text-emerald-600" />,
-      context: "hope"
+      percentage: "1 in 5",
+      description: "men will experience a mental health challenge this year—support changes outcomes",
+      icon: <Heart className="w-8 h-8 text-emerald-600" />
     }
   ];
 
-   const preventionAreas = [
+  const supportTypes = [
     {
-      title: "Crisis Intervention",
-      description: "24/7 access to crisis resources and immediate support for men in suicidal crisis.",
-      icon: <Phone className="w-8 h-8 text-red-600" />,
-      action: "Get Help Now",
-      href: "/suicide-prevention"
-    },
-    {
-      title: "Community Education",
-      description: "Breaking down stigma and teaching communities how to recognize warning signs and support men in crisis.",
-      icon: <Users className="w-8 h-8 text-emerald-600" />,
-      action: "Learn More",
-      href: "/suicide-prevention#warning-signs"
-    },
-    {
-      title: "Support Networks",
-      description: "Building connections and safe spaces where men can discuss mental health without judgment.",
-      icon: <Heart className="w-8 h-8 text-emerald-600" />,
-      action: "Join Community",
+      title: "Peer Support Groups",
+      description: "Weekly gatherings where men talk openly about stress, anxiety, relationships, and life challenges in a judgment-free environment.",
+      icon: <Users className="w-8 h-8 text-white" />,
+      bgColor: "bg-emerald-600",
       href: "/join"
+    },
+    {
+      title: "Mental Health Resources",
+      description: "Access to therapists, treatment centers, and support services throughout Detroit—all culturally competent and experienced with men's mental health.",
+      icon: <Brain className="w-8 h-8 text-white" />,
+      bgColor: "bg-blue-600",
+      href: "/find-support"
+    },
+    {
+      title: "Education & Advocacy",
+      description: "We're changing the conversation around men's mental health through community events, workshops, and breaking the stigma that keeps men silent.",
+      icon: <Heart className="w-8 h-8 text-white" />,
+      bgColor: "bg-purple-600",
+      href: "/about"
+    }
+  ];
+
+  const struggles = [
+    {
+      title: "Feeling Overwhelmed",
+      description: "Work stress, financial pressure, or just feeling like everything's too much",
+      icon: <CheckCircle className="w-6 h-6 text-emerald-600" />
+    },
+    {
+      title: "Struggling with Relationships",
+      description: "Marriage, dating, family conflicts, or feeling disconnected from loved ones",
+      icon: <CheckCircle className="w-6 h-6 text-emerald-600" />
+    },
+    {
+      title: "Dealing with Loss",
+      description: "Grief, loss of a loved one, job loss, or major life transitions",
+      icon: <CheckCircle className="w-6 h-6 text-emerald-600" />
+    },
+    {
+      title: "Feeling Isolated",
+      description: "Lonely, disconnected, or like no one really gets what you're going through",
+      icon: <CheckCircle className="w-6 h-6 text-emerald-600" />
+    },
+    {
+      title: "Anxiety or Depression",
+      description: "Persistent worry, low mood, or just not feeling like yourself",
+      icon: <CheckCircle className="w-6 h-6 text-emerald-600" />
+    },
+    {
+      title: "Looking for Community",
+      description: "Want to connect with other men who understand and support each other",
+      icon: <CheckCircle className="w-6 h-6 text-emerald-600" />
     }
   ];
 
@@ -76,169 +100,135 @@ const HomePage = () => {
     {
       quote: "Finding this community changed my perspective on vulnerability. It's okay to not be okay, and it's strength to seek help.",
       name: "David L.",
-      role: "Community Advocate"
+      role: "Support Group Participant"
     },
     {
-      quote: "The resources and connections I found here literally saved my life. I'm grateful for this safe space.",
+      quote: "I came here feeling lost and overwhelmed. I left with connections, resources, and hope. This place is doing important work.",
       name: "James R.",
-      role: "Discussion Group Participant"
+      role: "Community Advocate"
     }
   ];
 
   const upcomingEvents = [
     {
-      title: "Men's SAFE SPACE Discussion Group",
-      date: "Monthly - Ongoing", 
-      time: "TBD",
-      location: "Safe Space Locations",
-      description: "Judgment free discussion groups where men can openly discuss and prioritize their emotional well-being."
+      title: "Weekly Men's Support Group",
+      date: "Every Thursday", 
+      time: "7:00 PM - 8:30 PM",
+      location: "SafetyZone, Detroit",
+      description: "A safe space for men to openly discuss mental health challenges and support each other."
     },
     {
-      title: "Suicide Prevention Gatekeeper Training",
-      date: "Spring 2026",
-      time: "TBD",
-      location: "Detroit Community Centers",
-      description: "Training community members to recognize warning signs and connect people to life-saving resources."
+      title: "Managing Stress & Anxiety Workshop",
+      date: "November 20, 2025",
+      time: "6:00 PM - 7:30 PM", 
+      location: "Virtual (Zoom)",
+      description: "Practical strategies for managing stress and anxiety in daily life with expert facilitators."
     },
     {
-      title: "Community Mental Health Awareness",
-      date: "Summer 2026",
-      time: "TBD", 
-      location: "Detroit Metro Area",
-      description: "Public education events to reduce stigma and increase awareness of men's suicide prevention."
+      title: "Community Walk for Men's Mental Health",
+      date: "November 22, 2025",
+      time: "9:00 AM - 12:00 PM",
+      location: "Belle Isle Park",
+      description: "Join us for a 5K community walk to raise awareness and connect with other men."
     }
   ];
 
   const partners = [
-    { name: "Detroit Mental Health Alliance", logo: "🤝" },
-    { name: "Michigan Men's Health Initiative", logo: "💪" },
-    { name: "Community Wellness Center", logo: "🏥" },
-    { name: "Barbershop Collective", logo: "✂️" },
-    { name: "Local Faith Communities", logo: "⛪" },
-    { name: "Detroit Therapy Network", logo: "🧠" }
+    { name: "SafetyZone Behavioral Health", description: "Urgent Care Partner" },
+    { name: "Henry Ford Health", description: "Healthcare Partner" },
+    { name: "DWHIN", description: "Network Partner" },
+    { name: "Meijer", description: "Community Partner" }
   ];
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section */}
-      <section className="pt-16 bg-gradient-to-br from-emerald-50 to-blue-50 py-20">
+      {/* Hero Section - Updated Messaging */}
+      <section className="pt-16 bg-gradient-to-br from-emerald-50 via-blue-50 to-teal-50 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <div className="mb-8">
-            </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-6">
-              Your Mental Health Matters
+            {/* <div className="mb-8">
+              <Image 
+                src="/images/handshake.png"
+                alt="Men supporting each other through mental health challenges"
+                width={400}
+                height={200}
+                className="mx-auto max-w-md w-full h-auto rounded-lg"
+                priority
+              />
+            </div> */}
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              You Don't Have to Carry <br className="hidden md:block"/>Everything Alone
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Together, we can break the stigma and foster hope.
+            
+            <p className="text-xl md:text-2xl text-gray-700 mb-6 max-w-4xl mx-auto">
+              A Safe Space For Men provides mental health support, community connection, 
+              and resources for men in Detroit facing life's challenges.
             </p>
-            <p className="text-lg text-gray-700 mb-12 max-w-4xl mx-auto leading-relaxed">
-              A SAFE SPACE FOR MEN PROVIDES SUICIDE PREVENTION RESOURCES, CRISIS SUPPORT, AND MENTAL HEALTH ADVOCACY 
-              SPECIFICALLY DESIGNED FOR MEN IN DETROIT AND BEYOND.
+            
+            <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+              Whether you're dealing with stress, anxiety, depression, relationship struggles, 
+              or just feeling overwhelmed—this is your space. No judgment. Just support.
             </p>
 
-            {/* Crisis Action Buttons */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-8">
-              <a 
-                href="tel:988"
-                className="bg-red-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 flex items-center justify-center"
-              >
-                <Phone className="w-5 h-5 mr-2" />
-                Crisis Help: Call 988
-              </a>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <Link 
-                href="/suicide-prevention"
-                className="bg-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                href="/join" 
+                className="inline-flex items-center justify-center bg-emerald-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-emerald-700 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
               >
-                Prevention Resources
+                Join a Support Group <Users className="w-5 h-5 ml-2" />
+              </Link>
+              <Link 
+                href="/start-here" 
+                className="inline-flex items-center justify-center border-2 border-emerald-600 text-emerald-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+              >
+                Start Here <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
             </div>
             
-            {/* Secondary Actions */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto">
-              <Link 
-                href="/join"
-                className="border-2 border-emerald-600 text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
-              >
-                Join Our Community
-              </Link>
-              <Link 
-                href="/about"
-                className="border-2 border-gray-400 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
-              >
-                Learn About Our Mission
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Updated Mission Statement with Prevention Focus */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Suicide Prevention Mission</h2>
-            <div className="max-w-4xl mx-auto">
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                Our mission is to prevent male suicide through education, crisis intervention, and community support. 
-                We create safe, culturally relevant spaces where men can discuss mental health challenges, access 
-                life-saving resources, and build supportive networks that foster resilience and hope.
-              </p>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                By addressing the unique factors that contribute to men's higher suicide rates—including social isolation, 
-                stigma around help-seeking, and cultural barriers to emotional expression—we aim to save lives and 
-                create lasting change in Detroit and beyond.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Updated Stats Section with Suicide Prevention Focus */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">The Crisis We're Addressing</h2>
-            <p className="text-lg text-gray-600">Understanding the scope of male suicide and the power of prevention</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className={`rounded-lg p-8 text-center shadow-lg hover:shadow-xl transition-shadow ${
-                stat.context === 'crisis' ? 'bg-red-50 border border-red-200' :
-                stat.context === 'hope' ? 'bg-emerald-50 border border-emerald-200' :
-                'bg-white border border-gray-200'
-              }`}>
-                <div className="flex justify-center mb-4" aria-hidden="true">
-                  {stat.icon}
-                </div>
-                <div className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{stat.percentage}</div>
-                <p className="text-gray-600 text-sm leading-relaxed">{stat.description}</p>
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
+              <div className="flex items-center">
+                <CheckCircle className="w-5 h-5 text-emerald-600 mr-2" />
+                <span>Free Support Groups</span>
               </div>
-            ))}
+              <div className="flex items-center">
+                <Shield className="w-5 h-5 text-emerald-600 mr-2" />
+                <span>Confidential & Safe</span>
+              </div>
+              <div className="flex items-center">
+                <Users className="w-5 h-5 text-emerald-600 mr-2" />
+                <span>Men Supporting Men</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* New Prevention Focus Areas Section */}
-      <section className="py-20 bg-white">
+      {/* How We Support You Section */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Prevention Approach</h2>
-            <p className="text-lg text-gray-600">Three critical areas where we focus our suicide prevention efforts</p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              How We Support You
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              We meet you where you are with support that actually fits your life.
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {preventionAreas.map((area, index) => (
-              <div key={index} className="bg-gradient-to-br from-gray-50 to-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow text-center">
-                <div className="flex justify-center mb-6">
-                  {area.icon}
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {supportTypes.map((support, index) => (
+              <div key={index} className={`${support.bgColor} rounded-xl p-8 text-white hover:shadow-xl transition-shadow`}>
+                <div className="bg-white/20 backdrop-blur-sm rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                  {support.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{area.title}</h3>
-                <p className="text-gray-700 mb-6 leading-relaxed">{area.description}</p>
-                <Link 
-                  href={area.href}
-                  className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-semibold"
-                >
-                  {area.action} <ArrowRight className="w-4 h-4 ml-2" />
+                <h3 className="text-2xl font-bold mb-4">{support.title}</h3>
+                <p className="mb-6 leading-relaxed text-white/90">
+                  {support.description}
+                </p>
+                <Link href={support.href} className="inline-flex items-center text-white font-semibold hover:underline">
+                  Learn More <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </div>
             ))}
@@ -246,16 +236,90 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Updated Testimonials with Suicide Prevention Focus */}
-      <section className="py-20 bg-gray-50">
+      {/* You're Not Alone Statistics */}
+      <section className="py-16 bg-gradient-to-br from-gray-900 to-gray-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Stories of Hope and Recovery</h2>
-            <p className="text-lg text-gray-600">Real voices from men whose lives have been impacted by our prevention efforts</p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              You're Not Alone
+            </h2>
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto">
+              Mental health challenges affect men everywhere. Here's why we do this work.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            {stats.map((stat, index) => (
+              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-xl p-8">
+                <div className="flex justify-center mb-4">
+                  {stat.icon}
+                </div>
+                <div className="text-5xl font-bold text-emerald-400 mb-2">{stat.percentage}</div>
+                <p className="text-gray-300 leading-relaxed">{stat.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-xl text-gray-300 mb-6">
+              Getting support isn't weakness. It's strength.
+            </p>
+            <Link 
+              href="/start-here" 
+              className="inline-flex items-center bg-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+            >
+              Take the First Step <ArrowRight className="w-5 h-5 ml-2" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* This Is For You If... Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              This Is For You If...
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              You don't have to be in crisis to reach out. We're here for everyday struggles too.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {struggles.map((struggle, index) => (
+              <div key={index} className="flex items-start space-x-4 bg-emerald-50 rounded-lg p-6 hover:shadow-md transition-shadow">
+                <div className="flex-shrink-0 mt-1">
+                  {struggle.icon}
+                </div>
+                <div>
+                  <h3 className="font-bold text-gray-900 mb-2">{struggle.title}</h3>
+                  <p className="text-gray-700">{struggle.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12 bg-blue-50 border-2 border-blue-200 rounded-xl p-8 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-900 leading-relaxed">
+              <strong>You don't have to have everything figured out.</strong> You don't need to be 
+              "bad enough" to deserve support. If you're reading this and thinking 
+              "maybe I should reach out"—that's enough.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Stories from Our Community</h2>
+            <p className="text-lg text-gray-600">Real voices from men whose lives have been impacted</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gradient-to-br from-emerald-50 to-blue-50 rounded-lg p-8 shadow-lg">
+              <div key={index} className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow">
                 <div className="text-emerald-600 text-4xl mb-4" aria-hidden="true">"</div>
                 <blockquote className="text-gray-700 mb-6 italic leading-relaxed">
                   {testimonial.quote}
@@ -270,36 +334,40 @@ const HomePage = () => {
         </div>
       </section>
 
-      {/* Upcoming Prevention Programs */}
-      <section className="py-20 bg-white">
+      {/* Upcoming Events */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center mb-16">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Upcoming Prevention Programs</h2>
-              <p className="text-lg text-gray-600">Join us in building suicide prevention capacity in our community</p>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+            <div className="mb-4 md:mb-0">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Upcoming Events</h2>
+              <p className="text-lg text-gray-600">Join us for support groups, workshops, and community gatherings</p>
             </div>
             <Link 
-              href="/suicide-prevention" 
-              className="hidden md:flex items-center text-emerald-600 hover:text-emerald-700 font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded px-2 py-1"
+              href="/events" 
+              className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded px-2 py-1"
             >
-              View All Prevention Resources <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
+              View All Events <ArrowRight className="w-4 h-4 ml-2" />
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {upcomingEvents.map((event, index) => (
-              <article key={index} className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow border border-emerald-100">
+              <article key={index} className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow border-l-4 border-emerald-500">
                 <div className="flex items-center mb-4">
-                  <Shield className="w-5 h-5 text-emerald-600 mr-2" aria-hidden="true" />
-                  <time className="text-sm text-gray-600">{event.date}</time>
+                  <Calendar className="w-5 h-5 text-emerald-600 mr-2" />
+                  <time className="text-sm font-semibold text-gray-600">{event.date}</time>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">{event.title}</h3>
-                <p className="text-gray-600 mb-4">{event.description}</p>
+                <p className="text-gray-600 mb-4 leading-relaxed">{event.description}</p>
                 <div className="space-y-1 text-sm text-gray-500 mb-4">
-                  <p><span aria-label="Time">⏰</span> {event.time}</p>
-                  <p><span aria-label="Location">📍</span> {event.location}</p>
+                  <p className="flex items-center">
+                    <span className="mr-2">⏰</span> {event.time}
+                  </p>
+                  <p className="flex items-center">
+                    <span className="mr-2">📍</span> {event.location}
+                  </p>
                 </div>
                 <Link 
-                  href="/suicide-prevention"
+                  href="/events"
                   className="block w-full bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700 transition-colors text-center font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
                 >
                   Learn More
@@ -307,89 +375,120 @@ const HomePage = () => {
               </article>
             ))}
           </div>
-          <div className="text-center mt-8 md:hidden">
-            <Link 
-              href="/suicide-prevention" 
-              className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-semibold focus:outline-none focus:ring-2 focus:ring-emerald-500 rounded px-2 py-1"
-            >
-              View All Prevention Resources <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* Updated Community Partners */}
-      <section className="py-20 bg-gray-50">
+      {/* Community Partners */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Prevention Partners</h2>
-            <p className="text-lg text-gray-600">Working together to save lives and prevent male suicide</p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Partners</h2>
+            <p className="text-lg text-gray-600">Working together to support men's mental health in Detroit</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {partners.map((partner, index) => (
-              <div key={index} className="text-center">
-                <div className="bg-white rounded-lg p-8 mb-4 hover:bg-gray-50 transition-colors cursor-pointer shadow-sm">
-                  <div className="text-4xl mb-2" role="img" aria-label={`${partner.name} logo`}>
-                    {partner.logo}
-                  </div>
-                </div>
-                <p className="text-sm text-gray-600 font-medium">{partner.name}</p>
+              <div key={index} className="bg-white rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow text-center">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{partner.name}</h3>
+                <p className="text-sm text-emerald-600 font-medium">{partner.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Updated Donation Section with Prevention Focus */}
+      {/* Updated Donation Section */}
       <section id="donation" className="py-20 bg-gradient-to-br from-emerald-600 to-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Support Life-Saving Work</h2>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Support Our Mission</h2>
             <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
-              Your donation directly supports suicide prevention programs, crisis intervention resources, and community education that saves men's lives.
+              Your donation supports free support groups, mental health resources, and community programs 
+              that help men prioritize their emotional well-being.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Impact messaging with prevention focus */}
-            <div className="text-white">
-              <h3 className="text-2xl font-bold mb-6">Your Life-Saving Impact</h3>
-              <div className="space-y-4">
+          <div className="max-w-4xl mx-auto">
+            {/* Impact messaging */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">Your Impact</h3>
+              <div className="grid md:grid-cols-2 gap-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-9 h-9 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-emerald-600 font-bold text-sm">$25</span>
+                  <div className="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-emerald-700 font-bold">$25</span>
                   </div>
-                  <p className="text-emerald-100">Provides crisis resource materials for one community member</p>
+                  <div className="text-white">
+                    <p className="font-semibold mb-1">Support Group Materials</p>
+                    <p className="text-emerald-100 text-sm">Resources for one month of weekly meetings</p>
+                  </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="w-9 h-9 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-emerald-600 font-bold text-sm">$50</span>
+                  <div className="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-emerald-700 font-bold">$50</span>
                   </div>
-                  <p className="text-emerald-100">Funds gatekeeper training for community leaders and barbers</p>
+                  <div className="text-white">
+                    <p className="font-semibold mb-1">Community Workshop</p>
+                    <p className="text-emerald-100 text-sm">Funds mental health education for 20 men</p>
+                  </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="w-9 h-9 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-emerald-600 font-bold text-sm">$100</span>
+                  <div className="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-emerald-700 font-bold">$100</span>
                   </div>
-                  <p className="text-emerald-100">Supports a suicide prevention education workshop</p>
+                  <div className="text-white">
+                    <p className="font-semibold mb-1">Resource Directory</p>
+                    <p className="text-emerald-100 text-sm">Helps men connect with therapists and services</p>
+                  </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="w-9 h-9 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <span className="text-emerald-600 font-bold text-sm">$250</span>
+                  <div className="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-emerald-700 font-bold">$250</span>
                   </div>
-                  <p className="text-emerald-100">Sponsors comprehensive crisis support resources for one month</p>
+                  <div className="text-white">
+                    <p className="font-semibold mb-1">Community Outreach</p>
+                    <p className="text-emerald-100 text-sm">Reaches 100+ men with mental health awareness</p>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Donation Form */}
-            {/* <DonationForm /> */}
-          {/* </div> */}
+            <div className="text-center">
+              <Link
+                href="/join"
+                className="inline-flex items-center bg-white text-emerald-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-600 mb-4"
+              >
+                Donate Now <Heart className="w-5 h-5 ml-2" />
+              </Link>
+              <p className="text-emerald-100 text-sm">
+                A Safe Space For Men is a 501(c)(3) organization. Your donation is tax-deductible 
+                and directly supports men's mental health and community building efforts.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          {/* <div className="text-center mt-12"> */}
-            <p className="text-emerald-100 text-sm">
-              A Safe Space For Men is a 501(c)(3) organization. Your donation is tax-deductible and directly supports men's suicide prevention and mental health advocacy efforts.
-            </p>
+      {/* Final CTA */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Ready to Take the Next Step?
+          </h2>
+          <p className="text-xl text-gray-600 mb-8">
+            Join our community of men supporting men on the journey to better mental health.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/join" 
+              className="inline-flex items-center justify-center bg-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+            >
+              Join Our Community <Users className="w-5 h-5 ml-2" />
+            </Link>
+            <Link 
+              href="/find-support" 
+              className="inline-flex items-center justify-center border-2 border-emerald-600 text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+            >
+              Find Resources <ArrowRight className="w-5 h-5 ml-2" />
+            </Link>
           </div>
         </div>
       </section>

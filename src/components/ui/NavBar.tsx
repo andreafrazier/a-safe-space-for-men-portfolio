@@ -15,9 +15,11 @@ const NavBar = () => {
     const menuItems = [
         { href: '/', label: 'Home' },
         { href: '/about', label: 'About' },
+        { href: '/start-here', label: 'Start Here'},
+        { href: '/find-support', label: 'Find Support' },
         { href: '/join', label: 'Join' },
         { href: '/suicide-prevention', label: 'Suicide Prevention'},
-        { href: '/find-support', label: 'Find Support' },
+        { href: '/events', label: 'Events'},   
     ];
 
     const isActive = (href: string) => {
@@ -54,9 +56,11 @@ const NavBar = () => {
             <div className="hidden md:flex items-center space-x-8">
               <a href="#home" className="text-gray-700 hover:text-emerald-600 transition-colors">Home</a>
               <a href="#about" className="text-gray-700 hover:text-emerald-600 transition-colors">About</a>
+              <a href="#about" className="text-gray-700 hover:text-emerald-600 transition-colors">Start Here</a>
+              <a href="#find-support" className="text-gray-700 hover:text-emerald-600 transition-colors">Find Support</a>
               <a href="#suicide-prevention" className="text-gray-700 hover:text-emerald-600 transition-colors">Suicide Prevention</a>
               <a href="#join" className="text-gray-700 hover:text-emerald-600 transition-colors">Join</a>
-              <a href="#find-support" className="text-gray-700 hover:text-emerald-600 transition-colors">Find Support</a>
+              <a href="#join" className="text-gray-700 hover:text-emerald-600 transition-colors">Events</a>
               <a href="#donation" className="bg-emerald-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-emerald-700 transition-colors">
                 Donate Now
               </a>
