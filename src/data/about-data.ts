@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, Heart, Building, Network } from 'lucide-react';
+import { Users, Heart, Building, Network, AlertTriangle } from 'lucide-react';
 import type { TeamMember, FocusArea, ImpactStat } from '@/types/about';
 
 
@@ -77,23 +77,27 @@ export const focusAreas: FocusArea[] = [
 
 export const impactStats: ImpactStat[] = [
   {
-    percentage: "64%",
-    description: "of men are at risk of moderate-high stress",
-    icon: React.createElement(Heart, { className: "w-8 h-8 text-emerald-600" })
+    percentage: "77%",
+    description: "of men experience symptoms of anxiety, stress, and depression",
+    icon: React.createElement(AlertTriangle, {className: "w-8 h-8 text-red-600" }),
+    context: "crisis"
   },
   {
     percentage: "40%",
-    description: "have never discussed their mental health",
-    icon: React.createElement(Users, { className: "w-8 h-8 text-emerald-600" })
+    description: "have never discussed their mental health with anyone",
+    icon: React.createElement(AlertTriangle, { className: "w-8 h-8 text-red-600" }),
+    context: "crisis"
   },
   {
-    percentage: "4x",
-    description: "higher suicide rate than women",
-    icon: React.createElement(Heart, { className: "w-8 h-8 text-emerald-600" })
+    percentage: "14%",
+    description: "of Black men seek mental health treatment",
+    icon: React.createElement(AlertTriangle, { className: "w-8 h-8 text-red-600" }),
+    context: "crisis"
   },
   {
-    percentage: "1 in 2",
-    description: "men at risk of social isolation",
-    icon: React.createElement(Users, { className: "w-8 h-8 text-emerald-600" })
+    percentage: "1 in 4",
+    description: "men lack close friends and social support",
+    icon: React.createElement(AlertTriangle, { className: "w-8 h-8 text-red-600" }),
+    context: "crisis"
   }
 ];

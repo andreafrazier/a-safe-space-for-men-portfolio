@@ -21,4 +21,5 @@ export interface ImpactStat {
   percentage: string;
   description: string;
   icon: React.ReactNode;
+  context: string;
 }

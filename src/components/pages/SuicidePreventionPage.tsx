@@ -284,7 +284,7 @@ const SuicidePreventionPageComponent = () => {
                     <div key={index} className="border border-red-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
                       <div className="flex items-center mb-4">
                         {resource.icon}
-                        <h3 className="text-lg font-semibold ml-3">{resource.name}</h3>
+                        <h3 className="text-lg font-semibold text-gray-600 ml-3">{resource.name}</h3>
                       </div>
                       <div className="text-2xl font-bold text-red-600 mb-2">
                         <a href={`tel:${resource.phone}`} className="hover:underline">
@@ -306,7 +306,7 @@ const SuicidePreventionPageComponent = () => {
                     {detroitResources.map((resource, index) => (
                       <div key={index} className="bg-gray-50 rounded-lg p-6">
                         <h4 className="text-lg font-semibold text-gray-900 mb-2">{resource.name}</h4>
-                        <p className="text-emerald-600 font-medium mb-2">{resource.service}</p>
+                        <p className="text-emerald-600 font-semibold mb-2">{resource.service}</p>
                         <p className="text-gray-700 mb-3">{resource.description}</p>
                         <a href={`tel:${resource.phone}`} className="text-red-600 hover:underline font-medium">
                           <Phone className="w-4 h-4 inline mr-1" />
@@ -487,7 +487,7 @@ const SuicidePreventionPageComponent = () => {
           </div>
           
           <div className="mt-12 bg-white bg-opacity-10 rounded-lg p-6">
-            <p className="text-red-100 text-sm">
+            <p className="text-red-600 text-sm">
               <strong>Crisis resources are available 24/7.</strong> If you or someone you know is in immediate danger, 
               please call 988 (Suicide & Crisis Lifeline) or 911 (Emergency Services) right away.
             </p>

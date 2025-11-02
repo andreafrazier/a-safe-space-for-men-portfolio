@@ -24,16 +24,16 @@ const HomePage = () => {
       context: "crisis"
     },
     {
-      percentage: "75%",
-      description: "of completed suicides are by men",
+      percentage: "78%",
+      description: "of suicide deaths in Michigan are men",
       icon: <AlertTriangle className="w-8 h-8 text-red-600" />,
       context: "crisis"
     },
     {
-      percentage: "40%",
-      description: "of men have never discussed their mental health",
-      icon: <Users className="w-8 h-8 text-emerald-600" />,
-      context: "stigma"
+      percentage: "25%",
+      description: "increase in Black male suicide rates from 2018-2023",
+      icon: <AlertTriangle className="w-8 h-8 text-red-600" />,
+      context: "crisis"
     },
     {
       percentage: "90%",
@@ -87,22 +87,22 @@ const HomePage = () => {
 
   const upcomingEvents = [
     {
+      title: "Men's SAFE SPACE Discussion Group",
+      date: "Monthly - Ongoing", 
+      time: "TBD",
+      location: "Safe Space Locations",
+      description: "Judgment free discussion groups where men can openly discuss and prioritize their emotional well-being."
+    },
+    {
       title: "Suicide Prevention Gatekeeper Training",
-      date: "Spring 2025",
+      date: "Spring 2026",
       time: "TBD",
       location: "Detroit Community Centers",
       description: "Training community members to recognize warning signs and connect people to life-saving resources."
     },
     {
-      title: "Men's Crisis Support Group",
-      date: "Summer 2025", 
-      time: "TBD",
-      location: "Safe Space Locations",
-      description: "Peer support groups specifically for men who have experienced suicidal thoughts or attempts."
-    },
-    {
       title: "Community Mental Health Awareness",
-      date: "Fall 2025",
+      date: "Summer 2026",
       time: "TBD", 
       location: "Detroit Metro Area",
       description: "Public education events to reduce stigma and increase awareness of men's suicide prevention."
