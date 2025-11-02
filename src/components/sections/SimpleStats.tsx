@@ -10,7 +10,7 @@ const SimpleStats = ({ stats }: { stats: any[] }) => (
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {stats.map((stat, index) => (
-          <div key={index} className="bg-gradient-to-br from-emerald-50 to-blue-50 rounded-lg p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
+          <div key={index} className="bg-gradient-to-br from-red-50 to-red-100 rounded-lg p-8 text-center shadow-lg hover:shadow-xl transition-shadow">
             <div className="flex justify-center mb-4">
               {stat.icon}
             </div>
