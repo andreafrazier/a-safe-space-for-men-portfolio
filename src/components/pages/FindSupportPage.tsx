@@ -375,7 +375,7 @@ const FindSupportPageComponent = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Crisis Banner - Sticky at top */}
+      {/* Crisis Banner - Sticky at top
       <div className="bg-red-600 text-white py-4 px-4 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap items-center justify-center text-center">
@@ -396,7 +396,7 @@ const FindSupportPageComponent = () => {
                 <span className="text-sm">Text HOME to 741741</span>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Hero Section */}
       <section className="pt-16 bg-gradient-to-br from-emerald-50 to-blue-50 py-20">

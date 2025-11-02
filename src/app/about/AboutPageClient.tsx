@@ -120,15 +120,30 @@ export default function AboutPageClient() {
                 <Target className="w-8 h-8 text-emerald-600 mr-3" />
                 <h3 className="text-2xl font-bold text-gray-900">Our Mission</h3>
               </div>
-              <p className="text-gray-700 leading-relaxed">
-                Our mission is to create a safe, supportive, and non-judgmental space where men can openly 
-                explore and prioritize their emotional well-being. Through community support groups, mental 
-                health education, and therapy referrals, we are dedicated to breaking down societal stigmas 
-                around vulnerability and emotional expression. We empower men to connect, share, and grow in 
-                an environment of mutual respect and understanding. By fostering open dialogue, increasing 
-                awareness, and connecting individuals with competent resources, we aim to build resilience 
-                and cultivate a culture where every man feels seen, heard, and valued.
-              </p>
+                <p className="text-emerald-600 leading-relaxed font-semibold">
+                  A Safe Space For Men is dedicated to men's mental health and emotional well-being 
+                  through community connection, education, and support.
+                </p>
+                
+                <p className="text-gray-700 leading-relaxed">
+                  We create a safe, non-judgmental space where men can openly address the real challenges 
+                  they face—anxiety, depression, grief, relationship struggles, and the weight of isolation—before 
+                  they reach crisis. Through peer support groups, mental health education, and referrals to 
+                  culturally competent therapists, we break down the stigma that tells men they must carry 
+                  everything alone.
+                </p>
+                
+                <p className="text-gray-700 leading-relaxed">
+                  We believe that emotional well-being isn't a luxury or a sign of weakness—it's essential. 
+                  By fostering open dialogue, building genuine connections, and linking men to the resources 
+                  they need, we're working to prevent the tragic outcomes that too often result from silence 
+                  and shame.
+                </p>
+                
+                <p className="text-gray-700 leading-relaxed">
+                  In Detroit and beyond, we're cultivating a culture where every man feels seen, heard, and 
+                  valued—and where asking for help is an act of strength, not surrender.
+                </p>
             </div>
             
             <div className="bg-white rounded-lg p-8 shadow-lg hover:shadow-xl transition-shadow">
