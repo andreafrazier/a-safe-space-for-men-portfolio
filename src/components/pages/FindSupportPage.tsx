@@ -375,29 +375,6 @@ const FindSupportPageComponent = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Crisis Banner - Sticky at top
-      <div className="bg-red-600 text-white py-4 px-4 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap items-center justify-center text-center">
-            <AlertTriangle className="w-5 h-5 mr-2" />
-            <Link 
-              href="/suicide-prevention" 
-              className="underline hover:text-red-100 font-semibold mr-4 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-600 rounded px-2 py-1"
-            >
-              In Crisis? Get Help Now:
-            </Link>
-            <span className="hidden sm:inline text-red-100">|</span>
-                <a href="tel:988" className="mr-6 hover:underline focus:outline-none focus:ring-2 focus:ring-red-300 rounded px-2 py-1">
-                    <Phone className="w-4 h-4 inline mr-1" />988 Crisis Lifeline
-                </a>
-                <a href="tel:911" className="mr-6 hover:underline focus:outline-none focus:ring-2 focus:ring-red-300 rounded px-2 py-1">
-                    Emergency: 911
-                </a>
-                <span className="text-sm">Text HOME to 741741</span>
-          </div>
-        </div>
-      </div> */}
-
       {/* Hero Section */}
       <section className="pt-16 bg-gradient-to-br from-emerald-50 to-blue-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

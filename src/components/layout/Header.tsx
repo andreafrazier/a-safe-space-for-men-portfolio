@@ -18,7 +18,6 @@ const Header = () => {
         { href: '/start-here', label: 'Start Here' },
         { href: '/find-support', label: 'Find Support' },
         { href: '/join', label: 'Join' },
-        // { href: '/suicide-prevention', label: 'Suicide Prevention', priority: true },
         { href: '/events', label: 'Events' },  
     ];
 
@@ -49,7 +48,7 @@ const Header = () => {
                             </div>
                             <div className="flex flex-col">
                                 <span className="font-bold text-xl text-gray-800 leading-tight group-hover:text-emerald-600 transition-colors">A Safe Space For Men</span>
-                                <span className="text-xs text-gray-600 hidden sm:block leading-tight">Mental Health Awareness & Suicide Prevention</span>
+                                <span className="text-xs text-gray-600 hidden sm:block leading-tight">Mental Health Awareness & Emotional Well-being</span>
                             </div>
                         </Link>
                         

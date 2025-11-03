@@ -6,6 +6,7 @@ import {
 import Link from 'next/link';
 import Image from 'next/image';
 import type { Metadata } from 'next';
+import { getUpcomingEventsForHome } from "@/data/events";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -36,7 +37,7 @@ const HomePage = () => {
 
   const supportTypes = [
     {
-      title: "Peer Support Groups",
+      title: "Community Support Groups",
       description: "Weekly gatherings where men talk openly about stress, anxiety, relationships, and life challenges in a judgment-free environment.",
       icon: <Users className="w-8 h-8 text-white" />,
       bgColor: "bg-emerald-600",
@@ -109,29 +110,7 @@ const HomePage = () => {
     }
   ];
 
-  const upcomingEvents = [
-    {
-      title: "Weekly Men's Support Group",
-      date: "Every Thursday", 
-      time: "7:00 PM - 8:30 PM",
-      location: "SafetyZone, Detroit",
-      description: "A safe space for men to openly discuss mental health challenges and support each other."
-    },
-    {
-      title: "Managing Stress & Anxiety Workshop",
-      date: "November 20, 2025",
-      time: "6:00 PM - 7:30 PM", 
-      location: "Virtual (Zoom)",
-      description: "Practical strategies for managing stress and anxiety in daily life with expert facilitators."
-    },
-    {
-      title: "Community Walk for Men's Mental Health",
-      date: "November 22, 2025",
-      time: "9:00 AM - 12:00 PM",
-      location: "Belle Isle Park",
-      description: "Join us for a 5K community walk to raise awareness and connect with other men."
-    }
-  ];
+  const upcomingEvents = getUpcomingEventsForHome();
 
   const partners = [
     { name: "SafetyZone Behavioral Health", description: "Urgent Care Partner" },
@@ -146,16 +125,6 @@ const HomePage = () => {
       <section className="pt-16 bg-gradient-to-br from-emerald-50 via-blue-50 to-teal-50 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            {/* <div className="mb-8">
-              <Image 
-                src="/images/handshake.png"
-                alt="Men supporting each other through mental health challenges"
-                width={400}
-                height={200}
-                className="mx-auto max-w-md w-full h-auto rounded-lg"
-                priority
-              />
-            </div> */}
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
               You Don't Have to Carry <br className="hidden md:block"/>Everything Alone
             </h1>
@@ -176,11 +145,11 @@ const HomePage = () => {
                 href="/join" 
                 className="inline-flex items-center justify-center bg-emerald-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-emerald-700 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
               >
-                Join a Support Group <Users className="w-5 h-5 ml-2" />
+                Join Our Community <Users className="w-5 h-5 ml-2" />
               </Link>
               <Link 
                 href="/start-here" 
-                className="inline-flex items-center justify-center border-2 border-emerald-600 text-emerald-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                className="inline-flex items-center justify-center border-2 border-emerald-600 text-emerald-600 px-16 py-4 rounded-lg font-semibold text-lg hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
               >
                 Start Here <ArrowRight className="w-5 h-5 ml-2" />
               </Link>
@@ -401,6 +370,7 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Support Our Mission</h2>
+            <h3 className="text-2xl md:test-1xl font=semibold text-white mb-4">Online Donations Coming Soon!</h3>
             <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
               Your donation supports free support groups, mental health resources, and community programs 
               that help men prioritize their emotional well-being.
@@ -453,7 +423,7 @@ const HomePage = () => {
 
             <div className="text-center">
               <Link
-                href="/join"
+                href="/#donation"
                 className="inline-flex items-center bg-white text-emerald-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-600 mb-4"
               >
                 Donate Now <Heart className="w-5 h-5 ml-2" />
@@ -463,32 +433,6 @@ const HomePage = () => {
                 and directly supports men's mental health and community building efforts.
               </p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            Ready to Take the Next Step?
-          </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            Join our community of men supporting men on the journey to better mental health.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/join" 
-              className="inline-flex items-center justify-center bg-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
-            >
-              Join Our Community <Users className="w-5 h-5 ml-2" />
-            </Link>
-            <Link 
-              href="/find-support" 
-              className="inline-flex items-center justify-center border-2 border-emerald-600 text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
-            >
-              Find Resources <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
           </div>
         </div>
       </section>

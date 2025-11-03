@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import JoinUsForm from '@/components/forms/JoinUsForm';
 import { Heart, Users, Calendar, Phone } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Join Us',
@@ -159,46 +160,73 @@ const JoinUsPage = () => {
         </div>
       </section>
 
-      {/* Crisis Resources Section */}
-      <section className="py-16 bg-gradient-to-br from-emerald-600 to-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">Need Immediate Support?</h2>
-          <p className="text-xl text-white mb-8 max-w-3xl mx-auto">
-            If you're experiencing a mental health crisis, help is available right now.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <a 
-              href="tel:988" 
-              className="bg-white rounded-lg p-6 text-gray-900 hover:bg-gray-50 transition-all shadow-lg"
-            >
-              <Phone className="w-8 h-8 mx-auto mb-3 text-emerald-600" />
-              <h3 className="font-semibold text-lg mb-2 text-gray-900">Crisis Lifeline</h3>
-              <p className="text-gray-600 text-sm mb-3">24/7 Free & Confidential</p>
-              <p className="text-2xl font-bold text-emerald-600">988</p>
-            </a>
-            
-            <a 
-              href="tel:911" 
-              className="bg-white rounded-lg p-6 text-gray-900 hover:bg-gray-50 transition-all shadow-lg"
-            >
-              <Phone className="w-8 h-8 mx-auto mb-3 text-emerald-600" />
-              <h3 className="font-semibold text-lg mb-2 text-gray-900">Emergency Services</h3>
-              <p className="text-gray-600 text-sm mb-3">Immediate Emergency Response</p>
-              <p className="text-2xl font-bold text-emerald-600">911</p>
-            </a>
-            
-            <div className="bg-white rounded-lg p-6 text-gray-900 shadow-lg">
-              <Heart className="w-8 h-8 mx-auto mb-3 text-emerald-600" />
-              <h3 className="font-semibold text-lg mb-2 text-gray-900">Crisis Text Line</h3>
-              <p className="text-gray-600 text-sm mb-3">Text for Support</p>
-              <p className="text-lg font-bold text-emerald-600">Text HOME to 741741</p>
-            </div>
-          </div>
-          
-          <div className="mt-8">
-            <p className="text-white text-sm">
-              These resources are available 24/7. You are not alone, and help is always available.
+      {/* Updated Donation Section */}
+      <section id="donation" className="py-20 bg-gradient-to-br from-emerald-600 to-blue-600">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Support Our Mission</h2>
+            <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
+              Your donation supports free support groups, mental health resources, and community programs 
+              that help men prioritize their emotional well-being.
             </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            {/* Impact messaging */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8">
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">Your Impact</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-emerald-700 font-bold">$25</span>
+                  </div>
+                  <div className="text-white">
+                    <p className="font-semibold mb-1">Support Group Materials</p>
+                    <p className="text-emerald-100 text-sm">Resources for one month of weekly meetings</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-emerald-700 font-bold">$50</span>
+                  </div>
+                  <div className="text-white">
+                    <p className="font-semibold mb-1">Community Workshop</p>
+                    <p className="text-emerald-100 text-sm">Funds mental health education for 20 men</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-emerald-700 font-bold">$100</span>
+                  </div>
+                  <div className="text-white">
+                    <p className="font-semibold mb-1">Resource Directory</p>
+                    <p className="text-emerald-100 text-sm">Helps men connect with therapists and services</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-white bg-opacity-20 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <span className="text-emerald-700 font-bold">$250</span>
+                  </div>
+                  <div className="text-white">
+                    <p className="font-semibold mb-1">Community Outreach</p>
+                    <p className="text-emerald-100 text-sm">Reaches 100+ men with mental health awareness</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="text-center">
+              <Link
+                href="/#donate"
+                className="inline-flex items-center bg-white text-emerald-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-600 mb-4"
+              >
+                Donate Now <Heart className="w-5 h-5 ml-2" />
+              </Link>
+              <p className="text-emerald-100 text-sm">
+                A Safe Space For Men is a 501(c)(3) organization. Your donation is tax-deductible 
+                and directly supports men's mental health and community building efforts.
+              </p>
+            </div>
           </div>
         </div>
       </section>

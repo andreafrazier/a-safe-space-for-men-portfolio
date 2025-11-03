@@ -46,39 +46,6 @@ const StartHerePage = () => {
       icon: <AlertTriangle className="w-8 h-8 text-red-600" />,
       color: "red"
     },
-    {
-      name: "Men's Anger & Irritability Check",
-      description: "Often the first sign of depression in men. Assess anger patterns and emotional regulation.",
-      link: "https://screening.mhanational.org/screening-tools/anger",
-      icon: <Flame className="w-6 h-6 text-orange-600" />,
-      duration: "5 minutes",
-      anonymous: true,
-      menSpecific: true  // Badge indicator
-    },
-    {
-      name: "Stress & Burnout Assessment",
-      description: "Evaluate work-related stress, exhaustion, and burnout symptoms common in men.",
-      link: "https://screening.mhanational.org/screening-tools/stress",
-      icon: <Zap className="w-6 h-6 text-yellow-600" />,
-      duration: "4 minutes",
-      anonymous: true
-    },
-    {
-      name: "Relationship Health Check",
-      description: "Assess relationship satisfaction and identify areas for improvement.",
-      link: "#", // Find appropriate tool
-      icon: <HeartHandshake className="w-6 h-6 text-pink-600" />,
-      duration: "7 minutes",
-      anonymous: true
-    },
-    {
-      name: "Substance Use Screening",
-      description: "Evaluate your relationship with alcohol and substances beyond just addiction.",
-      link: "https://screening.mhanational.org/screening-tools/alcohol-use",
-      icon: <AlertCircle className="w-6 h-6 text-purple-600" />,
-      duration: "5 minutes",
-      anonymous: true
-    }
   ];
 
   const supportPaths = [
@@ -141,7 +108,7 @@ const StartHerePage = () => {
 
   const supportOptions = [
     {
-      title: "Peer Support Groups",
+      title: "Community Support Groups",
       description: "Free, informal gatherings where men support men. No therapists, just guys who get it.",
       whoFor: "Men who want community and connection",
       icon: <Users className="w-6 h-6 text-emerald-600" />
@@ -174,38 +141,37 @@ const StartHerePage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* SECTION 1: IMMEDIATE CRISIS CHECK */}
-      <section className="bg-red-600 text-white py-8">
+      <section className="bg-red-600 text-white py-4">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <AlertTriangle className="w-16 h-16 mx-auto mb-4" />
-            <h2 className="text-3xl font-bold mb-4">Are You in Immediate Danger?</h2>
-            <p className="text-xl mb-6 text-red-100">
+            <AlertTriangle className="w-12 h-12 mx-auto mb-3" />
+            <h2 className="text-2xl md:text-3xl font-bold mb-3">Are You in Immediate Danger?</h2>
+            <p className="text-lg mb-4 text-red-100">
               If you're thinking about hurting yourself or someone else, please get help right now.
             </p>
             
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 mb-6">
-              <h3 className="text-2xl font-bold mb-4">Get Help Immediately:</h3>
-              <div className="grid md:grid-cols-2 gap-4 text-left">
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 mb-4">
+              <h3 className="text-xl font-bold mb-3">Get Help Immediately:</h3>
+              <div className="grid md:grid-cols-2 gap-3 text-left">
                 <a 
                   href="tel:988" 
-                  className="flex items-center bg-white text-red-600 p-4 rounded-lg hover:bg-red-50 transition-colors font-semibold"
+                  className="flex items-center bg-white text-red-600 p-3 rounded-lg hover:bg-red-50 transition-colors font-semibold"
                 >
-                  <Phone className="w-6 h-6 mr-3 flex-shrink-0" />
+                  <Phone className="w-5 h-5 mr-3 flex-shrink-0" />
                   <div>
-                    <div className="font-bold">Call 988</div>
-                    <div className="text-sm">Suicide & Crisis Lifeline</div>
+                    <div className="font-bold text-sm">Call 988</div>
+                    <div className="text-xs">Suicide & Crisis Lifeline</div>
                   </div>
                 </a>
                 
                 <a 
                   href="sms:741741&body=HOME" 
-                  className="flex items-center bg-white text-red-600 p-4 rounded-lg hover:bg-red-50 transition-colors font-semibold"
+                  className="flex items-center bg-white text-red-600 p-3 rounded-lg hover:bg-red-50 transition-colors font-semibold"
                 >
-                  <MessageSquare className="w-6 h-6 mr-3 flex-shrink-0" />
+                  <MessageSquare className="w-5 h-5 mr-3 flex-shrink-0" />
                   <div>
-                    <div className="font-bold">Text HOME to 741741</div>
-                    <div className="text-sm">Crisis Text Line</div>
+                    <div className="font-bold text-sm">Text HOME to 741741</div>
+                    <div className="text-xs">Crisis Text Line</div>
                   </div>
                 </a>
                 
@@ -213,33 +179,32 @@ const StartHerePage = () => {
                   href="https://safety-zone.org" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center bg-white text-red-600 p-4 rounded-lg hover:bg-red-50 transition-colors font-semibold"
+                  className="flex items-center bg-white text-red-600 p-3 rounded-lg hover:bg-red-50 transition-colors font-semibold"
                 >
-                  <ExternalLink className="w-6 h-6 mr-3 flex-shrink-0" />
+                  <ExternalLink className="w-5 h-5 mr-3 flex-shrink-0" />
                   <div>
-                    <div className="font-bold">SafetyZone Urgent Care</div>
-                    <div className="text-sm">Behavioral Health Center</div>
+                    <div className="font-bold text-sm">SafetyZone Urgent Care</div>
+                    <div className="text-xs">Behavioral Health Center</div>
                   </div>
                 </a>
                 
                 <a 
                   href="tel:911" 
-                  className="flex items-center bg-white text-red-600 p-4 rounded-lg hover:bg-red-50 transition-colors font-semibold"
+                  className="flex items-center bg-white text-red-600 p-3 rounded-lg hover:bg-red-50 transition-colors font-semibold"
                 >
-                  <Phone className="w-6 h-6 mr-3 flex-shrink-0" />
+                  <Phone className="w-5 h-5 mr-3 flex-shrink-0" />
                   <div>
-                    <div className="font-bold">Call 911</div>
-                    <div className="text-sm">Emergency Services</div>
+                    <div className="font-bold text-sm">Call 911</div>
+                    <div className="text-xs">Emergency Services</div>
                   </div>
                 </a>
               </div>
             </div>
 
-            <div className="bg-red-700 rounded-lg p-4">
-              <p className="text-sm text-red-100">
-                <strong>Warning Signs of Crisis:</strong> Talking about wanting to die, looking for ways to kill oneself, 
-                talking about feeling hopeless or having no purpose, increased substance use, withdrawing from friends/family, 
-                giving away possessions, saying goodbye to people.
+            <div className="bg-red-700 rounded-lg p-3">
+              <p className="text-xs text-red-100">
+                <strong>Warning Signs:</strong> Talking about wanting to die, looking for ways to kill oneself, 
+                feeling hopeless, increased substance use, withdrawing from others, giving away possessions.
               </p>
             </div>
           </div>
@@ -247,13 +212,14 @@ const StartHerePage = () => {
       </section>
 
       {/* Transition Section */}
-      <section className="bg-gradient-to-b from-red-50 to-white py-8">
+      <section className="bg-gradient-to-b from-red-50 to-white py-6">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <CheckCircle className="w-16 h-16 text-emerald-600 mx-auto mb-4" />
-          <h2 className="text-2xl font-bold text-gray-900 mb-3">Not in Immediate Crisis?</h2>
-          <p className="text-lg text-gray-700">
+          <CheckCircle className="w-12 h-12 text-emerald-600 mx-auto mb-3" />
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">Not in Immediate Crisis?</h2>
+          <p className="text-lg text-gray-700 mb-3">
             Great. Let's find the right ongoing support for you. Keep scrolling.
           </p>
+          <ArrowRight className="w-6 h-6 text-gray-400 mx-auto animate-bounce" />
         </div>
       </section>
 
@@ -294,7 +260,7 @@ const StartHerePage = () => {
               How Are You Really Doing?
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-4">
-              Take a free, anonymous mental health screening to better understand what you're experiencing.
+              Take a free, anonymous mental health screening to better understand what you're experiencing. You will be redirected to the Mental Health America website for confidential assessments. Your information will not be shared with A Safe Space For Men.
             </p>
             <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 max-w-2xl mx-auto">
               <p className="text-amber-800 text-sm flex items-center justify-center">
@@ -306,27 +272,27 @@ const StartHerePage = () => {
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {selfAssessmentTools.map((tool, index) => (
-              <div
-                key={index}
-                className={`bg-${tool.color}-50 border-2 border-${tool.color}-200 rounded-xl p-6 hover:shadow-lg transition-shadow`}
-              >
-                <div className="flex justify-center mb-4">
-                  {tool.icon}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">{tool.name}</h3>
-                <p className="text-gray-700 font-medium text-sm text-center mb-3">{tool.description}</p>
-                <p className="text-gray-600 text-xs text-center mb-4">{tool.details}</p>
-                <a
-                  href={tool.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`block text-center bg-${tool.color}-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-${tool.color}-700 transition-colors`}
-                >
-                  Take Screening <ExternalLink className="w-4 h-4 inline ml-1" />
-                </a>
+            <div
+              key={index}
+              className="bg-white border-2 border-gray-200 rounded-xl p-6 hover:shadow-lg transition-shadow flex flex-col h-full"
+            >
+              <div className="flex justify-center mb-4">
+                {tool.icon}
               </div>
-            ))}
-          </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2 text-center">{tool.name}</h3>
+              <p className="text-gray-700 font-medium text-sm text-center mb-3">{tool.description}</p>
+              <p className="text-gray-600 text-xs text-center mb-4 flex-grow">{tool.details}</p>
+              <a
+                href={tool.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-center bg-gray-900 text-white px-4 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors mt-auto"
+              >
+                Take Screening <ExternalLink className="w-4 h-4 inline ml-1" />
+              </a>  
+            </div>
+          ))}
+        </div>
 
           <div className="mt-8 text-center">
             <p className="text-gray-600 mb-4">
@@ -408,7 +374,7 @@ const StartHerePage = () => {
                 </div>
                 <p className="text-gray-700 mb-3 text-sm leading-relaxed">{option.description}</p>
                 <div className="bg-white rounded p-3 border border-gray-200">
-                  <p className="text-xs text-gray-600">
+                  <p className="text-xs text-gray-900">
                     <strong>Best for:</strong> {option.whoFor}
                   </p>
                 </div>
@@ -445,34 +411,6 @@ const StartHerePage = () => {
             >
               Browse All Resources <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* BOTTOM SAFETY NET */}
-      <section className="py-12 bg-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-red-50 border-2 border-red-200 rounded-xl p-6 text-center">
-            <AlertTriangle className="w-12 h-12 text-red-600 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-gray-900 mb-3">
-              Changed Your Mind? Need Crisis Help?
-            </h3>
-            <p className="text-gray-700 mb-4">
-              If you're in immediate danger or having thoughts of suicide, please reach out now.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <a href="tel:988" className="text-red-600 font-semibold hover:underline">
-                Call 988 Crisis Lifeline
-              </a>
-              <span className="text-gray-400">|</span>
-              <a href="sms:741741&body=HOME" className="text-red-600 font-semibold hover:underline">
-                Text HOME to 741741
-              </a>
-              <span className="text-gray-400">|</span>
-              <a href="tel:911" className="text-red-600 font-semibold hover:underline">
-                Call 911
-              </a>
-            </div>
           </div>
         </div>
       </section>
