@@ -32,7 +32,7 @@ const EventsPage = () => {
   }).sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
   const EventCard = ({ event }: { event: Event }) => {
-    const eventDate = new Date(event.date);
+    const eventDate = new Date(event.date + 'T12:00:00');
     const isUpcoming = eventDate >= new Date();
     
     return (
