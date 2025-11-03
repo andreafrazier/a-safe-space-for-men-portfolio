@@ -45,15 +45,15 @@ export default function AboutPageClient() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 href="/join"
-                className="bg-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                className="bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
               >
                 Join Our Community
               </Link>
               <Link 
-                href="/resources"
-                className="border-2 border-emerald-600 text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                href="/find-support"
+                className="border-2 border-emerald-600 text-emerald-600 px-12 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
               >
-                View Resources
+                Find Support
               </Link>
             </div>
           </div>
