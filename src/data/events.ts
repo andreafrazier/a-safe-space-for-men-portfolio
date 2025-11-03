@@ -12,7 +12,8 @@ export const events: Event[] = [
     category: "support-group",
     cost: "Free",
     tags: ["Support", "Mental Health", "Community"],
-    recurring: true
+    recurring: true,
+    registrationLink: "https://mail.google.com/mail/?view=cm&fs=1&to=asafespaceformen@gmail.com&su=Monthly Men's Discussion Group Registration"
   },
   {
     id: 2,
