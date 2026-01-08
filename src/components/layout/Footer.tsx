@@ -163,12 +163,10 @@ const Footer = () => {
               <li className="flex items-start">
                 <Mail className="w-4 h-4 mr-2 mt-1 flex-shrink-0" />
                 <a 
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=asafespaceformen@gmail.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="mailto:william@asafespaceformen.org"
                   className="hover:text-white transition-colors"
                 >
-                  asafespaceformen@gmail.com
+                  william@asafespaceformen.org
                 </a>
               </li>
             </ul>
