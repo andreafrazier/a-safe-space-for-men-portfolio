@@ -28,7 +28,7 @@ const DonationSuccessPage = () => {
           </h1>
           
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Your generous donation helps us create safe spaces and support systems for men's mental health in Detroit and beyond.
+            Your generous donation helps us create safe spaces and support systems for men&apos;s mental health in Detroit and beyond.
           </p>
 
           {amount && (
