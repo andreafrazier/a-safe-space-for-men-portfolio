@@ -257,7 +257,7 @@ const EventsPage = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="mailto:asafespaceformen@gmail.com?subject=Event Idea"
+              href="william@asafespaceformen.org?subject=Event Idea"
               className="inline-flex items-center bg-white text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
             >
               Share Your Ideas
