@@ -10,31 +10,24 @@ export const teamMembers: TeamMember[] = [
     title: "Founder & Board President",
     image: "/images/team/william-word.jpeg",
     bio: "William J. Word is a visionary leader and community advocate dedicated to breaking barriers in men's mental health. As Founder and Board President of A Safe Space for Men, William leads the charge in creating supportive, judgment-free environments where men—particularly Black men—can prioritize their emotional well-being. With 20+ years of leadership experience spanning sales, operations, and customer service, he brings strong organizational, strategic, and interpersonal skills to the nonprofit sector, ensuring that mental health resources and support systems reach those who need them most.\n\nThroughout his career, William has honed his ability to build relationships, manage teams, and foster community engagement. His experience in high-volume operations, event management, and customer relations has made him a skilled communicator and problem-solver, adept at leading initiatives that drive real impact.\n\nIn addition to his professional background, William has a strong passion for entertainment and artist management, having worked with renowned recording studios and artists to support creative expression and community-driven projects. This experience has reinforced his commitment to mentorship, empowerment, and fostering safe spaces for dialogue—a cornerstone of A Safe Space for Men.\n\nWilliam's leadership, dedication to social change, and ability to connect with individuals from all walks of life make him an instrumental force in advancing mental health advocacy and reshaping the conversation around masculinity and emotional resilience.",
-    email: "asafespaceformen@gmail.com"
+    email: "william@asafespaceformen.org"
   },
   {
     id: 2,
-    name: "Andrea E. Frazier, MBA",
-    title: "Business Operations Consultant",
-    image: "/images/team/andrea-frazier.jpeg",
-    bio: "Andrea E. Frazier is an innovative Business Operations Consultant with 20+ years of experience strategically guiding organizations toward achieving their goals. With a unique blend of technical expertise, project management acumen, and leadership skills, she transforms business efficiency through strategic technology solutions. As the Operations & Technology Consultant for A Safe Space for Men, Andrea leverages data-driven strategies, agile methodologies, and technical solutions to enhance operational efficiency, track progress using project management tools, and implement sustainable programs that foster community engagement, dismantle stigmas, and expand access to vital mental health resources. Andrea holds an MBA from the University of Detroit Mercy and a Bachelor of Business Administration from the University of Michigan and is a member of Alpha Kappa Alpha Sorority, Incorporated. Beyond her professional work, Andrea is passionate about leveraging technology for social good, mentoring the next generation of professionals, and advocating for mental health awareness and suicide prevention."
-  },
-  {
-    id: 3,
     name: "Douglas A. Monds",
     title: "Legal & Compliance",
-    image: "/api/placeholder/300/300",
+    image: "",
     bio: "Douglas A. Monds graduated from Morehouse College and the University of Michigan Law School. As Compliance Officer for A Safe Space for Men, Douglas is responsible for ensuring organizational adherence to relevant laws, regulations, policies and standards.\n\nDouglas began his career at Miller, Canfield, Paddock and Stone and served as a Hearing Officer for Detroit's Department of Appeals and Hearings. Now in private practice, he assists small businesses and represents indigent defendants through Wayne County's Indigent Defense Program. Douglas is also a golfer, artist, musician, and entrepreneur."
   },
   {
-    id: 4,
+    id: 3,
     name: "Michael Ross",
     title: "Fundraising",
     image: "/images/team/michael-ross.jpeg",
     bio: "Michael Ross is the owner of Motoren Group Consulting, an innovative and dynamic firm specializing in manufacturing consulting. With over 18 years of dedicated experience in the ever-evolving fields of manufacturing, materials, and logistics, he has established himself as a Senior Supply Chain Management professional. Michael excels at cultivating cohesive teams and fostering collaboration across all levels of an organization. His mission is to empower the workforce, instilling strength and self-sustainability within teams. He takes immense pride in mentoring individuals, guiding them on their journey toward advancing into senior leadership roles and helping them realize their full potential.\n\nAs Board Secretary for A Safe Space for Men, Michael is instrumental in program planning and fundraising activities. As an Army veteran who served during the Gulf War, Michael is acutely aware of the challenges faced by returning soldiers and understands the impact that such experiences can have on individuals.\n\nBeyond his professional achievements, Michael is deeply committed to community service, embodying his belief in the importance of giving back. He has proudly served as Vice President of the Detroit Inter-Alumni Council chapter of the United Negro College Fund, advocating for educational opportunities for students. As a member of Alpha Phi Alpha Fraternity Inc., he participates in various initiatives aimed at uplifting the community. Additionally, Michael actively volunteers with organizations such as Forgotten Harvest and Citizens Changing Communities, working alongside others to make a positive impact and foster meaningful change in the lives of those they serve."
   },
   {
-    id: 5,
+    id: 4,
     name: "Darryl Woods, Sr.",
     title: "Community Outreach",
     image: "/images/team/darryl-woods.jpeg",

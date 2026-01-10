@@ -45,13 +45,13 @@ export default function AboutPageClient() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 href="/join"
-                className="bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                className="inline-flex items-center justify-center bg-emerald-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-emerald-700 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
               >
-                Join Our Community
+                Join Our Community <Users className="w-5 h-5 ml-2" />
               </Link>
               <Link 
                 href="/find-support"
-                className="border-2 border-emerald-600 text-emerald-600 px-12 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                className="inline-flex items-center justify-center border-2 border-emerald-600 text-emerald-600 px-16 py-4 rounded-lg font-semibold text-lg hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
               >
                 Find Support
               </Link>
@@ -207,7 +207,7 @@ export default function AboutPageClient() {
           </div>
           
           {/* Team Grid with better spacing */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {teamMembers.map((member) => (
               <TeamMemberCard 
                 key={member.id} 
@@ -275,7 +275,7 @@ export default function AboutPageClient() {
       <section className="py-20 bg-gradient-to-br from-emerald-600 to-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Join Our Community?
+            Ready to Join?
           </h2>
           <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
             Take the first step towards prioritizing your mental health and connecting with others on the same journey.
@@ -285,7 +285,7 @@ export default function AboutPageClient() {
               href="/join" 
               className="inline-flex items-center bg-white text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
             >
-              Join Us Today <ArrowRight className="w-5 h-5 ml-2" />
+              Join Our Community <Users className="w-5 h-5 ml-2" />
             </Link>
             <Link 
               href="/#donation" 

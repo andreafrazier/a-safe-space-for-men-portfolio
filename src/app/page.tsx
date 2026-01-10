@@ -370,7 +370,6 @@ const HomePage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Support Our Mission</h2>
-            <h3 className="text-2xl md:test-1xl font=semibold text-white mb-4">Online Donations Coming Soon!</h3>
             <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
               Your donation supports free support groups, mental health resources, and community programs 
               that help men prioritize their emotional well-being.

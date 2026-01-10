@@ -403,7 +403,7 @@ const StartHerePage = () => {
               href="/join"
               className="inline-flex items-center justify-center bg-white text-emerald-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-emerald-50 transition-colors shadow-lg"
             >
-              Join Our Next Meeting <Calendar className="w-5 h-5 ml-2" />
+              Join Our Community <Users className="w-5 h-5 ml-2" />
             </Link>
             <Link
               href="/find-support"
