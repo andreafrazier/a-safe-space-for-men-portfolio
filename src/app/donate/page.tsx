@@ -33,10 +33,10 @@ export default function DonatePage() {
           <p className="text-sm text-gray-500 mb-4">
             <strong>Questions about donating?</strong> Contact us at{' '}
             <a 
-              href="mailto:asafespaceformen@gmail.com" 
+              href="mailto:william@asafespaceformen.org" 
               className="text-emerald-600 hover:underline"
             >
-              asafespaceformen@gmail.com
+              william@asafespaceformen.org
             </a>
           </p>
           <p className="text-xs text-gray-400">

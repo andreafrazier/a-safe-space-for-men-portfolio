@@ -426,7 +426,7 @@ const HomePage = () => {
                 href="/donate"
                 className="inline-flex items-center justify-center bg-white text-emerald-600 px-8 py-2 rounded-lg font-semibold hover:bg-emerald-50 transition-colors border-2 border-white"
               >
-                Donate Now <Heart className="w-4 h-4 ml-2" />
+                Click to Donate Now <Heart className="w-4 h-4 ml-2" />
               </Link>
               <p className="text-emerald-100 text-sm mb-2 mt-6">
                 A Safe Space For Men is a 501(c)(3) organization. Your donation is tax-deductible 
