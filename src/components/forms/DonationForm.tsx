@@ -1,17 +1,27 @@
 'use client';
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 
 interface DonationFormProps {
     className?: string;
 }
 
 const DonationForm: React.FC<DonationFormProps> = ({ className = '' }) => {
+  const searchParams = useSearchParams();
   const [amount, setAmount] = useState<number | null>(null);
   const [customAmount, setCustomAmount] = useState<string>('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [donationType, setDonationType] = useState<'one-time' | 'monthly'>('one-time');
   const [error, setError] = useState<string>('');
+  const [donationSource, setDonationSource] = useState<string>('');
+
+  // Capture query parameters on mount
+  useEffect(() => {
+    const source = searchParams?.get('source') || 'direct';
+    setDonationSource(source);
+    console.log('Donation source:', source); // For tracking/debugging
+  }, [searchParams]);
 
   const presetAmounts = [25, 50, 100, 250];
   const monthlyAmounts = [15, 25, 50];
@@ -54,6 +64,7 @@ const DonationForm: React.FC<DonationFormProps> = ({ className = '' }) => {
         body: JSON.stringify({
           amount: amount,
           donationType: donationType,
+          source: donationSource, // pass source to Stripe metadata
         }),
       });
 

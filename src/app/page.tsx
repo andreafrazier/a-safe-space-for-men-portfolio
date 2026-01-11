@@ -422,7 +422,7 @@ const HomePage = () => {
 
             <div className="text-center">
               <Link
-                href="/donate"
+                href="/donate?source=homepage-donation"
                 className="inline-flex items-center justify-center bg-white text-emerald-600 px-8 py-2 rounded-lg font-semibold hover:bg-emerald-50 transition-colors border-2 border-white"
               >
                 Click to Donate Now <Heart className="w-4 h-4 ml-2" />

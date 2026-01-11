@@ -87,7 +87,7 @@ const Header = () => {
                                 </Link>
                             ))}
                             <Link 
-                                href="/#donate" 
+                                href="/donate?source=header-nav" 
                                 className="ml-12 bg-emerald-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 shadow-md"
                             >
                                 Donate Now
@@ -135,7 +135,7 @@ const Header = () => {
                                 </Link>
                             ))}
                             <Link 
-                                href="/#donation"
+                                href="/donate?source=header-nav"
                                 onClick={() => setIsMenuOpen(false)}
                                 className="block mx-4 mt-4 px-4 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 text-center"
                             >

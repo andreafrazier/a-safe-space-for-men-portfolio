@@ -46,6 +46,23 @@ const FindSupportPageComponent = () => {
     // INDIVIDUAL THERAPY
     {
       id: 1,
+      name: "SafetyZone Behavioral Health Urgent Care",
+      description: "Same day behavioral health support for adults. No appointment required.",
+      category: "specialized",
+      location: "Oak Park, MI",
+      phone: "(248) 951-8413",
+      website: "https://www.safety-zone.org",
+      cost: "insurance accepted",
+      hours: "Mon-Fri 6PM-11PM",
+      specialties: ["Urgent Care", "Specialized Services", "Therapy Referrals"],
+      rating: 4.5,
+      reviewCount: 32,
+      lastUpdated: "2026-01-09",
+      acceptsInsurance: true,
+      languages: ["English"]
+    },
+    {
+      id: 2,
       name: "Growing Well Clinical Therapy, LLC",
       description: "Experienced clinicians who provide high quality, culturally responsive care in Detroit.",
       category: "therapy",
@@ -62,7 +79,7 @@ const FindSupportPageComponent = () => {
       languages: ["English"]
     },
     {
-      id: 2,
+      id: 3,
       name: "Odis Bellinger, MA, LLPC",
       description: "Specializes in behavioral issues in youth 6-18, depression, pre-marital and marital counseling",
       category: "therapy",
@@ -74,22 +91,6 @@ const FindSupportPageComponent = () => {
       rating: 4.7,
       reviewCount: 76,
       lastUpdated: "2026-01-09",
-      acceptsInsurance: true,
-      languages: ["English"]
-    },
-    {
-      id: 3,
-      name: "Jordan Fields - Clinical Therapist",
-      description: "Clinical therapist intern specializing in general counseling and men's issues with fresh perspectives.",
-      category: "therapy",
-      location: "Detroit, MI",
-      phone: "(313) 555-0189",
-      cost: "$60-90/session",
-      hours: "Mon-Thu 11AM-8PM",
-      specialties: ["General counseling", "Men's issues", "Stress management"],
-      rating: 4.5,
-      reviewCount: 32,
-      lastUpdated: "2025-01-14",
       acceptsInsurance: true,
       languages: ["English"]
     },
@@ -470,45 +471,45 @@ const FindSupportPageComponent = () => {
       </section>
 
       {/* Self-Assessment Tools */}
-      <section className="py-12 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Self-Assessment Tools</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Take anonymous mental health screenings to better understand your mental health and find appropriate resources.
-            </p>
-            <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6 max-w-2xl mx-auto">
-              <p className="text-amber-800 text-sm">
-                <AlertTriangle className="w-4 h-4 inline mr-2" />
-                These tools are for educational purposes only and do not replace professional diagnosis or treatment.
-              </p>
-            </div>
-          </div>
+      {/* <section className="py-12 bg-gray-100"> */}
+        {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> */}
+          {/* <div className="text-center mb-12"> */}
+            {/* <h2 className="text-3xl font-bold text-gray-900 mb-4">Self-Assessment Tools</h2> */}
+            {/* <p className="text-lg text-gray-600 max-w-3xl mx-auto"> */}
+              {/* Take anonymous mental health screenings to better understand your mental health and find appropriate resources. */}
+            {/* </p> */}
+            {/* <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6 max-w-2xl mx-auto"> */}
+              {/* <p className="text-amber-800 text-sm"> */}
+                {/* <AlertTriangle className="w-4 h-4 inline mr-2" /> */}
+                {/* These tools are for educational purposes only and do not replace professional diagnosis or treatment. */}
+              {/* </p> */}
+            {/* </div> */}
+          {/* </div> */}
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {selfAssessmentTools.map((tool, index) => (
-              <a
-                key={index}
-                href={tool.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow block"
-              >
-                <div className="flex justify-center mb-4">
-                  {tool.icon}
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2 text-center">{tool.name}</h3>
-                <p className="text-gray-600 text-sm text-center mb-4">{tool.description}</p>
-                <div className="text-center">
-                  <span className="inline-flex items-center text-emerald-600 font-semibold text-sm">
-                    Take Assessment <ExternalLink className="w-4 h-4 ml-1" />
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"> */}
+            {/* {selfAssessmentTools.map((tool, index) => ( */}
+              {/* <a */}
+                {/* key={index} */}
+                {/* href={tool.link} */}
+                {/* target="_blank" */}
+                {/* rel="noopener noreferrer" */}
+                {/* className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow block" */}
+              {/* > */}
+                {/* <div className="flex justify-center mb-4"> */}
+                  {/* {tool.icon} */}
+                {/* </div> */}
+                {/* <h3 className="text-lg font-bold text-gray-900 mb-2 text-center">{tool.name}</h3> */}
+                {/* <p className="text-gray-600 text-sm text-center mb-4">{tool.description}</p> */}
+                {/* <div className="text-center"> */}
+                  {/* <span className="inline-flex items-center text-emerald-600 font-semibold text-sm"> */}
+                    {/* Take Assessment <ExternalLink className="w-4 h-4 ml-1" /> */}
+                  {/* </span> */}
+                {/* </div> */}
+              {/* </a> */}
+            {/* ))} */}
+          {/* </div> */}
+        {/* </div> */}
+      {/* </section> */}
 
       {/* Call to Action */}
       <section className="py-20 bg-gradient-to-br from-emerald-600 to-blue-600">
@@ -525,12 +526,6 @@ const FindSupportPageComponent = () => {
               className="inline-flex items-center bg-white text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
             >
               Join Our Community <Users className="w-5 h-5 ml-2" />
-            </Link>
-            <Link 
-              href="/#donation" 
-              className="inline-flex items-center border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-emerald-600 transition-colors"
-            >
-              Support Our Mission <Heart className="w-5 h-5 ml-2" />
             </Link>
           </div>
         </div>

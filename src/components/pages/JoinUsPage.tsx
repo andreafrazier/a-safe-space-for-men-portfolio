@@ -164,7 +164,7 @@ const JoinUsPage = () => {
       <section id="donation" className="py-20 bg-gradient-to-br from-emerald-600 to-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Support Our Mission</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Can't Volunteer? Donate Instead</h2>
             <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
               Your donation supports free support groups, mental health resources, and community programs 
               that help men prioritize their emotional well-being.
@@ -217,7 +217,7 @@ const JoinUsPage = () => {
 
             <div className="text-center">
               <Link
-                href="/#donate"
+                href="/donate?source=join-upsell"
                 className="inline-flex items-center bg-white text-emerald-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-emerald-600 mb-4"
               >
                 Click to Donate Now <Heart className="w-5 h-5 ml-2" />

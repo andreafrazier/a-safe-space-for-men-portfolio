@@ -222,8 +222,10 @@ const EventsPage = () => {
       <section className="py-12 bg-emerald-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-xl shadow-lg p-8 border-2 border-emerald-200">
-            <div className="flex items-start">
-              <CheckCircle className="w-8 h-8 text-emerald-600 mr-4 flex-shrink-0 mt-1" />
+            <div className="text-center">
+              <CheckCircle className="w-8 h-8 text-emerald-600 mx-auto mb-4" />
+              <div className="max-w-3xl mx-auto">
+              </div>
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">
                   Want to Stay Updated on Events?
@@ -235,9 +237,9 @@ const EventsPage = () => {
                 </p>
                 <Link
                   href="/join"
-                  className="inline-flex items-center bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
+                  className="inline-flex items-center justify-center bg-emerald-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-emerald-700 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
                 >
-                  Join Our Community <ArrowRight className="w-5 h-5 ml-2" />
+                  Join Our Community <Users className="w-4 h-4 ml-2" />
                 </Link>
               </div>
             </div>

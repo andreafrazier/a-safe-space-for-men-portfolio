@@ -9,7 +9,7 @@ import Header from '@/components/layout/Header';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://asafespaceformen.netlify.app'), // Add your actual domain
+  metadataBase: new URL('https://asafespaceformen.org'), 
   title: {
     default: 'A Safe Space For Men',
     template: '%s | A Safe Space For Men'
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://asafespaceformen.netlify.app', // Update with your actual domain
+    url: 'https://asafespaceformen.org', // Update with your actual domain
     siteName: 'A Safe Space For Men',
     title: 'A Safe Space For Men',
     description: 'Creating community for men\'s mental health in Detroit and beyond. Breaking barriers, building community, and fostering resilience.',

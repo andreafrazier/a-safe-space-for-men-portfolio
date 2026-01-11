@@ -98,8 +98,8 @@ const DonationSuccessPage = () => {
             </p>
             <p className="text-sm text-gray-500">
               Questions about your donation? Contact us at{' '}
-              <a href="mailto:asafespaceformen@gmail.com" className="text-emerald-600 hover:underline">
-                asafespaceformen@gmail.com
+              <a href="mailto:william@asafespaceformen.org" className="text-emerald-600 hover:underline">
+                william@asafespaceformen.org
               </a>
             </p>
           </div>
