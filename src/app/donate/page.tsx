@@ -35,8 +35,10 @@ export default function DonatePage() {
               <div className="h-12 bg-gray-200 rounded"></div>
             </div>
           </div>
-        }></Suspense>
-        <DonationForm />
+        }>
+          <DonationForm />
+        </Suspense>
+        
 
         {/* Payment Methods */}
         <div className="mt-8 bg-white rounded-lg p-6 shadow-sm border border-gray-200">
