@@ -45,13 +45,13 @@ export default function AboutPageClient() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 href="/join"
-                className="bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                className="inline-flex items-center justify-center bg-emerald-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-emerald-700 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
               >
-                Join Our Community
+                Join Our Community <Users className="w-5 h-5 ml-2" />
               </Link>
               <Link 
                 href="/find-support"
-                className="border-2 border-emerald-600 text-emerald-600 px-12 py-3 rounded-lg font-semibold hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
+                className="inline-flex items-center justify-center border-2 border-emerald-600 text-emerald-600 px-16 py-4 rounded-lg font-semibold text-lg hover:bg-emerald-50 transition-colors focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2"
               >
                 Find Support
               </Link>
@@ -207,7 +207,7 @@ export default function AboutPageClient() {
           </div>
           
           {/* Team Grid with better spacing */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {teamMembers.map((member) => (
               <TeamMemberCard 
                 key={member.id} 
@@ -228,54 +228,54 @@ export default function AboutPageClient() {
       </section>
 
       {/* Enhanced Community Impact Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Growing Impact</h2>
-            <p className="text-lg text-gray-600">Building stronger communities through connection and support</p>
-          </div>
+      {/* <section className="py-20 bg-gray-50"> */}
+        {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> */}
+          {/* <div className="text-center mb-16"> */}
+            {/* <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Growing Impact</h2> */}
+            {/* <p className="text-lg text-gray-600">Building stronger communities through connection and support</p> */}
+          {/* </div> */}
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> */}
             {/* Featured Impact Image */}
-            <div className="relative overflow-hidden rounded-lg shadow-lg group">
-              <div className="relative w-full h-64">
-                <Image 
-                  src="/images/breakthestigma-green.png" 
-                  alt="Community workshop showcasing men supporting each other in mental health advocacy"
-                  fill
-                  className="object-contain bg-white p-4 group-hover:scale-105 transition-transform duration-300"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end">
-                <div className="p-6 text-white">
-                  <h3 className="font-semibold text-lg mb-2">Breaking the Stigma</h3>
-                  <p className="text-sm opacity-90">Empowering men through education and awareness</p>
-                </div>
-              </div>
-            </div>
+            {/* <div className="relative overflow-hidden rounded-lg shadow-lg group"> */}
+              {/* <div className="relative w-full h-64"> */}
+                {/* <Image  */}
+                  {/* src="/images/breakthestigma-green.png"  */}
+                  {/* alt="Community workshop showcasing men supporting each other in mental health advocacy" */}
+                  {/* fill */}
+                  {/* className="object-contain bg-white p-4 group-hover:scale-105 transition-transform duration-300" */}
+                  {/* sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" */}
+                {/* /> */}
+              {/* </div> */}
+              {/* <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end"> */}
+                {/* <div className="p-6 text-white"> */}
+                  {/* <h3 className="font-semibold text-lg mb-2">Breaking the Stigma</h3> */}
+                  {/* <p className="text-sm opacity-90">Empowering men through education and awareness</p> */}
+                {/* </div> */}
+              {/* </div> */}
+            {/* </div> */}
             
             {/* Placeholder Impact Cards */}
-            {[2, 3, 4, 5, 6].map((index) => (
-              <div key={index} className="relative overflow-hidden rounded-lg shadow-lg group bg-gradient-to-br from-emerald-100 to-blue-100">
-                <div className="w-full h-64 flex items-center justify-center">
-                  <div className="text-center p-6">
-                    <Users className="w-12 h-12 text-emerald-600 mx-auto mb-4" />
-                    <h3 className="font-semibold text-lg text-gray-800 mb-2">Community Impact {index}</h3>
-                    <p className="text-sm text-gray-600">Building connections and fostering support</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            {/* {[2, 3, 4, 5, 6].map((index) => ( */}
+              {/* <div key={index} className="relative overflow-hidden rounded-lg shadow-lg group bg-gradient-to-br from-emerald-100 to-blue-100"> */}
+                {/* <div className="w-full h-64 flex items-center justify-center"> */}
+                  {/* <div className="text-center p-6"> */}
+                    {/* <Users className="w-12 h-12 text-emerald-600 mx-auto mb-4" /> */}
+                    {/* <h3 className="font-semibold text-lg text-gray-800 mb-2">Community Impact {index}</h3> */}
+                    {/* <p className="text-sm text-gray-600">Building connections and fostering support</p> */}
+                  {/* </div> */}
+                {/* </div> */}
+              {/* </div> */}
+            {/* ))} */}
+          {/* </div> */}
+        {/* </div> */}
+      {/* </section> */}
 
       {/* Call to Action */}
       <section className="py-20 bg-gradient-to-br from-emerald-600 to-blue-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-            Ready to Join Our Community?
+            Get Involved
           </h2>
           <p className="text-xl text-emerald-100 mb-8 max-w-3xl mx-auto">
             Take the first step towards prioritizing your mental health and connecting with others on the same journey.
@@ -283,15 +283,9 @@ export default function AboutPageClient() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link 
               href="/join" 
-              className="inline-flex items-center bg-white text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+              className="inline-flex items-center justify-center bg-white text-emerald-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-emerald-50 transition-colors shadow-lg"
             >
-              Join Us Today <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
-            <Link 
-              href="/#donation" 
-              className="inline-flex items-center border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-emerald-600 transition-colors focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
-            >
-              Support Our Mission <Heart className="w-5 h-5 ml-2" />
+              Join Our Community <Users className="w-5 h-5 ml-2" />
             </Link>
           </div>
         </div>

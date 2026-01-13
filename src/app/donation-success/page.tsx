@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { CheckCircle, Heart, ArrowRight } from 'lucide-react';
+import { CheckCircle, Heart, ArrowRight, Users } from 'lucide-react';
 import Link from 'next/link';
 
 const DonationSuccessPage = () => {
@@ -14,6 +14,7 @@ const DonationSuccessPage = () => {
 
   const amount = urlParams?.get('amount') || '';
   const frequency = urlParams?.get('frequency') || '';
+  const source = urlParams?.get('source') || '';
 
   return (
     <div className="min-h-screen bg-gray-50 pt-24">
@@ -30,6 +31,13 @@ const DonationSuccessPage = () => {
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Your generous donation helps us create safe spaces and support systems for men&apos;s mental health in Detroit and beyond.
           </p>
+
+          {/* Email Confirmation Message */}
+          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-8 max-w-2xl mx-auto">
+            <p className="text-blue-800 text-sm">
+              <strong>📧 Confirmation email sent!</strong> Check your inbox for your tax-deductible receipt and donation details.
+            </p>
+          </div>
 
           {amount && (
             <div className="bg-white rounded-lg p-6 shadow-lg max-w-md mx-auto mb-8">
@@ -82,7 +90,7 @@ const DonationSuccessPage = () => {
               href="/join"
               className="inline-flex items-center bg-emerald-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
             >
-              Join Our Community <ArrowRight className="w-5 h-5 ml-2" />
+              Join Our Community <Users className="w-5 h-5 ml-2" />
             </Link>
             <Link 
               href="/"
@@ -98,11 +106,18 @@ const DonationSuccessPage = () => {
             </p>
             <p className="text-sm text-gray-500">
               Questions about your donation? Contact us at{' '}
-              <a href="mailto:asafespaceformen@gmail.com" className="text-emerald-600 hover:underline">
-                asafespaceformen@gmail.com
+              <a href="mailto:william@asafespaceformen.org" className="text-emerald-600 hover:underline">
+                william@asafespaceformen.org
               </a>
             </p>
           </div>
+
+          {/* Source tracking for analytics (hidden from user) */}
+          {source && (
+            <div className="hidden" data-donation-source={source}>
+              {/* Analytics tracking: Donation from {source} */}
+            </div>
+          )}
         </div>
       </div>
     </div>

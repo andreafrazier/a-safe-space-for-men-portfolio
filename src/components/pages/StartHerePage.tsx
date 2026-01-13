@@ -5,7 +5,8 @@ import {
   AlertTriangle, Phone, MessageSquare, ExternalLink, 
   Brain, Heart, Shield, Activity, Users, Stethoscope,
   CheckCircle, ArrowRight, HelpCircle, Home, DollarSign,
-  Calendar, Info, Flame, Zap, HeartHandshake, AlertCircle
+  Calendar, Info, Flame, Zap, HeartHandshake, AlertCircle,
+  ArrowDown
 } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -219,7 +220,7 @@ const StartHerePage = () => {
           <p className="text-lg text-gray-700 mb-3">
             Great. Let's find the right ongoing support for you. Keep scrolling.
           </p>
-          <ArrowRight className="w-6 h-6 text-gray-400 mx-auto animate-bounce" />
+          <ArrowDown className="w-6 h-6 text-gray-600 mx-auto animate-bounce" />
         </div>
       </section>
 
@@ -403,7 +404,7 @@ const StartHerePage = () => {
               href="/join"
               className="inline-flex items-center justify-center bg-white text-emerald-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-emerald-50 transition-colors shadow-lg"
             >
-              Join Our Next Meeting <Calendar className="w-5 h-5 ml-2" />
+              Join Our Community <Users className="w-5 h-5 ml-2" />
             </Link>
             <Link
               href="/find-support"

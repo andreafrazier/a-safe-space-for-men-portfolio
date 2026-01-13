@@ -46,50 +46,51 @@ const FindSupportPageComponent = () => {
     // INDIVIDUAL THERAPY
     {
       id: 1,
-      name: "Mike Lamerato, MS, LLP - Men's Therapy",
-      description: "Licensed therapist specializing in men's issues, trauma, and emotional wellness in Metro Detroit.",
-      category: "therapy",
-      location: "Metro Detroit Area",
-      phone: "(248) 555-0123",
-      website: "https://metro-detroit-mens-therapy.com",
-      cost: "$120-180/session",
-      hours: "Mon-Fri 9AM-7PM",
-      specialties: ["Men's issues", "Trauma therapy", "Anger management", "Relationships"],
-      rating: 4.8,
-      reviewCount: 94,
-      lastUpdated: "2025-01-12",
+      name: "SafetyZone Behavioral Health Urgent Care",
+      description: "Same day behavioral health support for adults. No appointment required.",
+      category: "specialized",
+      location: "Oak Park, MI",
+      phone: "(248) 951-8413",
+      website: "https://www.safety-zone.org",
+      cost: "insurance accepted",
+      hours: "Mon-Fri 6PM-11PM",
+      specialties: ["Urgent Care", "Specialized Services", "Therapy Referrals"],
+      rating: 4.5,
+      reviewCount: 32,
+      lastUpdated: "2026-01-09",
       acceptsInsurance: true,
       languages: ["English"]
     },
     {
       id: 2,
-      name: "Dr. Chris Allen Shreve - Trauma Specialist",
-      description: "Trauma specialist focusing on men's mental health, substance abuse, and life transitions.",
+      name: "Growing Well Clinical Therapy, LLC",
+      description: "Experienced clinicians who provide high quality, culturally responsive care in Detroit.",
       category: "therapy",
       location: "Detroit, MI",
-      phone: "(313) 555-0167",
-      cost: "$100-150/session",
-      hours: "Tue-Sat 10AM-6PM",
-      specialties: ["Trauma therapy", "Substance abuse", "Depression", "Anxiety"],
-      rating: 4.7,
-      reviewCount: 76,
-      lastUpdated: "2025-01-08",
+      phone: "(734) 846-5723",
+      website: "https://growingwelltherapy.com/",
+      cost: "Insurance accepted and sliding fee for self-pay",
+      hours: "Mon-Fri 8AM-9PM",
+      specialties: ["Men's issues", "Trauma therapy", "Anger management", "Relationships"],
+      rating: 4.8,
+      reviewCount: 94,
+      lastUpdated: "2026-01-09",
       acceptsInsurance: true,
-      languages: ["English", "Spanish"]
+      languages: ["English"]
     },
     {
       id: 3,
-      name: "Jordan Fields - Clinical Therapist",
-      description: "Clinical therapist intern specializing in general counseling and men's issues with fresh perspectives.",
+      name: "Odis Bellinger, MA, LLPC",
+      description: "Specializes in behavioral issues in youth 6-18, depression, pre-marital and marital counseling",
       category: "therapy",
-      location: "Detroit, MI",
-      phone: "(313) 555-0189",
-      cost: "$60-90/session",
-      hours: "Mon-Thu 11AM-8PM",
-      specialties: ["General counseling", "Men's issues", "Stress management"],
-      rating: 4.5,
-      reviewCount: 32,
-      lastUpdated: "2025-01-14",
+      location: "Southfield, MI",
+      phone: "(248) 396-8619",
+      cost: "Insurance accepted and $140-$185 self-pay; may be eligible for sliding scale based on ability to pay",
+      hours: "Mon-Fri 9AM-5PM",
+      specialties: ["Individual therapy", "Couples therapy", "Depression", "Anxiety"],
+      rating: 4.7,
+      reviewCount: 76,
+      lastUpdated: "2026-01-09",
       acceptsInsurance: true,
       languages: ["English"]
     },
@@ -470,45 +471,45 @@ const FindSupportPageComponent = () => {
       </section>
 
       {/* Self-Assessment Tools */}
-      <section className="py-12 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Self-Assessment Tools</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Take anonymous mental health screenings to better understand your mental health and find appropriate resources.
-            </p>
-            <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6 max-w-2xl mx-auto">
-              <p className="text-amber-800 text-sm">
-                <AlertTriangle className="w-4 h-4 inline mr-2" />
-                These tools are for educational purposes only and do not replace professional diagnosis or treatment.
-              </p>
-            </div>
-          </div>
+      {/* <section className="py-12 bg-gray-100"> */}
+        {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> */}
+          {/* <div className="text-center mb-12"> */}
+            {/* <h2 className="text-3xl font-bold text-gray-900 mb-4">Self-Assessment Tools</h2> */}
+            {/* <p className="text-lg text-gray-600 max-w-3xl mx-auto"> */}
+              {/* Take anonymous mental health screenings to better understand your mental health and find appropriate resources. */}
+            {/* </p> */}
+            {/* <div className="bg-amber-50 border border-amber-200 rounded-lg p-4 mt-6 max-w-2xl mx-auto"> */}
+              {/* <p className="text-amber-800 text-sm"> */}
+                {/* <AlertTriangle className="w-4 h-4 inline mr-2" /> */}
+                {/* These tools are for educational purposes only and do not replace professional diagnosis or treatment. */}
+              {/* </p> */}
+            {/* </div> */}
+          {/* </div> */}
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {selfAssessmentTools.map((tool, index) => (
-              <a
-                key={index}
-                href={tool.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow block"
-              >
-                <div className="flex justify-center mb-4">
-                  {tool.icon}
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2 text-center">{tool.name}</h3>
-                <p className="text-gray-600 text-sm text-center mb-4">{tool.description}</p>
-                <div className="text-center">
-                  <span className="inline-flex items-center text-emerald-600 font-semibold text-sm">
-                    Take Assessment <ExternalLink className="w-4 h-4 ml-1" />
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"> */}
+            {/* {selfAssessmentTools.map((tool, index) => ( */}
+              {/* <a */}
+                {/* key={index} */}
+                {/* href={tool.link} */}
+                {/* target="_blank" */}
+                {/* rel="noopener noreferrer" */}
+                {/* className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow block" */}
+              {/* > */}
+                {/* <div className="flex justify-center mb-4"> */}
+                  {/* {tool.icon} */}
+                {/* </div> */}
+                {/* <h3 className="text-lg font-bold text-gray-900 mb-2 text-center">{tool.name}</h3> */}
+                {/* <p className="text-gray-600 text-sm text-center mb-4">{tool.description}</p> */}
+                {/* <div className="text-center"> */}
+                  {/* <span className="inline-flex items-center text-emerald-600 font-semibold text-sm"> */}
+                    {/* Take Assessment <ExternalLink className="w-4 h-4 ml-1" /> */}
+                  {/* </span> */}
+                {/* </div> */}
+              {/* </a> */}
+            {/* ))} */}
+          {/* </div> */}
+        {/* </div> */}
+      {/* </section> */}
 
       {/* Call to Action */}
       <section className="py-20 bg-gradient-to-br from-emerald-600 to-blue-600">
@@ -525,12 +526,6 @@ const FindSupportPageComponent = () => {
               className="inline-flex items-center bg-white text-emerald-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
             >
               Join Our Community <Users className="w-5 h-5 ml-2" />
-            </Link>
-            <Link 
-              href="/#donation" 
-              className="inline-flex items-center border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-emerald-600 transition-colors"
-            >
-              Support Our Mission <Heart className="w-5 h-5 ml-2" />
             </Link>
           </div>
         </div>

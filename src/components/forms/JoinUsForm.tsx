@@ -626,7 +626,7 @@ const JoinUsForm = () => {
         </div>
 
         <div className="mt-6 text-center text-sm text-gray-500">
-          <p>Questions? Contact us at <a href="mailto:asafespaceformen@gmail.com" className="text-emerald-600 hover:underline">asafespaceformen@gmail.com</a></p>
+          <p>Questions? Contact us at <a href="mailto:william@asafespaceformen.org" className="text-emerald-600 hover:underline">william@asafespaceformen.org</a></p>
         </div>
       </form>
     </div>
