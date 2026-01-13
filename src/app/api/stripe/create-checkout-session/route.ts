@@ -24,20 +24,23 @@ export async function POST(req: NextRequest) {
     // Get the base URL for redirects
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
 
+    // Prepare source for URL and metadata
+    const donationSource = source || "direct";
+
     // Create session parameters based on donation type
     let sessionParams: Stripe.Checkout.SessionCreateParams;
 
     if (donationType === 'one-time') {
       // One-time donation
       sessionParams = {
-        payment_method_types: ['card'],
+        payment_method_types: ['card', 'link'],
         line_items: [
           {
             price_data: {
               currency: 'usd',
               product_data: {
                 name: 'Donation to A Safe Space For Men',
-                description: 'Supporting men\'s mental health and suicide prevention',
+                description: 'Supporting men\'s mental health and wellness',
               },
               unit_amount: Math.round(amount * 100), // Convert to cents
             },
@@ -45,24 +48,25 @@ export async function POST(req: NextRequest) {
           },
         ],
         mode: 'payment',
-        success_url: `${baseUrl}/donation-success?amount=${amount}&frequency=one-time&session_id={CHECKOUT_SESSION_ID}`,
+        success_url: `${baseUrl}/donation-success?amount=${amount}&frequency=one-time&source=${donationSource}&session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${baseUrl}/?donation=cancelled`,
         metadata: {
           donation_type: 'one-time',
           amount: amount.toString(),
+          source: donationSource,
         },
       };
     } else {
       // Monthly recurring donation
       sessionParams = {
-        payment_method_types: ['card'],
+        payment_method_types: ['card', 'link'],
         line_items: [
           {
             price_data: {
               currency: 'usd',
               product_data: {
                 name: 'Monthly Support - A Safe Space For Men',
-                description: 'Monthly recurring donation supporting men\'s mental health',
+                description: 'Monthly recurring donation supporting men\'s mental health and wellness',
               },
               unit_amount: Math.round(amount * 100), // Convert to cents
               recurring: {
@@ -73,11 +77,12 @@ export async function POST(req: NextRequest) {
           },
         ],
         mode: 'subscription',
-        success_url: `${baseUrl}/donation-success?amount=${amount}&frequency=monthly&session_id={CHECKOUT_SESSION_ID}`,
+        success_url: `${baseUrl}/donation-success?amount=${amount}&frequency=monthly&source=${donationSource}&session_id={CHECKOUT_SESSION_ID}`,
         cancel_url: `${baseUrl}/?donation=cancelled`,
         metadata: {
           donation_type: 'monthly',
           amount: amount.toString(),
+          source: donationSource,
         },
       };
     }

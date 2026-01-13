@@ -1,6 +1,6 @@
 import DonationForm from '@/components/forms/DonationForm';
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, CreditCard, Shield } from 'lucide-react';
 
 export default function DonatePage() {
   return (
@@ -27,6 +27,39 @@ export default function DonatePage() {
 
         {/* Donation Form */}
         <DonationForm />
+
+        {/* Payment Methods */}
+        <div className="mt-8 bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Shield className="w-5 h-5 text-gray-600" />
+            <h3 className="text-sm font-semibold text-gray-700">Secure Payment Methods</h3>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {/* Credit/Debit Cards */}
+            <div className="px-4 py-2 bg-blue-600 rounded-md text-white text-sm font-semibold">
+              💳 Credit/Debit Card
+            </div>
+            
+            {/* Apple Pay */}
+            <div className="px-4 py-2 bg-black rounded-md text-white text-sm font-semibold">
+              🍎 Apple Pay
+            </div>
+
+            {/* Google Pay */}
+            <div className="px-4 py-2 bg-white border-2 border-gray-300 rounded-md text-gray-700 text-sm font-semibold">
+              🅖 Google Pay
+            </div>
+
+            {/* Link by Stripe */}
+            <div className="px-4 py-2 bg-emerald-600 rounded-md text-white text-sm font-semibold">
+              🔗 Link
+            </div>
+          </div>
+          <p className="text-xs text-gray-500 text-center mt-4 flex items-center justify-center gap-1">
+            <Shield className="w-3 h-3" />
+            All transactions are secure and encrypted
+          </p>
+        </div>
 
         {/* Additional Info */}
         <div className="mt-12 text-center">
