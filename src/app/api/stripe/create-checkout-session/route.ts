@@ -4,7 +4,7 @@ import Stripe from 'stripe';
 
 export async function POST(req: NextRequest) {
   try {
-    const { amount, donationType } = await req.json();
+    const { amount, donationType, source } = await req.json();
 
     // Validate input
     if (!amount || amount <= 0) {
