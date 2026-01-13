@@ -36,6 +36,7 @@
     "stripe": "^18.5.0"
   },
   "devDependencies": {
+    "@netlify/functions": "^3.0.0",
     "@babel/core": "^7.28.0",
     "@swc/core": "^1.13.2",
     "@swc/jest": "^0.2.39",
