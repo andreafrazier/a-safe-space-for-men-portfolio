@@ -2,10 +2,7 @@
 const path = require('path');
 
 const nextConfig = {
-  // Enable static export for Netlify Forms compatibility
-  output: 'export',
-  
-  // React settings
+   // React settings
   reactStrictMode: true,
   
   // Handle trailing slashes for static export

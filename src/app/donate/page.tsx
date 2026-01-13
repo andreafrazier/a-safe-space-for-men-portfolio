@@ -1,6 +1,7 @@
 import DonationForm from '@/components/forms/DonationForm';
 import Link from 'next/link';
 import { ArrowLeft, CreditCard, Shield } from 'lucide-react';
+import { Suspense } from 'react';
 
 export default function DonatePage() {
   return (
@@ -26,6 +27,15 @@ export default function DonatePage() {
         </div>
 
         {/* Donation Form */}
+        <Suspense fallback={
+          <div className="bg-white rounded-lg p-8 shadow-lg text-center">
+            <div className="animate-pulse">
+              <div className="h-8 bg-gray-200 rounded w-3/4 mx-auto mb-6"></div>
+              <div className="h-12 bg-gray-200 rounded mb-4"></div>
+              <div className="h-12 bg-gray-200 rounded"></div>
+            </div>
+          </div>
+        }></Suspense>
         <DonationForm />
 
         {/* Payment Methods */}
