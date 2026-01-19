@@ -1,363 +1,208 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>January 19 Meeting Registration QR Code</title>
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 40px 20px;
-        background: #f5f5f5;
-      }
-      .qr-container {
-        background: white;
-        padding: 40px;
-        border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        text-align: center;
-      }
-      h1 {
-        color: #059669;
-        margin-bottom: 10px;
-      }
-      .event-details {
-        background: linear-gradient(135deg, #059669 0%, #1e3a8a 100%);
-        color: white;
-        padding: 30px;
-        border-radius: 10px;
-        margin: 30px 0;
-      }
-      .event-details h2 {
-        margin: 0 0 20px 0;
-        font-size: 24px;
-      }
-      .event-info {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px;
-        text-align: left;
-      }
-      .info-item {
-        background: rgba(255, 255, 255, 0.1);
-        padding: 15px;
-        border-radius: 8px;
-      }
-      .info-label {
-        font-weight: bold;
-        margin-bottom: 5px;
-        font-size: 14px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-      .info-value {
-        font-size: 16px;
-        line-height: 1.5;
-      }
-      .qr-wrapper {
-        margin: 40px 0;
-      }
-      canvas {
-        display: block;
-        margin: 0 auto;
-        border: 5px solid #059669;
-        border-radius: 10px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      }
-      .url {
-        color: #666;
-        font-size: 14px;
-        margin: 20px 0;
-        word-break: break-all;
-        background: #f9f9f9;
-        padding: 15px;
-        border-radius: 5px;
-      }
-      button {
-        background: #059669;
-        color: white;
-        border: none;
-        padding: 15px 40px;
-        border-radius: 8px;
-        font-size: 18px;
-        font-weight: bold;
-        cursor: pointer;
-        margin: 10px;
-        box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3);
-        transition: all 0.3s ease;
-      }
-      button:hover {
-        background: #047857;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4);
-      }
-      .instructions {
-        background: #ecfdf5;
-        border-left: 4px solid #059669;
-        padding: 20px;
-        margin-top: 30px;
-        border-radius: 5px;
-        text-align: left;
-      }
-      .instructions h3 {
-        margin-top: 0;
-        color: #059669;
-      }
-      .instructions ul {
-        margin: 15px 0;
-        padding-left: 20px;
-      }
-      .instructions li {
-        margin: 10px 0;
-        line-height: 1.6;
-      }
-      .print-version {
-        margin-top: 40px;
-        padding-top: 30px;
-        border-top: 2px solid #e5e7eb;
-      }
-      .loading {
-        color: #666;
-        font-style: italic;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="qr-container">
-      <h1>Men's Meeting Registration</h1>
-      <p class="loading" id="loading">Generating QR code with logo...</p>
+'use client';
 
-      <div class="event-details">
-        <h2>Monday, January 19, 2026</h2>
-        <div class="event-info">
-          <div class="info-item">
-            <div class="info-label">📅 Date</div>
-            <div class="info-value">Monday, January 19, 2026</div>
-          </div>
-          <div class="info-item">
-            <div class="info-label">🕕 Time</div>
-            <div class="info-value">6:00 PM - 8:30 PM</div>
-          </div>
-          <div class="info-item">
-            <div class="info-label">📍 Location</div>
-            <div class="info-value">
-              SafetyZone<br />
-              21040 Greenfield Rd #278<br />
-              Oak Park, MI 48237
-            </div>
-          </div>
+import React, { useState } from 'react';
+import { CheckCircle } from 'lucide-react';
+
+interface EventRegistrationFormProps {
+  eventDate: string;
+  eventTitle: string;
+}
+
+const EventRegistrationForm: React.FC<EventRegistrationFormProps> = ({ eventDate, eventTitle }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    hearAboutUs: '',
+    firstTime: 'yes',
+    message: '',
+  });
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const formElement = e.currentTarget;
+      const formDataToSend = new FormData(formElement);
+
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formDataToSend as any).toString(),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error submitting your registration. Please try again or contact us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  if (isSubmitted) {
+    return (
+      <div className="text-center py-12">
+        <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-6">
+          <CheckCircle className="w-10 h-10 text-emerald-600" />
         </div>
-      </div>
-
-      <div class="qr-wrapper">
-        <h2>Scan to Register</h2>
-        <canvas id="qr-event" width="512" height="512"></canvas>
-      </div>
-
-      <div class="url">https://asafespaceformen.org/events/register-jan19</div>
-
-      <div>
-        <button onclick="downloadQR('qr-event', 'ASSFM-Jan19-Meeting-QR.png')">
-          💾 Download QR Code
-        </button>
-        <button onclick="downloadFlyer()">📄 Download Printable Flyer</button>
-      </div>
-
-      <div class="instructions">
-        <h3>How to Use This QR Code:</h3>
-        <ul>
-          <li>
-            <strong>Download:</strong> Click "Download QR Code" to save the
-            image
-          </li>
-          <li>
-            <strong>Share Digitally:</strong> Add to social media posts, emails,
-            or text messages
-          </li>
-          <li>
-            <strong>Print:</strong> Perfect for flyers, posters, or handouts at
-            2-4 inches
-          </li>
-          <li>
-            <strong>Test:</strong> Scan with your phone camera before printing
-            to ensure it works
-          </li>
-          <li>
-            <strong>Printable Flyer:</strong> Click "Download Printable Flyer"
-            for a ready-to-print version with event details
-          </li>
-        </ul>
-
-        <p
-          style="
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #d1fae5;
-          "
-        >
-          <strong>💡 Quick Tip:</strong> The QR code links directly to the
-          registration form. Anyone who scans it can register in under 2
-          minutes!
+        <h3 className="text-2xl font-bold text-gray-900 mb-4">
+          You're Registered!
+        </h3>
+        <p className="text-gray-600 mb-6 max-w-md mx-auto">
+          Thank you for registering for {eventTitle} on {eventDate}. We look forward to seeing you!
+        </p>
+        <p className="text-sm text-gray-500">
+          A confirmation has been sent to your email.
         </p>
       </div>
-    </div>
+    );
+  }
 
-    <script>
-      // Load the logo image
-      const logo = new Image();
-      logo.crossOrigin = "anonymous";
-      logo.src =
-        'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="%23059669"/><text x="50" y="55" font-family="Arial" font-size="30" fill="white" text-anchor="middle">ASSFM</text></svg>';
+  return (
+    <form 
+      name="event-registration" 
+      method="POST" 
+      data-netlify="true"
+      onSubmit={handleSubmit}
+      className="space-y-6"
+    >
+      <input type="hidden" name="form-name" value="event-registration" />
+      <input type="hidden" name="event" value={`${eventTitle} - ${eventDate}`} />
 
-      logo.onload = function () {
-        document.getElementById("loading").style.display = "none";
-        generateQRWithLogo();
-      };
+      {/* Name */}
+      <div>
+        <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
+          Full Name <span className="text-red-500">*</span>
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+          className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+          placeholder="John Doe"
+        />
+      </div>
 
-      function generateQRWithLogo() {
-        const canvas = document.getElementById("qr-event");
-        const ctx = canvas.getContext("2d");
-        const url = "https://asafespaceformen.org/events/register-jan19";
+      {/* Email */}
+      <div>
+        <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+          Email Address <span className="text-red-500">*</span>
+        </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+          className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+          placeholder="john@example.com"
+        />
+      </div>
 
-        // Generate QR code with high error correction
-        QRCode.toCanvas(
-          canvas,
-          url,
-          {
-            width: 512,
-            margin: 2,
-            errorCorrectionLevel: "H",
-            color: {
-              dark: "#000000",
-              light: "#FFFFFF",
-            },
-          },
-          function (error) {
-            if (error) {
-              console.error(error);
-              return;
-            }
+      {/* Phone */}
+      <div>
+        <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-2">
+          Phone Number <span className="text-gray-400">(Optional)</span>
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+          placeholder="(555) 123-4567"
+        />
+      </div>
 
-            // Add logo in center
-            const logoSize = 100;
-            const logoX = (canvas.width - logoSize) / 2;
-            const logoY = (canvas.height - logoSize) / 2;
+      {/* First Time Attending */}
+      <div>
+        <label htmlFor="firstTime" className="block text-sm font-semibold text-gray-700 mb-2">
+          Is this your first time attending? <span className="text-red-500">*</span>
+        </label>
+        <select
+          id="firstTime"
+          name="firstTime"
+          value={formData.firstTime}
+          onChange={handleChange}
+          required
+          className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+        >
+          <option value="yes">Yes, this is my first meeting</option>
+          <option value="no">No, I've attended before</option>
+        </select>
+      </div>
 
-            // Draw white background for logo
-            ctx.fillStyle = "#FFFFFF";
-            ctx.beginPath();
-            ctx.arc(
-              canvas.width / 2,
-              canvas.height / 2,
-              logoSize / 2 + 10,
-              0,
-              2 * Math.PI,
-            );
-            ctx.fill();
+      {/* How did you hear about us */}
+      <div>
+        <label htmlFor="hearAboutUs" className="block text-sm font-semibold text-gray-700 mb-2">
+          How did you hear about us? <span className="text-gray-400">(Optional)</span>
+        </label>
+        <input
+          type="text"
+          id="hearAboutUs"
+          name="hearAboutUs"
+          value={formData.hearAboutUs}
+          onChange={handleChange}
+          className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors"
+          placeholder="Social media, friend, website, etc."
+        />
+      </div>
 
-            // Draw logo
-            ctx.drawImage(logo, logoX, logoY, logoSize, logoSize);
-          },
-        );
-      }
+      {/* Additional Message */}
+      <div>
+        <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
+          Questions or Comments <span className="text-gray-400">(Optional)</span>
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          value={formData.message}
+          onChange={handleChange}
+          rows={4}
+          className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition-colors resize-none"
+          placeholder="Any topics you'd like to discuss, questions about the meeting, or anything else we should know..."
+        />
+      </div>
 
-      // Download QR code
-      function downloadQR(canvasId, filename) {
-        const canvas = document.getElementById(canvasId);
-        const url = canvas.toDataURL("image/png");
-        const link = document.createElement("a");
-        link.download = filename;
-        link.href = url;
-        link.click();
-      }
+      {/* Privacy Note */}
+      <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4">
+        <p className="text-sm text-emerald-800">
+          <strong>Privacy & Confidentiality:</strong> Your information will be kept strictly confidential. 
+          We collect this information only to plan for the meeting and follow up with attendees.
+        </p>
+      </div>
 
-      // Download printable flyer
-      function downloadFlyer() {
-        // Create a larger canvas for the flyer
-        const flyerCanvas = document.createElement("canvas");
-        flyerCanvas.width = 816; // 8.5" at 96 DPI
-        flyerCanvas.height = 1056; // 11" at 96 DPI
-        const ctx = flyerCanvas.getContext("2d");
+      {/* Submit Button */}
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className="w-full bg-emerald-600 text-white py-4 px-6 rounded-lg font-semibold text-lg hover:bg-emerald-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+      >
+        {isSubmitting ? 'Registering...' : 'Register for Meeting'}
+      </button>
+    </form>
+  );
+};
 
-        // White background
-        ctx.fillStyle = "#FFFFFF";
-        ctx.fillRect(0, 0, flyerCanvas.width, flyerCanvas.height);
-
-        // Header gradient
-        const gradient = ctx.createLinearGradient(0, 0, 0, 200);
-        gradient.addColorStop(0, "#059669");
-        gradient.addColorStop(1, "#1e3a8a");
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, flyerCanvas.width, 200);
-
-        // Title
-        ctx.fillStyle = "#FFFFFF";
-        ctx.font = "bold 48px Arial";
-        ctx.textAlign = "center";
-        ctx.fillText("Men's Meeting", flyerCanvas.width / 2, 80);
-
-        ctx.font = "32px Arial";
-        ctx.fillText("A Safe Space For Men", flyerCanvas.width / 2, 130);
-
-        // Event details
-        ctx.fillStyle = "#000000";
-        ctx.font = "bold 36px Arial";
-        ctx.fillText("Monday, January 19, 2026", flyerCanvas.width / 2, 280);
-
-        ctx.font = "28px Arial";
-        ctx.fillText("6:00 PM - 8:30 PM", flyerCanvas.width / 2, 330);
-
-        // Location
-        ctx.font = "bold 24px Arial";
-        ctx.fillText("SafetyZone", flyerCanvas.width / 2, 400);
-        ctx.font = "20px Arial";
-        ctx.fillText(
-          "21040 Greenfield Road, Suite 278",
-          flyerCanvas.width / 2,
-          430,
-        );
-        ctx.fillText("Oak Park, MI 48237", flyerCanvas.width / 2, 460);
-
-        // QR Code
-        const qrCanvas = document.getElementById("qr-event");
-        const qrSize = 350;
-        const qrX = (flyerCanvas.width - qrSize) / 2;
-        const qrY = 520;
-        ctx.drawImage(qrCanvas, qrX, qrY, qrSize, qrSize);
-
-        // Scan to register text
-        ctx.fillStyle = "#059669";
-        ctx.font = "bold 28px Arial";
-        ctx.fillText("Scan to Register", flyerCanvas.width / 2, 910);
-
-        // URL
-        ctx.fillStyle = "#666666";
-        ctx.font = "16px Arial";
-        ctx.fillText(
-          "asafespaceformen.org/events/register-jan19",
-          flyerCanvas.width / 2,
-          950,
-        );
-
-        // Footer
-        ctx.fillStyle = "#999999";
-        ctx.font = "14px Arial";
-        ctx.fillText(
-          "Free Parking Available • All Are Welcome",
-          flyerCanvas.width / 2,
-          1020,
-        );
-
-        // Download
-        const url = flyerCanvas.toDataURL("image/png");
-        const link = document.createElement("a");
-        link.download = "ASSFM-Jan19-Meeting-Flyer.png";
-        link.href = url;
-        link.click();
-      }
-    </script>
-  </body>
-</html>
+export default EventRegistrationForm;
