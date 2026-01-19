@@ -3,7 +3,12 @@
 import React, { useState } from 'react';
 import { CheckCircle } from 'lucide-react';
 
-const EventRegistrationForm = () => {
+interface EventRegistrationFormProps {
+  eventDate: string;
+  eventTitle: string;
+}
+
+const EventRegistrationForm: React.FC<EventRegistrationFormProps> = ({ eventDate, eventTitle }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -60,7 +65,7 @@ const EventRegistrationForm = () => {
           You're Registered!
         </h3>
         <p className="text-gray-600 mb-6 max-w-md mx-auto">
-          Thank you for registering for tomorrow's meeting. We look forward to seeing you at SafetyZone on Monday, January 19th at 6:00 PM.
+          Thank you for registering for {eventTitle} on {eventDate}. We look forward to seeing you!
         </p>
         <p className="text-sm text-gray-500">
           A confirmation has been sent to your email.
@@ -71,14 +76,14 @@ const EventRegistrationForm = () => {
 
   return (
     <form 
-      name="event-registration-jan19" 
+      name="event-registration" 
       method="POST" 
       data-netlify="true"
       onSubmit={handleSubmit}
       className="space-y-6"
     >
-      <input type="hidden" name="form-name" value="event-registration-jan19" />
-      <input type="hidden" name="event" value="Men's Meeting - January 19, 2026" />
+      <input type="hidden" name="form-name" value="event-registration" />
+      <input type="hidden" name="event" value={`${eventTitle} - ${eventDate}`} />
 
       {/* Name */}
       <div>

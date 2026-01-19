@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ASSFM Donation QR Codes with Logo</title>
+    <title>Donation QR Codes with Logo</title>
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
     <style>
       body {
@@ -86,7 +86,7 @@
       <div class="url">
         https://asafespaceformen.org/donate?source=qr-code-general
       </div>
-      <button onclick="downloadQR('qr-general', 'ASSFM-Donate-QR-General.png')">
+      <button onclick="downloadQR('qr-general', 'Donate-QR-General.png')">
         Download QR Code
       </button>
     </div>
@@ -99,7 +99,7 @@
       <div class="url">
         https://asafespaceformen.org/donate?source=qr-code-event
       </div>
-      <button onclick="downloadQR('qr-event', 'ASSFM-Donate-QR-Event.png')">
+      <button onclick="downloadQR('qr-event', 'Donate-QR-Event.png')">
         Download QR Code
       </button>
     </div>
@@ -112,7 +112,7 @@
       <div class="url">
         https://asafespaceformen.org/donate?source=qr-code-social
       </div>
-      <button onclick="downloadQR('qr-social', 'ASSFM-Donate-QR-Social.png')">
+      <button onclick="downloadQR('qr-social', 'Donate-QR-Social.png')">
         Download QR Code
       </button>
     </div>
@@ -125,7 +125,7 @@
       <div class="url">
         https://asafespaceformen.org/donate?source=qr-code-email
       </div>
-      <button onclick="downloadQR('qr-email', 'ASSFM-Donate-QR-Email.png')">
+      <button onclick="downloadQR('qr-email', 'Donate-QR-Email.png')">
         Download QR Code
       </button>
     </div>
@@ -169,7 +169,7 @@
       // Load the logo image
       const logo = new Image();
       logo.crossOrigin = "anonymous";
-      logo.src = "/images/handshake-wordcloud.png"; // Your logo path
+      logo.src = "/tools/qr-generators/handshake-wordcloud.png";
 
       logo.onload = function () {
         document.getElementById("loading").style.display = "none";
@@ -267,6 +267,24 @@
           },
         );
       }
+
+      // Generate all QR codes
+      generateQRWithLogo(
+        "qr-general",
+        "https://asafespaceformen.org/donate?source=qr-code-general",
+      );
+      generateQRWithLogo(
+        "qr-event",
+        "https://asafespaceformen.org/donate?source=qr-code-event",
+      );
+      generateQRWithLogo(
+        "qr-social",
+        "https://asafespaceformen.org/donate?source=qr-code-social",
+      );
+      generateQRWithLogo(
+        "qr-email",
+        "https://asafespaceformen.org/donate?source=qr-code-email",
+      );
 
       // Download function
       function downloadQR(canvasId, filename) {
