@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Registration QR Codes</title>
+    <script src="./libs/qrious.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+        background: #f5f5f5;
+      }
+      .qr-container {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        color: #059669;
+        text-align: center;
+      }
+      h2 {
+        color: #1e3a8a;
+        margin-top: 0;
+      }
+      .qr-wrapper {
+        position: relative;
+        width: 512px;
+        height: 512px;
+        margin: 20px auto;
+      }
+      canvas {
+        display: block;
+        border: 5px solid #059669;
+        border-radius: 10px;
+      }
+      .url {
+        text-align: center;
+        color: #666;
+        font-size: 14px;
+        margin-top: 10px;
+        word-break: break-all;
+      }
+      .instructions {
+        background: #ecfdf5;
+        border-left: 4px solid #059669;
+        padding: 15px;
+        margin-top: 20px;
+        border-radius: 5px;
+      }
+      .custom-qr-section {
+        background: #dbeafe;
+        border-left: 4px solid #2563eb;
+        padding: 20px;
+        margin: 30px 0;
+        border-radius: 5px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 5px;
+        color: #1e3a8a;
+      }
+      input[type="text"],
+      input[type="url"],
+      select {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #e5e7eb;
+        border-radius: 5px;
+        font-size: 14px;
+      }
+      input:focus,
+      select:focus {
+        outline: none;
+        border-color: #059669;
+      }
+      button {
+        background: #059669;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        display: block;
+        margin: 20px auto;
+      }
+      button:hover {
+        background: #047857;
+      }
+      button.secondary {
+        background: #2563eb;
+      }
+      button.secondary:hover {
+        background: #1d4ed8;
+      }
+      .loading {
+        text-align: center;
+        color: #666;
+        font-style: italic;
+      }
+      .info-box {
+        background: #fffbeb;
+        border: 2px solid #f59e0b;
+        padding: 15px;
+        border-radius: 5px;
+        margin: 15px 0;
+      }
+      .success-box {
+        background: #ecfdf5;
+        border: 2px solid #059669;
+        padding: 15px;
+        border-radius: 5px;
+        margin: 15px 0;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>A Safe Space For Men - Event Registration QR Codes</h1>
+    <p class="loading" id="loading">Generating QR codes with logo...</p>
+
+    <!-- Pre-configured Event QR Codes -->
+    <div class="qr-container">
+      <h2>General Events Page QR Code</h2>
+      <div class="qr-wrapper">
+        <canvas id="qr-events-general" width="512" height="512"></canvas>
+      </div>
+      <div class="url">
+        https://asafespaceformen.org/events?source=qr-code-events
+      </div>
+      <button
+        onclick="downloadQR('qr-events-general', 'Events-QR-General.png')"
+      >
+        Download QR Code
+      </button>
+      <div class="info-box">
+        <strong>Use for:</strong> General event flyers, barbershop posters,
+        community boards
+      </div>
+    </div>
+
+    <div class="qr-container">
+      <h2>Join Community QR Code</h2>
+      <div class="qr-wrapper">
+        <canvas id="qr-join" width="512" height="512"></canvas>
+      </div>
+      <div class="url">
+        https://asafespaceformen.org/join?source=qr-code-join
+      </div>
+      <button onclick="downloadQR('qr-join', 'Join-QR-Community.png')">
+        Download QR Code
+      </button>
+      <div class="info-box">
+        <strong>Use for:</strong> Recruitment materials, support group handouts,
+        event registration tables
+      </div>
+    </div>
+
+    <div class="qr-container">
+      <h2>Start Here (Crisis Resources) QR Code</h2>
+      <div class="qr-wrapper">
+        <canvas id="qr-start-here" width="512" height="512"></canvas>
+      </div>
+      <div class="url">
+        https://asafespaceformen.org/start-here?source=qr-code-crisis
+      </div>
+      <button onclick="downloadQR('qr-start-here', 'StartHere-QR-Crisis.png')">
+        Download QR Code
+      </button>
+      <div class="info-box">
+        <strong>Use for:</strong> Crisis resource cards, mental health awareness
+        materials, bathroom stall posters
+      </div>
+    </div>
+
+    <!-- Custom QR Code Generator -->
+    <div class="qr-container">
+      <div class="custom-qr-section">
+        <h2 style="margin-top: 0">🎯 Custom Event QR Code Generator</h2>
+        <p>
+          Create a QR code for a specific event, workshop, or registration link
+        </p>
+
+        <div class="form-group">
+          <label for="event-name">Event Name (for filename)</label>
+          <input
+            type="text"
+            id="event-name"
+            placeholder="e.g., February Support Group, Barbershop Workshop"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="event-url">Event URL or Registration Link</label>
+          <input
+            type="url"
+            id="event-url"
+            placeholder="https://asafespaceformen.org/events?event=..."
+          />
+          <small style="color: #6b7280"
+            >Examples: Events page with filter, external registration form, Zoom
+            link</small
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="source-param">Source Tracking (optional)</label>
+          <select id="source-param">
+            <option value="">No tracking parameter</option>
+            <option value="qr-code-barbershop">Barbershop Campaign</option>
+            <option value="qr-code-community-event">Community Event</option>
+            <option value="qr-code-flyer">Event Flyer</option>
+            <option value="qr-code-business-card">Business Card</option>
+            <option value="custom">Custom (enter below)</option>
+          </select>
+        </div>
+
+        <div class="form-group" id="custom-source-group" style="display: none">
+          <label for="custom-source">Custom Source Name</label>
+          <input
+            type="text"
+            id="custom-source"
+            placeholder="e.g., qr-code-library-partnership"
+          />
+        </div>
+
+        <button class="secondary" onclick="generateCustomQR()">
+          Generate Custom QR Code
+        </button>
+
+        <div class="success-box" id="custom-success">
+          <strong>✅ QR Code Generated!</strong> Scroll down to download.
+        </div>
+      </div>
+
+      <div id="custom-qr-container" style="display: none">
+        <h2 id="custom-qr-title">Custom Event QR Code</h2>
+        <div class="qr-wrapper">
+          <canvas id="qr-custom" width="512" height="512"></canvas>
+        </div>
+        <div class="url" id="custom-qr-url"></div>
+        <button onclick="downloadCustomQR()">Download Custom QR Code</button>
+      </div>
+    </div>
+
+    <div class="instructions">
+      <h3>Usage Instructions:</h3>
+      <ul>
+        <li>
+          <strong>Pre-configured QR Codes:</strong> Ready to download for common
+          use cases (events page, join community, crisis resources)
+        </li>
+        <li>
+          <strong>Custom Generator:</strong> Create QR codes for specific
+          events, workshops, or external registration links
+        </li>
+        <li>
+          <strong>Logo Embedded:</strong> Handshake logo is centered in each QR
+          code for brand recognition
+        </li>
+        <li>
+          <strong>Print Quality:</strong> 512x512px suitable for print up to 3-4
+          inches
+        </li>
+        <li>
+          <strong>Test First:</strong> Always scan before mass printing or
+          distribution
+        </li>
+        <li>
+          <strong>Placement Ideas:</strong>
+          <ul>
+            <li>Barbershop posters and business cards</li>
+            <li>Event flyers and registration tables</li>
+            <li>Community center bulletin boards</li>
+            <li>Mental health resource cards</li>
+            <li>Partnership materials (healthcare, corporate)</li>
+          </ul>
+        </li>
+      </ul>
+      <p>
+        <strong>Pro Tip:</strong> For time-sensitive events, include event
+        date/time text near the QR code on your materials.
+      </p>
+    </div>
+
+    <script>
+      // Load the logo image
+      const logo = new Image();
+      logo.crossOrigin = "anonymous";
+      logo.src = "./handshake-wordcloud.png";
+
+      let logoLoaded = false;
+      let customQRGenerated = false;
+      let customFilename = "";
+
+      logo.onload = function () {
+        logoLoaded = true;
+        document.getElementById("loading").textContent =
+          "Logo loaded! Generating QR codes...";
+        generateAllQRCodes();
+      };
+
+      logo.onerror = function () {
+        logoLoaded = false;
+        document.getElementById("loading").textContent =
+          "⚠️ Logo not found. Generating QR codes without logo...";
+        generateAllQRCodes();
+      };
+
+      function generateQRWithLogo(canvasId, url) {
+        const canvas = document.getElementById(canvasId);
+        const ctx = canvas.getContext("2d");
+
+        // Generate QR code using QRious
+        const qr = new QRious({
+          element: canvas,
+          value: url,
+          size: 512,
+          level: "H",
+          background: "#ffffff",
+          foreground: "#000000",
+        });
+
+        // Only add logo if it loaded successfully
+        if (logoLoaded && logo.complete && logo.naturalWidth > 0) {
+          const logoSize = 100;
+          const logoX = (canvas.width - logoSize) / 2;
+          const logoY = (canvas.height - logoSize) / 2;
+
+          // Draw white background circle for logo
+          ctx.fillStyle = "#FFFFFF";
+          ctx.beginPath();
+          ctx.arc(
+            canvas.width / 2,
+            canvas.height / 2,
+            logoSize / 2 + 10,
+            0,
+            2 * Math.PI,
+          );
+          ctx.fill();
+
+          // Draw logo
+          ctx.drawImage(logo, logoX, logoY, logoSize, logoSize);
+        }
+      }
+
+      function generateAllQRCodes() {
+        generateQRWithLogo(
+          "qr-events-general",
+          "https://asafespaceformen.org/events?source=qr-code-events",
+        );
+        generateQRWithLogo(
+          "qr-join",
+          "https://asafespaceformen.org/join?source=qr-code-join",
+        );
+        generateQRWithLogo(
+          "qr-start-here",
+          "https://asafespaceformen.org/start-here?source=qr-code-crisis",
+        );
+
+        setTimeout(() => {
+          document.getElementById("loading").style.display = "none";
+        }, 500);
+      }
+
+      // Handle source parameter dropdown
+      document
+        .getElementById("source-param")
+        .addEventListener("change", function (e) {
+          const customGroup = document.getElementById("custom-source-group");
+          if (e.target.value === "custom") {
+            customGroup.style.display = "block";
+          } else {
+            customGroup.style.display = "none";
+          }
+        });
+
+      // Generate custom QR code
+      function generateCustomQR() {
+        const eventName = document.getElementById("event-name").value.trim();
+        const eventUrl = document.getElementById("event-url").value.trim();
+        const sourceParam = document.getElementById("source-param").value;
+        const customSource = document
+          .getElementById("custom-source")
+          .value.trim();
+
+        // Validation
+        if (!eventName) {
+          alert("Please enter an event name");
+          return;
+        }
+        if (!eventUrl) {
+          alert("Please enter an event URL");
+          return;
+        }
+        if (
+          !eventUrl.startsWith("http://") &&
+          !eventUrl.startsWith("https://")
+        ) {
+          alert(
+            "Please enter a valid URL (must start with http:// or https://)",
+          );
+          return;
+        }
+
+        // Build final URL with source parameter
+        let finalUrl = eventUrl;
+        if (sourceParam && sourceParam !== "custom") {
+          const separator = finalUrl.includes("?") ? "&" : "?";
+          finalUrl = `${finalUrl}${separator}source=${sourceParam}`;
+        } else if (sourceParam === "custom" && customSource) {
+          const separator = finalUrl.includes("?") ? "&" : "?";
+          finalUrl = `${finalUrl}${separator}source=${customSource}`;
+        }
+
+        // Generate filename
+        const sanitizedName = eventName
+          .replace(/[^a-z0-9]/gi, "-")
+          .toLowerCase();
+        customFilename = `Event-QR-${sanitizedName}.png`;
+
+        // Update UI
+        document.getElementById("custom-qr-title").textContent =
+          `${eventName} QR Code`;
+        document.getElementById("custom-qr-url").textContent = finalUrl;
+        document.getElementById("custom-qr-container").style.display = "block";
+        document.getElementById("custom-success").style.display = "block";
+
+        // Generate QR code
+        generateQRWithLogo("qr-custom", finalUrl);
+        customQRGenerated = true;
+
+        // Scroll to result
+        document
+          .getElementById("custom-qr-container")
+          .scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
+      // Download functions
+      function downloadQR(canvasId, filename) {
+        const canvas = document.getElementById(canvasId);
+        const url = canvas.toDataURL("image/png");
+        const link = document.createElement("a");
+        link.download = filename;
+        link.href = url;
+        link.click();
+      }
+
+      function downloadCustomQR() {
+        if (!customQRGenerated) {
+          alert("Please generate a custom QR code first");
+          return;
+        }
+        downloadQR("qr-custom", customFilename);
+      }
+    </script>
+  </body>
+</html>
