@@ -189,6 +189,7 @@ a-safe-space-for-men/
 - ✅ **Crisis Banner** - Always-visible access to crisis support resources
 
 **Navigation Structure:**
+
 - Home
 - About
 - Start Here
@@ -200,6 +201,7 @@ a-safe-space-for-men/
 ### **Forms & Integrations**
 
 #### **Join Us Form** (Netlify Forms)
+
 - Interest selection (support groups, volunteering, advocacy)
 - Availability preferences
 - Experience and motivation fields
@@ -207,6 +209,7 @@ a-safe-space-for-men/
 - Spam protection via honeypot
 
 #### **Donation Form** (Stripe Checkout via Netlify Functions)
+
 - **Preset amounts**: $25, $50, $100, $250
 - **Custom amount** option
 - **Donation types**: One-time or monthly recurring
@@ -227,6 +230,7 @@ The donation system uses **Netlify Serverless Functions** instead of Next.js API
 **Function Location**: `netlify/functions/stripe-create-checkout-session.mts`
 
 **Key Features**:
+
 - Lazy initialization of Stripe client
 - Environment variable validation
 - Support for both one-time and monthly donations
@@ -253,6 +257,7 @@ NEXT_PUBLIC_SITE_URL=https://...        # Base URL for redirects
 ```
 
 **Webhook Handler**: 
+
 - File exists but not yet implemented
 - Reserved for future donation confirmation automation
 
@@ -273,11 +278,13 @@ NEXT_PUBLIC_SITE_URL=https://...        # Base URL for redirects
    - Usage: Crisis resources, advocacy content, social media, event materials
 
 ### **Brand Colors**
+
 - **Primary Green**: Mental health awareness, hope, growth
 - **Supporting Colors**: Professional, accessible, warm
 - **Crisis Red/Orange**: Emergency resources, urgent calls-to-action
 
 ### **Visual Identity**
+
 - Clean, modern design
 - Accessible contrast ratios (WCAG 2.1 AA compliant)
 - Mobile-first responsive layouts
@@ -309,6 +316,7 @@ const response = await fetch('/_forms.html', {
 ### Form Configuration
 
 Static HTML form at `public/_forms.html`:
+
 - `data-netlify="true"` attribute enables Netlify Forms
 - `data-netlify-honeypot="bot-field"` provides spam protection
 - Field names match TypeScript submission exactly
@@ -316,6 +324,7 @@ Static HTML form at `public/_forms.html`:
 ### Accessing Submissions
 
 In Netlify dashboard:
+
 1. Navigate to **Site Dashboard** → **Forms**
 2. View all submissions in real-time
 3. Configure email notifications for new submissions
@@ -570,16 +579,19 @@ npm run test:forms           # Form validation tests
 ### Testing Strategy
 
 **Priority 1: Crisis-Critical Components**
+
 - Header (crisis resource accessibility)
 - Footer (emergency hotlines)
 - Start Here page (assessment functionality)
 
 **Priority 2: Financial Components**
+
 - DonationForm (payment security)
 - Donation success page (confirmation accuracy)
 - Source tracking (analytics integrity)
 
 **Priority 3: User Journeys**
+
 - Homepage → Start Here → Find Support
 - Homepage → Donate → Success
 - Join form submission
@@ -587,6 +599,7 @@ npm run test:forms           # Form validation tests
 ### Coverage Goals
 
 Configured in `jest.config.js`:
+
 - **Global**: 70% coverage across all metrics (branches, functions, lines, statements)
 - **Critical components**: 90%+ coverage
   - Header.tsx
@@ -596,21 +609,122 @@ Configured in `jest.config.js`:
 
 ---
 
+## 🛠️ Tools & Utilities
+
+### QR Code Generator
+
+**Location**: `tools/qr-generators/`
+
+A standalone HTML utility for generating donation QR codes with embedded branding. Creates scannable QR codes with the organization's logo overlay for use in marketing materials, events, and fundraising campaigns.
+
+#### Features
+
+- **4 Pre-configured QR Codes**:
+  - General Donation (`?source=qr-code-general`)
+  - Event/Flyer (`?source=qr-code-event`)
+  - Social Media (`?source=qr-code-social`)
+  - Email Campaign (`?source=qr-code-email`)
+
+- **Logo Embedding**: Handshake wordcloud logo centered with error correction for scanability
+- **Source Tracking**: Each QR code includes unique source parameter for analytics
+- **High Quality**: 512x512px PNG output suitable for print (up to 3-4 inches)
+- **Offline Capable**: Uses local QRious library (no CDN dependencies)
+
+#### How to Use
+
+1. **Open the generator**:
+
+```bash
+   # Navigate to the tools directory
+   cd tools/qr-generators
+   
+   # Open in browser (using local file server)
+   # Example with VS Code Live Server extension or Python
+   python -m http.server 5500
+```
+
+2. **Access in browser**:
+
+```
+   http://localhost:5500/tools/qr-generators/qr-code-generator.html
+```
+
+3. **Download QR codes**:
+   - Click "Download QR Code" button under each QR code
+   - Files save as: `Donate-QR-General.png`, `Donate-QR-Event.png`, etc.
+
+4. **Test before use**:
+   - Scan each QR code with your phone
+   - Verify it redirects to: `asafespaceformen.org/donate?source=qr-code-[type]`
+   - Confirm source parameter appears in URL
+
+#### Files Structure
+```
+tools/qr-generators/
+├── qr-code-generator.html       # Main generator interface
+├── handshake-wordcloud.png      # Logo for embedding
+├── libs/
+│   └── qrious.min.js           # QR code generation library (local)
+└── README.md                    # Tool-specific documentation
+```
+
+#### When to Regenerate QR Codes
+
+Regenerate QR codes when:
+
+- Donation URL changes
+- Adding new campaign sources
+- Logo/branding updates
+- Creating campaign-specific QR codes
+
+#### Technical Details
+
+- **Library**: QRious 4.0.2 (local copy in `libs/`)
+- **Error Correction**: Level H (30%) - allows logo overlay while maintaining scanability
+- **Format**: PNG with transparent background option
+- **Dependencies**: None (fully self-contained, works offline)
+
+#### Troubleshooting
+
+**QR codes not generating?**
+
+- Ensure you're running via a local server (not opening HTML directly via file://)
+- Check browser console for JavaScript errors
+- Verify `libs/qrious.min.js` exists
+
+**Logo not appearing?**
+
+- Confirm `handshake-wordcloud.png` is in the same directory as HTML file
+- Check browser console for image load errors
+- QR codes will still generate without logo (fallback behavior)
+
+**QR codes not scanning?**
+
+- Test with multiple phones/apps
+- Ensure adequate lighting when scanning
+- Print size should be at least 1.5 inches square
+- Verify logo isn't too large (should be <30% of QR area)
+
+---
+
 ## 📞 Contact & Crisis Resources
 
 ### General Contact
+
 - **Website**: [https://asafespaceformen.org](https://asafespaceformen.org)
-- **Email**: asafespaceformen@gmail.com
+- **Email**: <asafespaceformen@gmail.com>
 - **Partnerships**: Contact via email above
 
 ### Crisis Resources (Available 24/7)
 
 **Immediate Help**:
+
 - **988 Suicide & Crisis Lifeline**: Call or text **988**
 - **Crisis Text Line**: Text **HOME** to **741741**
 - **Emergency**: Call **911**
 
 **Crisis Resources Locations on Site**:
+
 - Header navigation (Start Here link)
 - Footer (prominent crisis section)
 - Start Here page (comprehensive crisis triage)
@@ -643,6 +757,7 @@ This is a private repository. Team members with access can contribute by:
 ### Content Guidelines
 
 When adding mental health content:
+
 - Use person-first language
 - Avoid clinical jargon where possible
 - Provide actionable next steps
@@ -684,6 +799,7 @@ When adding mental health content:
 ## 🏆 Partnerships
 
 **Current Partners**:
+
 - **Henry Ford Health** - Healthcare integration
 - **Meijer** - Community support
 - **DWHIN** - Detroit Wellness and Health Integration Network
@@ -714,15 +830,18 @@ These resources are free, confidential, and available to everyone. Trained couns
 ## 🙏 Acknowledgments
 
 ### Leadership Team
+
 - **Founder & CEO**: William J. Word
 - **Lead Developer**: Andrea Frazier
 
 ### Board & Advisory
+
 - Darryl Woods
 - Douglas Monds
 - Michael Ross
 
 ### Community
+
 - All the men who've trusted us with their stories
 - Mental health professionals supporting our mission
 - Detroit community partners and volunteers

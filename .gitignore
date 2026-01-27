@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Claude VS Code extension
 .claude/
+
+# QR Code Generator Tools (local only)
+tools/
