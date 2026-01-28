@@ -233,7 +233,7 @@ This project showcases full-stack development capabilities including:
 
 **Andrea Frazier** - Technical PM & Full-Stack Developer
 
-- Portfolio: [My Portfolio URL coming soon!]
+- Portfolio: [https://www.andreafrazier.dev]
 - LinkedIn: [https://linkedin.com/in/andreafrazier]
 - GitHub: [https://github.com/andreafrazier]
 
