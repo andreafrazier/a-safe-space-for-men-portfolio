@@ -225,12 +225,12 @@ const Footer = () => {
               &copy; {currentYear} A Safe Space For Men. All rights reserved.
             </div>
             <div className="mt-1">
-              Website by{' '}
+              Website powered by{' '}
               <a 
                 href="mailto:andrea@veloraengine.com"
                 className="hover:text-white transition-colors underline"
               >
-                andrea@veloraengine.com
+                andreafrazier.dev
               </a>
             </div>
             <div className="flex flex-wrap justify-center gap-4 text-gray-400 text-sm">
