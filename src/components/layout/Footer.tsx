@@ -227,7 +227,7 @@ const Footer = () => {
             <div className="mt-1">
               Website powered by{' '}
               <a 
-                href="mailto:andrea@veloraengine.com"
+                href="mailto:andrea@andreafrazier.dev"
                 className="hover:text-white transition-colors underline"
               >
                 andreafrazier.dev
