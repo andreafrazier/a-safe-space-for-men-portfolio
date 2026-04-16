@@ -11,9 +11,9 @@ export const metadata: Metadata = {
     description: 'Find the mental health support you need. Comprehensive directory of therapy, support groups, and crisis resources for men.',
     images: [
       {
-        url: '/images/og-resources.jpg',
-        width: 1200,
-        height: 630,
+        url: '/images/bts_banner.jpeg',
+        width: 1536,
+        height: 698,
         alt: 'Mental health resources and support for men in Detroit',
       },
     ],

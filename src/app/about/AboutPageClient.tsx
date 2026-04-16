@@ -22,11 +22,11 @@ export default function AboutPageClient() {
           <div className="text-center">
             <div className="mb-8">
               <Image 
-                src="/images/breakthestigma-green.png"
+                src="/images/bts_banner.jpeg"
                 alt="Mental health resources and support network illustration"
-                width={400}
-                height={200}
-                className="mx-auto mb-6 max-w-md w-full h-auto rounded-lg"
+                width={1536}
+                height={698}
+                className="mx-auto mb-6 max-w-4xl w-full h-auto rounded-lg"
                 priority
               />
             </div>
@@ -91,7 +91,7 @@ export default function AboutPageClient() {
             <div className="relative">
               <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
                 <Image 
-                  src="/images/handshake-wordcloud.png" 
+                  src="/images/BMIL_quote.JPG" 
                   alt="Handshake wordcloud representing cooperation, support, and community connection"
                   fill
                   className="object-contain bg-white p-4"

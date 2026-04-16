@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: 'Take the first step towards prioritizing your mental health and connecting with others on the same journey.',
     images: [
       {
-        url: '/images/breakthestigma-green.png',
+        url: '/images/handshake_banner.jpeg',
         width: 1200,
         height: 630,
         alt: 'Join A Safe Space For Men - Community support and mental health advocacy',

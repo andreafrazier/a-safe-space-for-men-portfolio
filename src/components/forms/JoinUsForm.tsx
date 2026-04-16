@@ -250,7 +250,7 @@ const JoinUsForm = () => {
           </div>
         )}
 
-        <div className="mb-8">
+        <div className="text-center mb-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Join Our Community</h2>
           <p className="text-lg text-gray-600">
             Take the first step towards connecting with other men who prioritize their mental health and well-being.

@@ -230,11 +230,11 @@ const StartHerePage = () => {
           <div className="text-center">
             <div className="mb-8">
               <Image 
-                src="/images/men-supporting-men.jpg"
+                src="/images/dimy_banner.JPG"
                 alt="Men supporting each other through mental health challenges"
-                width={400}
-                height={200}
-                className="mx-auto mb-6 max-w-md w-full h-auto rounded-lg"
+                width={600}
+                height={300}
+                className="mx-auto mb-6 max-w-2xl w-full h-auto rounded-lg shadow-lg"
                 priority
               />
             </div>

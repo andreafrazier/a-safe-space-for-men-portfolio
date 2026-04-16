@@ -129,7 +129,7 @@ const EventsPage = () => {
           <div className="text-center">
             <div className="mb-8">
               <Image 
-                src="/images/griot1.jpg"
+                src="/images/griot_banner.jpg"
                 alt="Men connecting and supporting each other through community events"
                 width={600}
                 height={300}

@@ -27,9 +27,9 @@ export const metadata: Metadata = {
     description: 'Creating community for men\'s mental health in Detroit and beyond. Breaking barriers, building community, and fostering resilience.',
     images: [
       {
-        url: '/images/breakthestigma-green.png', // Use an existing image
-        width: 1200,
-        height: 630,
+        url: '/images/bts_banner.jpeg', 
+        width: 1536,
+        height: 698,
         alt: 'A Safe Space For Men - Creating community for men\'s mental health',
       },
     ],
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'A Safe Space For Men',
     description: 'Creating community for men\'s mental health in Detroit and beyond.',
-    images: ['/images/breakthestigma-green.png'], // Use an existing image
+    images: ['/images/bts_banner.jpeg'], 
   },
   robots: {
     index: true,

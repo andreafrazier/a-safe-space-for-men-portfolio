@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description: 'Free mental health assessments and personalized support options for men. Take the first step toward better emotional well-being.',
     images: [
       {
-        url: '/images/handshake.png',
+        url: '/images/dimy_banner.JPG',
         width: 1200,
         height: 630,
         alt: 'Men supporting each other through mental health challenges',

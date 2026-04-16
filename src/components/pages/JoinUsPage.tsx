@@ -14,9 +14,9 @@ export const metadata: Metadata = {
     description: 'Take the first step towards connecting with other men who prioritize their mental health and well-being.',
     images: [
       {
-        url: '/images/og-join.jpg',
-        width: 1200,
-        height: 630,
+        url: '/images/handshake_banner.jpeg',
+        width: 1536,
+        height: 698,
         alt: 'Join A Safe Space For Men - Building community for men\'s mental health',
       },
     ],
@@ -66,17 +66,17 @@ const JoinUsPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-100">
       <section className="pt-16 bg-gradient-to-br from-emerald-50 to-blue-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <div className="mb-8">
               <Image 
-                src="/images/handshake-wordcloud.png"
+                src="/images/handshake_banner_transparent.png"
                 alt="Mental health resources and support network illustration"
-                width={400}
-                height={200}
-                className="mx-auto mb-6 max-w-md w-full h-auto rounded-lg"
+                width={1536}
+                height={698}
+                className="mx-auto mb-6 max-w-3xl w-full h-auto rounded-lg"
                 priority
               />
             </div>

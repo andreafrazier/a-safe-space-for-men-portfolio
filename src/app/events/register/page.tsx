@@ -7,10 +7,10 @@ import { ArrowLeft, Calendar, MapPin, Clock } from 'lucide-react';
 // EVENT CONFIGURATION - UPDATE THIS FOR EACH NEW EVENT
 // ========================================
 const eventConfig = {
-  title: "Men's Community Meeting",
-  description: "Join us for an evening of connection, support, and open conversation in a safe space for men.",
-  date: "Monday, January 19, 2026",
-  time: "6:00 PM - 8:30 PM",
+  title: "Real Men Real Talk - Detroit",
+  description: "Stress Less, Live More",
+  date: "Thursday, April 16, 2026",
+  time: "6:00 PM - 8:00 PM",
   location: {
     name: "SafetyZone",
     address: "21040 Greenfield Road",

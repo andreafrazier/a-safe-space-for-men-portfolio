@@ -382,11 +382,11 @@ const FindSupportPageComponent = () => {
           <div className="text-center">
             <div className="mb-8">
               <Image 
-                src="/images/breakthestigma-green.png"
+                src="/images/bts_banner.jpeg"
                 alt="Mental health resources and support network illustration"
-                width={400}
-                height={200}
-                className="mx-auto mb-6 max-w-md w-full h-auto rounded-lg"
+                width={1536}
+                height={698}
+                className="mx-auto mb-6 max-w-4xl w-full h-auto rounded-lg"
                 priority
               />
             </div>

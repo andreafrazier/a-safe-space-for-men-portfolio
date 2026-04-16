@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     description: 'Join support groups, workshops, and community events focused on men\'s mental health and emotional well-being in Detroit.',
     images: [
       {
-        url: '/images/griot1.jpg',
+        url: '/images/griot_banner.jpg',
         width: 1200,
         height: 630,
         alt: 'Men connecting and supporting each other through community events and gatherings',
